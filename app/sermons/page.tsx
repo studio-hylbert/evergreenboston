@@ -21,7 +21,7 @@ export default async function SermonsPage() {
     <>
       <PageHeader
         title="설교 영상"
-        description="주일예배는 매주 유튜브로 실시간 중계되며, 예배 후 영상으로 다시 보실 수 있습니다."
+        description="주일예배 말씀은 예배 후 유튜브에 올라옵니다. 여기에서 다시 들으실 수 있습니다."
       />
 
       <div className="mx-auto max-w-5xl px-6 py-14">

@@ -6,8 +6,8 @@
       "day": "주일",
       "time": "오후 2:00",
       "location": "본당",
-      "live": true,
-      "description": "온 세대가 함께 드리는 예배입니다. 유튜브로 실시간 중계됩니다."
+      "recorded": true,
+      "description": "온 세대가 함께 드리는 예배입니다. 예배 영상은 나중에 유튜브에 올라옵니다."
     },
     {
       "id": "dawn",
@@ -15,7 +15,7 @@
       "day": "화–토",
       "time": "오전 6:00",
       "location": "Zoom",
-      "live": false,
+      "recorded": false,
       "zoomUrl": "",
       "description": "화요일부터 토요일까지 매일 아침 온라인으로 함께 기도합니다."
     }

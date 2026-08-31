@@ -25,9 +25,9 @@ export default function WorshipPage() {
             >
               <div className="flex items-baseline justify-between gap-4">
                 <h2 className="font-serif text-xl text-forest-deep">{service.name}</h2>
-                {service.live ? (
+                {service.recorded ? (
                   <span className="rounded-full bg-brass/15 px-2.5 py-1 text-xs text-brass">
-                    실시간 중계
+                    영상 제공
                   </span>
                 ) : null}
               </div>
@@ -37,14 +37,14 @@ export default function WorshipPage() {
               <p className="mt-1 text-sm text-ink-soft">{service.location}</p>
               <p className="mt-4 leading-relaxed text-ink-soft">{service.description}</p>
 
-              {service.live ? (
+              {service.recorded ? (
                 <a
                   href={site.social.youtube}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-5 inline-block text-sm text-forest underline underline-offset-4"
                 >
-                  유튜브에서 실시간으로 참여하기
+                  지난 예배 영상 보기
                 </a>
               ) : null}
               {service.zoomUrl ? (

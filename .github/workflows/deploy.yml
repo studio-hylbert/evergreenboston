@@ -3,13 +3,18 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-  # The sermon list is read from the church's YouTube feed at build time, so the
-  # site only picks up a new sermon when it is rebuilt. Sunday worship is at
-  # 2pm ET and the video is usually uploaded that evening, so this rebuilds
-  # every Monday at 10:00 UTC (05:00/06:00 ET).
+  # The sermon list is read from the church's YouTube feed at build time, so a
+  # new sermon only reaches the site when it is rebuilt.
+  #
+  # Worship is at 2pm ET on Sunday and the recording is uploaded afterwards,
+  # but not on a fixed schedule. Across the 14 sermons in the feed the upload
+  # landed between 5.6 and 34 hours after the service — from Sunday 23:00 UTC
+  # to Tuesday 04:00 UTC. A single weekly run would have missed 4 of those 14
+  # and held them back a full week, so this runs twice a day instead: whatever
+  # the upload habit, a sermon is on the site within 12 hours.
   schedule:
-    - cron: "0 10 * * 1"
-  # Lets a new video be published to the site without waiting for Monday.
+    - cron: "0 6,18 * * *"
+  # Publishes a new video immediately, without waiting for the next run.
   workflow_dispatch:
 
 permissions:
