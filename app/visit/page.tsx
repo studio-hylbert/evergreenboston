@@ -4,6 +4,7 @@ import { asset } from "@/lib/asset";
 import site from "@/content/site.json";
 import worship from "@/content/worship.json";
 import visit from "@/content/visit.json";
+import type { TransitRow } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "찾아오시는 길",
@@ -12,6 +13,7 @@ export const metadata: Metadata = {
 
 export default function VisitPage() {
   const sunday = worship.services.find((service) => service.id === "sunday");
+  const transit: TransitRow[] = visit.transit;
 
   return (
     <>
@@ -47,20 +49,26 @@ export default function VisitPage() {
                   {sunday?.name} · {sunday?.day} {sunday?.time}
                 </dd>
               </div>
-              {visit.transit.map((item) => (
+              {sunday?.location ? (
+                <div className="py-5">
+                  <dt className="text-sm text-ink-soft">예배 장소</dt>
+                  <dd className="mt-1 font-serif text-lg text-forest-deep">
+                    {sunday.location}
+                  </dd>
+                </div>
+              ) : null}
+              {/*
+                Rows appear only once the church has confirmed the detail.
+                Nothing is written here to stand in for information we do not
+                have — an empty list simply renders nothing.
+              */}
+              {transit.map((item) => (
                 <div key={item.mode} className="py-5">
                   <dt className="text-sm text-ink-soft">{item.mode}</dt>
                   <dd className="mt-1 leading-relaxed">{item.detail}</dd>
-                  {item.note ? (
-                    <dd className="mt-1 text-sm text-ink-soft">{item.note}</dd>
-                  ) : null}
                 </div>
               ))}
             </dl>
-
-            <p className="mt-8 rounded-lg bg-sage/50 p-5 leading-relaxed text-forest-deep">
-              {visit.arrivalNote}
-            </p>
           </div>
 
           <figure>

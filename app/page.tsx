@@ -70,15 +70,15 @@ export default async function Home() {
             <p className="mt-1 text-sm text-ink-soft">
               {site.address.city}, {site.address.state} {site.address.zip}
             </p>
+            {sunday?.location ? (
+              <p className="mt-1 text-sm text-forest">{sunday.location}</p>
+            ) : null}
           </div>
           <div>
             <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">처음 오시나요</h2>
-            <p className="mt-2 text-sm leading-relaxed text-ink-soft">
-              누구시든 그대로 오시면 됩니다. 예배 후 함께 식사하며 인사 나눕니다.
-            </p>
             <Link
               href="/visit"
-              className="mt-2 inline-block text-sm text-forest underline underline-offset-4"
+              className="mt-2 inline-block font-serif text-lg text-forest underline underline-offset-4"
             >
               오시는 길 안내
             </Link>
@@ -109,7 +109,7 @@ export default async function Home() {
           <SectionHeading
             eyebrow="함께"
             title="이번 주 함께하는 자리"
-            description="주일 외에도 한 주간 여러 모양으로 모입니다."
+            description="주일 외에도 한 주간 함께 모입니다."
           />
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
             <article className="rounded-lg border border-ink/10 bg-white p-6">

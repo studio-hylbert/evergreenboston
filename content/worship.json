@@ -5,9 +5,9 @@
       "name": "주일예배",
       "day": "주일",
       "time": "오후 2:00",
-      "location": "본당",
+      "location": "2층 Music Room",
       "recorded": true,
-      "description": "온 세대가 함께 드리는 예배입니다. 예배 영상은 나중에 유튜브에 올라옵니다."
+      "description": "온 세대가 함께 드리는 예배입니다. 예배 후 간단한 식사를 함께합니다."
     },
     {
       "id": "dawn",

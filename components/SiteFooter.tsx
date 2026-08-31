@@ -13,8 +13,6 @@ const socialLabels: Record<string, string> = {
 };
 
 export default function SiteFooter() {
-  const sunday = worship.services.find((service) => service.id === "sunday");
-
   return (
     <footer className="mt-24 bg-forest-deep text-paper">
       <div className="mx-auto grid max-w-5xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
@@ -53,9 +51,6 @@ export default function SiteFooter() {
               </li>
             ))}
           </ul>
-          {sunday ? (
-            <p className="mt-3 text-sm text-sage/60">{sunday.location}에서 함께 드립니다.</p>
-          ) : null}
         </div>
 
         <div>

@@ -13,7 +13,7 @@ export default function WorshipPage() {
     <>
       <PageHeader
         title="예배"
-        description="온 세대가 함께 예배합니다. 처음 오시는 분도 그대로 오시면 됩니다."
+        description="온 세대가 함께 예배합니다."
       />
 
       <div className="mx-auto max-w-5xl px-6 py-14">
@@ -34,7 +34,9 @@ export default function WorshipPage() {
               <p className="mt-3 font-serif text-2xl text-forest">
                 {service.day} {service.time}
               </p>
-              <p className="mt-1 text-sm text-ink-soft">{service.location}</p>
+              {service.location ? (
+                <p className="mt-1 text-sm text-ink-soft">{service.location}</p>
+              ) : null}
               <p className="mt-4 leading-relaxed text-ink-soft">{service.description}</p>
 
               {service.recorded ? (
@@ -61,32 +63,6 @@ export default function WorshipPage() {
           ))}
         </div>
 
-        <section className="mt-14 max-w-2xl">
-          <h2 className="font-serif text-2xl font-semibold text-forest-deep">
-            처음 오시는 분께
-          </h2>
-          <dl className="mt-6 divide-y divide-ink/10 border-t border-ink/10">
-            <div className="py-5">
-              <dt className="font-medium text-forest">무엇을 입고 가야 하나요?</dt>
-              <dd className="mt-1.5 leading-relaxed text-ink-soft">
-                편한 복장으로 오시면 됩니다. 특별히 갖춰 입으실 필요는 없습니다.
-              </dd>
-            </div>
-            <div className="py-5">
-              <dt className="font-medium text-forest">몇 시까지 가야 하나요?</dt>
-              <dd className="mt-1.5 leading-relaxed text-ink-soft">
-                예배 10분 전쯤 오시면 자리를 안내받으실 수 있습니다.
-                늦으셔도 괜찮으니 편하게 들어오세요.
-              </dd>
-            </div>
-            <div className="py-5">
-              <dt className="font-medium text-forest">아이와 함께 가도 되나요?</dt>
-              <dd className="mt-1.5 leading-relaxed text-ink-soft">
-                온 세대가 함께 드리는 예배입니다. 아이와 함께 오셔도 좋습니다.
-              </dd>
-            </div>
-          </dl>
-        </section>
       </div>
     </>
   );

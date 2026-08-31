@@ -5,7 +5,7 @@ import worship from "@/content/worship.json";
 
 export const metadata: Metadata = {
   title: "공동체",
-  description: "주일 외에도 한 주간 여러 모양으로 모입니다.",
+  description: "주일 외에도 한 주간 함께 모입니다.",
 };
 
 const gatherings = [
@@ -48,7 +48,7 @@ export default function CommunityPage() {
     <>
       <PageHeader
         title="공동체"
-        description="보스톤에 머무는 동안 혼자가 아니도록, 여러 자리에서 함께합니다."
+        description="주일 외에도 한 주간 함께 모입니다."
       />
 
       <div className="mx-auto max-w-5xl px-6 py-14">

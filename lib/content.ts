@@ -11,6 +11,16 @@ import { marked } from "marked";
  */
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
+/**
+ * A row on the "찾아오시는 길" page. The list in `content/visit.json` starts
+ * empty, which TypeScript widens to `never[]`, so the page annotates it with
+ * this rather than inferring from the file.
+ */
+export type TransitRow = {
+  mode: string;
+  detail: string;
+};
+
 export type Page = {
   title: string;
   description?: string;
