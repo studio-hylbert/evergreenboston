@@ -21,12 +21,12 @@ npm run lint
 
 ```
 app/
-  [lang]/           ko와 en 두 트리가 빌드 시점에 모두 생성된다
+  (site)/[lang]/    ko와 en 두 트리가 빌드 시점에 모두 생성된다
     layout.tsx      <html lang>, 폰트, 헤더/푸터
     page.tsx        홈. 예배 시간과 오시는 길을 최상단에 둔다
     about/ worship/ sermons/ community/ visit/
+  (entry)/          / 하나. 언어를 감지해 /ko 또는 /en 으로 보낸다
   sitemap.ts robots.ts
-public/index.html   / 로 들어온 방문자의 언어를 감지해 보내는 shim
 components/         SiteHeader, SiteFooter, LocaleSwitcher, SermonCard,
                     SermonPlayer, PageHeader, Prose, SectionHeading,
                     EvergreenMark
@@ -68,16 +68,39 @@ CMS 편집자가 경로를 바꿔 링크가 깨지는 일이 없도록 코드에
 
 **언어 감지는 브라우저에서 한다.** 정적 export에는 서버가 없어서 `Accept-Language`를
 협상할 수 없고, `output: export`에서는 middleware도 동작하지 않는다. 그래서 `/`는
-`public/index.html`이라는 얇은 shim이다. 이 파일은:
+`app/(entry)/page.tsx`가 렌더링하는 얇은 전달 페이지다. 이 페이지는:
 
 1. `localStorage`에 저장된 선택을 먼저 본다 (헤더의 언어 전환 버튼이 기록한다)
 2. 없으면 `navigator.languages`를 본다
 3. 어느 쪽도 아니면 한국어로 보낸다. 교회가 예배드리는 언어이기 때문이다
 
-이 파일은 `public/`에서 그대로 복사되므로 **Next가 `basePath`를 적용하지 않는다.**
-그래서 모든 링크가 상대 경로다. 절대 경로로 쓰면 `/<repo>` 아래에서 깨진다.
+리다이렉트 스크립트는 `useEffect`가 아니라 인라인으로 넣는다. 문서를 파싱하는 동안,
+React가 hydrate하기 전에 실행되어야 방문자가 전환을 눈치채지 못한다.
 
 JavaScript가 꺼져 있으면 두 언어 링크가 보인다.
+
+### 루트 레이아웃이 둘인 이유
+
+`app/`에는 루트 레이아웃이 두 개 있고, 라우트 그룹으로 나뉘어 있다.
+
+| 그룹 | 담당 | 이유 |
+|---|---|---|
+| `app/(site)/[lang]/layout.tsx` | 언어 트리 전체 | `<html lang>`을 언어별로 설정해야 한다 |
+| `app/(entry)/layout.tsx` | `/` 하나 | 전달 페이지는 헤더·푸터·폰트가 필요 없다 |
+
+공용 루트 레이아웃 하나로는 `<html lang>`을 언어마다 다르게 줄 수 없다.
+라우트 그룹은 URL에 나타나지 않으므로 경로는 `/ko`, `/en`, `/` 그대로다.
+
+전달 페이지를 `public/index.html`로 두지 않는 이유는 두 가지다.
+`public/` 파일은 **dev 서버의 `/`에서 서빙되지 않아** `npm run dev`가 404가 나고,
+Next가 `basePath`를 적용해주지 않아 링크를 상대 경로로 손수 써야 한다.
+실제 페이지로 두면 둘 다 자동으로 해결된다.
+
+### `[lang]`은 아무 세그먼트나 잡는다
+
+`app/(site)/[lang]/layout.tsx`에 `dynamicParams = false`가 있다.
+없으면 `/visit` 같은 옛 링크가 `lang="visit"`으로 해석되어,
+404가 아니라 빌드 실패나 500으로 이어진다.
 
 ### 어디에 무엇을 넣는가
 

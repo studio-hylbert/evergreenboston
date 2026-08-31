@@ -5,7 +5,7 @@ import SiteHeader from "@/components/SiteHeader";
 import SiteFooter from "@/components/SiteFooter";
 import site from "@/content/site.json";
 import { htmlLang, isLocale, locales, t, type Locale } from "@/lib/i18n";
-import "../globals.css";
+import "../../globals.css";
 
 /*
  * Both families are downloaded at build time and served from the site's own
@@ -25,7 +25,15 @@ const notoSerifKr = Noto_Serif_KR({
   display: "swap",
 });
 
-/* Both language trees are generated at build time; nothing is resolved later. */
+/*
+ * Both language trees are generated at build time; nothing is resolved later.
+ *
+ * `[lang]` matches any single segment, so without this a stale link like
+ * /visit would be read as the locale "visit" and fail the build rather than
+ * simply not being found.
+ */
+export const dynamicParams = false;
+
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
 }
