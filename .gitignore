@@ -45,3 +45,7 @@ next-env.d.ts
 # hand out. Anything a reader needs goes in README.md.
 CONTENT-CHECKLIST.md
 IMAGE-CREDITS.md
+
+# Material written for the church rather than for this repository: the guide
+# for buying the domain, and the PDFs built from it.
+docs/
