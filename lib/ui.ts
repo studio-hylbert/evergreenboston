@@ -25,6 +25,7 @@ type UiStrings = {
     gatherEyebrow: string;
     gatherTitle: string;
     gatherDescription: string;
+    followHere: string;
   };
   worship: {
     title: string;
@@ -94,6 +95,7 @@ export const ui: Record<Locale, UiStrings> = {
       gatherEyebrow: "함께",
       gatherTitle: "이번 주 함께하는 자리",
       gatherDescription: "주일 외에도 한 주간 함께 모입니다.",
+      followHere: "교회 소식은 이곳에서",
     },
     worship: {
       title: "예배",
@@ -161,6 +163,7 @@ export const ui: Record<Locale, UiStrings> = {
       gatherEyebrow: "Together",
       gatherTitle: "Through the week",
       gatherDescription: "We gather during the week as well as on Sunday.",
+      followHere: "Where the church posts",
     },
     worship: {
       title: "Worship",

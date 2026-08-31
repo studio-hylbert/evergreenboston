@@ -5,14 +5,8 @@ import worship from "@/content/worship.json";
 import { navFor } from "@/lib/nav";
 import { ui } from "@/lib/ui";
 import { t, type Locale } from "@/lib/i18n";
-
-const socialLabels: Record<string, string> = {
-  youtube: "YouTube",
-  instagram: "Instagram",
-  facebook: "Facebook",
-  kakaoOpenChat: "KakaoTalk",
-  strava: "Strava",
-};
+import SocialIcon from "./SocialIcon";
+import { socialLinks } from "@/lib/social";
 
 export default function SiteFooter({ locale }: { locale: Locale }) {
   const strings = ui[locale];
@@ -74,11 +68,17 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
 
       <div className="border-t border-sage/15">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-6 text-sm text-sage/60 sm:flex-row sm:items-center sm:justify-between">
-          <ul className="flex flex-wrap gap-x-5 gap-y-2">
-            {Object.entries(site.social).map(([key, url]) => (
-              <li key={key}>
-                <a href={url} target="_blank" rel="noreferrer" className="hover:text-white">
-                  {socialLabels[key] ?? key}
+          <ul className="flex flex-wrap gap-x-5 gap-y-3">
+            {socialLinks.map((link) => (
+              <li key={link.key}>
+                <a
+                  href={link.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-1.5 hover:text-white"
+                >
+                  <SocialIcon name={link.key} className="h-4 w-4" />
+                  {t(link.label, locale)}
                 </a>
               </li>
             ))}

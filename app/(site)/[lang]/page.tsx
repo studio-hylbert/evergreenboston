@@ -4,6 +4,8 @@ import SectionHeading from "@/components/SectionHeading";
 import SermonCard from "@/components/SermonCard";
 import { asset } from "@/lib/asset";
 import { fetchVideos } from "@/lib/youtube";
+import SocialIcon from "@/components/SocialIcon";
+import { socialLinks } from "@/lib/social";
 import { ui } from "@/lib/ui";
 import { otherLocale, t, type Locale } from "@/lib/i18n";
 import { alternatesFor } from "@/lib/site-url";
@@ -182,6 +184,31 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
                 {strings.community.stravaCta}
               </a>
             </article>
+          </div>
+
+          {/*
+            The church asked for its channels to be easy to find, and this is
+            the last thing on the page a first-time visitor reads.
+          */}
+          <div className="mt-12 border-t border-ink/10 pt-8">
+            <h3 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
+              {strings.home.followHere}
+            </h3>
+            <ul className="mt-4 flex flex-wrap gap-x-6 gap-y-3">
+              {socialLinks.map((link) => (
+                <li key={link.key}>
+                  <a
+                    href={link.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 text-sm text-forest hover:underline hover:underline-offset-4"
+                  >
+                    <SocialIcon name={link.key} className="h-4 w-4" />
+                    {t(link.label, lang)}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { ui } from "@/lib/ui";
 import { t, type Locale } from "@/lib/i18n";
+import SocialIcon from "@/components/SocialIcon";
+import { socialLinks } from "@/lib/social";
 import { alternatesFor } from "@/lib/site-url";
 import site from "@/content/site.json";
 import worship from "@/content/worship.json";
@@ -89,15 +91,16 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
             {strings.community.followDescription}
           </p>
           <div className="mt-5 flex flex-wrap gap-3">
-            {(["instagram", "facebook", "youtube"] as const).map((key) => (
+            {socialLinks.map((link) => (
               <a
-                key={key}
-                href={site.social[key]}
+                key={link.key}
+                href={link.href}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-md border border-forest/30 px-4 py-2.5 text-sm text-forest capitalize transition hover:bg-card"
+                className="flex items-center gap-2 rounded-md border border-forest/30 px-4 py-2.5 text-sm text-forest transition hover:bg-card"
               >
-                {key}
+                <SocialIcon name={link.key} className="h-4 w-4" />
+                {t(link.label, lang)}
               </a>
             ))}
           </div>
