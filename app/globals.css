@@ -16,23 +16,26 @@
   /* Page surfaces, which flip between schemes. */
   --color-paper: #fbfaf7;
   --color-paper-sunk: #f3f1ea;
-  --color-tint: #eef4f0;
+  --color-tint: #edf5ef;
   /* Cards raised above the page. */
   --color-card: #ffffff;
   --color-ink: #16211c;
   --color-ink-soft: #4a5751;
-  --color-heading: #143327;
-  --color-forest: #1f4a3a;
-  --color-forest-hover: #143327;
-  /* Dark enough for the 12px eyebrow labels to clear AA on paper (4.84:1);
-     the previous tone only cleared the large-text threshold. */
-  --color-brass: #8a6a1c;
+  --color-heading: #133421;
+  --color-forest: #1e4d32;
+  --color-forest-hover: #133421;
+  /*
+   * Taken from the cross and open book in the church's logo rather than a
+   * generic gold, so the one warm note on the page points at something.
+   * Deep enough for the 12px eyebrow labels to clear AA (7.41:1).
+   */
+  --color-brass: #7e4325;
 
   /*
    * The footer and the hero are dark in both schemes by design, so these two
    * barely move: `deep` stays a dark ground and `sage` stays legible on it.
    */
-  --color-deep: #143327;
+  --color-deep: #133421;
   --color-on-deep: #fbfaf7;
   --color-sage: #e7efe9;
 
@@ -63,7 +66,7 @@
        sage that reads as grey once the ground goes dark. */
     --color-forest: #5fd6a0;
     --color-forest-hover: #8ae8bd;
-    --color-brass: #ecc766;
+    --color-brass: #db9876;
 
     /* Below the page, so the footer still reads as its own band. */
     --color-deep: #05100c;
