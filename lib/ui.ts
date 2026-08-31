@@ -26,7 +26,14 @@ type UiStrings = {
     gatherTitle: string;
     gatherDescription: string;
   };
-  worship: { title: string; description: string; recordedBadge: string; watchPast: string; joinZoom: string };
+  worship: {
+    title: string;
+    description: string;
+    recordedBadge: string;
+    watchPast: string;
+    joinZoom: string;
+    askHowToJoin: string;
+  };
   sermons: {
     title: string;
     description: string;
@@ -54,6 +61,7 @@ type UiStrings = {
     calendarDescription: string;
     calendarCta: string;
     dawnCta: string;
+    dawnAskCta: string;
   };
   visit: {
     title: string;
@@ -94,6 +102,7 @@ export const ui: Record<Locale, UiStrings> = {
       recordedBadge: "영상 제공",
       watchPast: "지난 예배 영상 보기",
       joinZoom: "Zoom으로 참여하기",
+      askHowToJoin: "참여 방법 문의하기",
     },
     sermons: {
       title: "설교 영상",
@@ -122,6 +131,7 @@ export const ui: Record<Locale, UiStrings> = {
       calendarDescription: "한 해의 예배와 행사 일정을 보실 수 있습니다.",
       calendarCta: "캘린더 보기",
       dawnCta: "Zoom으로 참여하기",
+      dawnAskCta: "참여 방법 문의하기",
     },
     visit: {
       title: "찾아오시는 길",
@@ -160,6 +170,7 @@ export const ui: Record<Locale, UiStrings> = {
       recordedBadge: "Recorded",
       watchPast: "Watch past services",
       joinZoom: "Join on Zoom",
+      askHowToJoin: "Ask how to join",
     },
     sermons: {
       title: "Sermons",
@@ -189,6 +200,7 @@ export const ui: Record<Locale, UiStrings> = {
       calendarDescription: "Services and events for the year.",
       calendarCta: "Open the calendar",
       dawnCta: "Join on Zoom",
+      dawnAskCta: "Ask how to join",
     },
     visit: {
       title: "Visit",

@@ -55,14 +55,19 @@ export default async function WorshipPage({ params }: { params: Promise<{ lang: 
                   {strings.worship.watchPast}
                 </a>
               ) : null}
-              {service.zoomUrl ? (
+              {/*
+                No public joining link for the prayer meeting, so it is not
+                published here. Whoever wants to join asks in the newcomers'
+                chat instead. See CONTENT-CHECKLIST.md.
+              */}
+              {service.id === "dawn" ? (
                 <a
-                  href={service.zoomUrl}
+                  href={service.zoomUrl || site.social.kakaoOpenChat}
                   target="_blank"
                   rel="noreferrer"
                   className="mt-5 inline-block text-sm text-forest underline underline-offset-4"
                 >
-                  {strings.worship.joinZoom}
+                  {service.zoomUrl ? strings.worship.joinZoom : strings.worship.askHowToJoin}
                 </a>
               ) : null}
             </article>

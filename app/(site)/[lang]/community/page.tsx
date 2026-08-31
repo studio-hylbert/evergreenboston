@@ -36,8 +36,8 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
       name: dawn ? t(dawn.name, lang) : "",
       meta: dawn ? `${t(dawn.day, lang)} ${t(dawn.time, lang)} · ${t(dawn.location, lang)}` : "",
       description: dawn ? t(dawn.description, lang) : "",
-      href: dawn?.zoomUrl,
-      hrefLabel: strings.community.dawnCta,
+      href: dawn?.zoomUrl || site.social.kakaoOpenChat,
+      hrefLabel: dawn?.zoomUrl ? strings.community.dawnCta : strings.community.dawnAskCta,
     },
     {
       name: strings.community.stravaName,
