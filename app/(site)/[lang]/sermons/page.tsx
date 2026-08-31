@@ -44,7 +44,7 @@ export default async function SermonsPage({ params }: { params: Promise<{ lang: 
               <SermonPlayer video={latest} playLabel={strings.sermons.play} />
               <div>
                 <p className="text-sm text-ink-soft">{formatDate(latest.date, lang)}</p>
-                <h3 className="mt-2 font-serif text-2xl leading-snug text-forest-deep">
+                <h3 className="mt-2 font-serif text-2xl leading-snug text-heading">
                   {latest.title ?? latest.rawTitle}
                 </h3>
                 {latest.preacher ? (

@@ -1,24 +1,79 @@
 @import "tailwindcss";
 
 /*
- * The palette is taken from the church's name: 늘푸른 / evergreen. A deep
- * forest green carries the brand, a warm paper white keeps long Korean body
- * text comfortable to read, and a muted brass is reserved for the few things a
- * first-time visitor must not miss.
+ * The palette comes from the church's name: 늘푸른 / evergreen.
+ *
+ * Tokens are named for what they do, not what colour they are, because the
+ * light and dark schemes disagree about the colour. Three of them used to be
+ * one token each and had to be split: headings and the footer were both "deep
+ * green", and text on the footer was the same value as the page background.
+ * That only works while the page is light.
+ *
+ * `@theme` holds the light scheme. The dark scheme re-declares the same
+ * variables below, so no component carries a `dark:` variant.
  */
 @theme {
+  /* Page surfaces, which flip between schemes. */
   --color-paper: #fbfaf7;
   --color-paper-sunk: #f3f1ea;
+  --color-tint: #eef4f0;
+  /* Cards raised above the page. */
+  --color-card: #ffffff;
   --color-ink: #16211c;
   --color-ink-soft: #4a5751;
+  --color-heading: #143327;
   --color-forest: #1f4a3a;
-  --color-forest-deep: #143327;
-  --color-forest-bright: #2f6b52;
+  --color-forest-hover: #143327;
+  /* Dark enough for the 12px eyebrow labels to clear AA on paper (4.84:1);
+     the previous tone only cleared the large-text threshold. */
+  --color-brass: #8a6a1c;
+
+  /*
+   * The footer and the hero are dark in both schemes by design, so these two
+   * barely move: `deep` stays a dark ground and `sage` stays legible on it.
+   */
+  --color-deep: #143327;
+  --color-on-deep: #fbfaf7;
   --color-sage: #e7efe9;
-  --color-brass: #a8842a;
 
   --font-sans: var(--font-noto-sans-kr), system-ui, sans-serif;
   --font-serif: var(--font-noto-serif-kr), Georgia, serif;
+}
+
+/*
+ * Tailwind's `@theme` is a top-level construct: nesting it inside `@media`
+ * does not scope it to that query, it simply redefines the token for every
+ * scheme. The dark values therefore override plain custom properties on
+ * :root, which is what the generated utilities read.
+ */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Surfaces step up in clear increments. Crowding them together is what
+       makes a dark theme read as murky rather than as night. */
+    --color-paper: #0a1512;
+    --color-paper-sunk: #0e1c17;
+    --color-tint: #12271f;
+    --color-card: #142c23;
+
+    --color-ink: #edf6f1;
+    --color-ink-soft: #a9c2b6;
+    --color-heading: #eafaf1;
+
+    /* The accent carries the freshness: a live mint rather than the muted
+       sage that reads as grey once the ground goes dark. */
+    --color-forest: #5fd6a0;
+    --color-forest-hover: #8ae8bd;
+    --color-brass: #ecc766;
+
+    /* Below the page, so the footer still reads as its own band. */
+    --color-deep: #05100c;
+    --color-on-deep: #f2faf6;
+    --color-sage: #cdeadb;
+  }
+}
+
+:root {
+  color-scheme: light dark;
 }
 
 /*

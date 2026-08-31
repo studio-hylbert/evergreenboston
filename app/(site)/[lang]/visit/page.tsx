@@ -38,7 +38,7 @@ export default async function VisitPage({ params }: { params: Promise<{ lang: Lo
             <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
               {strings.visit.addressLabel}
             </h2>
-            <address className="mt-3 font-serif text-2xl leading-snug text-forest-deep not-italic">
+            <address className="mt-3 font-serif text-2xl leading-snug text-heading not-italic">
               {site.address.street}
               <br />
               {site.address.city}, {site.address.state} {site.address.zip}
@@ -49,7 +49,7 @@ export default async function VisitPage({ params }: { params: Promise<{ lang: Lo
               href={site.address.mapUrl}
               target="_blank"
               rel="noreferrer"
-              className="mt-5 inline-block rounded-md bg-forest px-5 py-3 text-sm font-medium text-paper transition hover:bg-forest-deep"
+              className="mt-5 inline-block rounded-md bg-forest px-5 py-3 text-sm font-medium text-on-deep transition hover:bg-forest-hover"
             >
               {strings.visit.mapCta}
             </a>
@@ -57,14 +57,14 @@ export default async function VisitPage({ params }: { params: Promise<{ lang: Lo
             <dl className="mt-10 divide-y divide-ink/10 border-t border-ink/10">
               <div className="py-5">
                 <dt className="text-sm text-ink-soft">{strings.visit.timeLabel}</dt>
-                <dd className="mt-1 font-serif text-lg text-forest-deep">
+                <dd className="mt-1 font-serif text-lg text-heading">
                   {sunday ? `${t(sunday.name, lang)} · ${t(sunday.day, lang)} ${t(sunday.time, lang)}` : null}
                 </dd>
               </div>
               {sunday ? (
                 <div className="py-5">
                   <dt className="text-sm text-ink-soft">{strings.visit.placeLabel}</dt>
-                  <dd className="mt-1 font-serif text-lg text-forest-deep">
+                  <dd className="mt-1 font-serif text-lg text-heading">
                     {t(sunday.location, lang)}
                   </dd>
                 </div>

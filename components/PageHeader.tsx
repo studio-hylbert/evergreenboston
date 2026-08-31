@@ -6,9 +6,9 @@ export default function PageHeader({
   description?: string;
 }) {
   return (
-    <div className="border-b border-ink/10 bg-sage/40">
+    <div className="border-b border-ink/10 bg-tint">
       <div className="mx-auto max-w-5xl px-6 py-14">
-        <h1 className="font-serif text-3xl font-semibold text-forest-deep sm:text-4xl">
+        <h1 className="font-serif text-3xl font-semibold text-heading sm:text-4xl">
           {title}
         </h1>
         {description ? (

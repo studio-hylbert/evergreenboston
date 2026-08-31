@@ -14,7 +14,7 @@ export default function SermonCard({
       href={video.url}
       target="_blank"
       rel="noreferrer"
-      className="group block overflow-hidden rounded-lg border border-ink/10 bg-white transition hover:border-forest/40 hover:shadow-sm"
+      className="group block overflow-hidden rounded-lg border border-ink/10 bg-card transition hover:border-forest/40 hover:shadow-sm"
     >
       <div className="aspect-video overflow-hidden bg-paper-sunk">
         {/*
@@ -37,7 +37,7 @@ export default function SermonCard({
           stay in Korean on the English pages too. There is nothing to translate
           them from.
         */}
-        <h3 className="mt-1.5 font-serif text-base leading-snug text-forest-deep">
+        <h3 className="mt-1.5 font-serif text-base leading-snug text-heading">
           {video.title ?? video.rawTitle}
         </h3>
         {video.preacher ? (

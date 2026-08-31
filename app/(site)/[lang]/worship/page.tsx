@@ -30,9 +30,9 @@ export default async function WorshipPage({ params }: { params: Promise<{ lang: 
       <div className="mx-auto max-w-5xl px-6 py-14">
         <div className="grid gap-6 sm:grid-cols-2">
           {worship.services.map((service) => (
-            <article key={service.id} className="rounded-lg border border-ink/10 bg-white p-7">
+            <article key={service.id} className="rounded-lg border border-ink/10 bg-card p-7">
               <div className="flex items-baseline justify-between gap-4">
-                <h2 className="font-serif text-xl text-forest-deep">{t(service.name, lang)}</h2>
+                <h2 className="font-serif text-xl text-heading">{t(service.name, lang)}</h2>
                 {service.recorded ? (
                   <span className="rounded-full bg-brass/15 px-2.5 py-1 text-xs text-brass">
                     {strings.worship.recordedBadge}

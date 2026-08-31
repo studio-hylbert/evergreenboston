@@ -12,7 +12,7 @@ export default function SectionHeading({
       {eyebrow ? (
         <p className="text-xs font-medium tracking-[0.2em] text-brass uppercase">{eyebrow}</p>
       ) : null}
-      <h2 className="mt-2 font-serif text-2xl font-semibold text-forest-deep sm:text-3xl">
+      <h2 className="mt-2 font-serif text-2xl font-semibold text-heading sm:text-3xl">
         {title}
       </h2>
       {description ? (

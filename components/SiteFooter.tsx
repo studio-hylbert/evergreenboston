@@ -18,7 +18,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
   const strings = ui[locale];
 
   return (
-    <footer className="mt-24 bg-forest-deep text-paper">
+    <footer className="mt-24 bg-deep text-on-deep">
       <div className="mx-auto grid max-w-5xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-2">

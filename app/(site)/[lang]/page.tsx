@@ -39,7 +39,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
             className="absolute inset-0 -z-10 h-full w-full object-cover"
           />
         </picture>
-        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-forest-deep/85 via-forest-deep/70 to-forest-deep/90" />
+        <div className="absolute inset-0 -z-10 bg-gradient-to-b from-deep/85 via-deep/70 to-deep/90" />
 
         <div className="mx-auto max-w-5xl px-6 py-24 sm:py-32">
           {/* The other language's name, mirroring the header, so neither page
@@ -47,7 +47,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
           <p className="text-sm tracking-[0.2em] text-sage/80">
             {t(site.name, otherLocale(lang))}
           </p>
-          <h1 className="mt-4 font-serif text-4xl font-semibold text-paper sm:text-5xl">
+          <h1 className="mt-4 font-serif text-4xl font-semibold text-on-deep sm:text-5xl">
             {t(site.name, lang)}
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-loose text-sage">{t(site.mission, lang)}</p>
@@ -55,13 +55,13 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
           <div className="mt-10 flex flex-wrap gap-3">
             <Link
               href={`/${lang}/visit`}
-              className="rounded-md bg-paper px-5 py-3 text-sm font-medium text-forest-deep transition hover:bg-white"
+              className="rounded-md bg-on-deep px-5 py-3 text-sm font-medium text-deep transition hover:bg-sage"
             >
               {strings.home.visitCta}
             </Link>
             <Link
               href={`/${lang}/sermons`}
-              className="rounded-md border border-sage/40 px-5 py-3 text-sm font-medium text-paper transition hover:border-sage hover:bg-white/10"
+              className="rounded-md border border-sage/40 px-5 py-3 text-sm font-medium text-on-deep transition hover:border-sage hover:bg-white/10"
             >
               {strings.home.sermonsCta}
             </Link>
@@ -74,13 +74,13 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
         Boston. The most useful thing the homepage can do is answer "can I come
         this Sunday?", so that sits above everything else.
       */}
-      <section className="border-b border-ink/10 bg-sage/40">
+      <section className="border-b border-ink/10 bg-tint">
         <div className="mx-auto grid max-w-5xl gap-8 px-6 py-12 sm:grid-cols-3">
           <div>
             <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
               {strings.home.sundayLabel}
             </h2>
-            <p className="mt-2 font-serif text-2xl text-forest-deep">
+            <p className="mt-2 font-serif text-2xl text-heading">
               {sunday ? t(sunday.time, lang) : null}
             </p>
             <p className="mt-1 text-sm text-ink-soft">{sunday ? t(sunday.day, lang) : null}</p>
@@ -89,7 +89,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
             <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
               {strings.home.locationLabel}
             </h2>
-            <p className="mt-2 font-serif text-lg leading-snug text-forest-deep">
+            <p className="mt-2 font-serif text-lg leading-snug text-heading">
               {site.address.street}
             </p>
             <p className="mt-1 text-sm text-ink-soft">
@@ -139,8 +139,8 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
             description={strings.home.gatherDescription}
           />
           <div className="mt-8 grid gap-6 sm:grid-cols-3">
-            <article className="rounded-lg border border-ink/10 bg-white p-6">
-              <h3 className="font-serif text-lg text-forest-deep">
+            <article className="rounded-lg border border-ink/10 bg-card p-6">
+              <h3 className="font-serif text-lg text-heading">
                 {dawn ? t(dawn.name, lang) : null}
               </h3>
               <p className="mt-1 text-sm text-ink-soft">
@@ -150,8 +150,8 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
                 {dawn ? t(dawn.description, lang) : null}
               </p>
             </article>
-            <article className="rounded-lg border border-ink/10 bg-white p-6">
-              <h3 className="font-serif text-lg text-forest-deep">{strings.community.kakaoName}</h3>
+            <article className="rounded-lg border border-ink/10 bg-card p-6">
+              <h3 className="font-serif text-lg text-heading">{strings.community.kakaoName}</h3>
               <p className="mt-1 text-sm text-ink-soft">
                 {strings.community.kakaoMeta(worship.kakaoJoinCode)}
               </p>
@@ -167,8 +167,8 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
                 {strings.community.kakaoCta}
               </a>
             </article>
-            <article className="rounded-lg border border-ink/10 bg-white p-6">
-              <h3 className="font-serif text-lg text-forest-deep">{strings.community.stravaName}</h3>
+            <article className="rounded-lg border border-ink/10 bg-card p-6">
+              <h3 className="font-serif text-lg text-heading">{strings.community.stravaName}</h3>
               <p className="mt-1 text-sm text-ink-soft">Strava</p>
               <p className="mt-3 text-sm leading-relaxed text-ink-soft">
                 {strings.community.stravaDescription}

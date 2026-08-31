@@ -64,9 +64,9 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
           {gatherings.map((gathering) => (
             <article
               key={gathering.name}
-              className="flex flex-col rounded-lg border border-ink/10 bg-white p-7"
+              className="flex flex-col rounded-lg border border-ink/10 bg-card p-7"
             >
-              <h2 className="font-serif text-xl text-forest-deep">{gathering.name}</h2>
+              <h2 className="font-serif text-xl text-heading">{gathering.name}</h2>
               <p className="mt-1 text-sm text-ink-soft">{gathering.meta}</p>
               <p className="mt-4 flex-1 leading-relaxed text-ink-soft">{gathering.description}</p>
               {gathering.href ? (
@@ -83,8 +83,8 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
           ))}
         </div>
 
-        <section className="mt-14 rounded-lg bg-sage/50 p-8">
-          <h2 className="font-serif text-xl text-forest-deep">{strings.community.followTitle}</h2>
+        <section className="mt-14 rounded-lg bg-tint p-8">
+          <h2 className="font-serif text-xl text-heading">{strings.community.followTitle}</h2>
           <p className="mt-3 max-w-2xl leading-relaxed text-ink-soft">
             {strings.community.followDescription}
           </p>
@@ -95,7 +95,7 @@ export default async function CommunityPage({ params }: { params: Promise<{ lang
                 href={site.social[key]}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-md border border-forest/30 px-4 py-2.5 text-sm text-forest capitalize transition hover:bg-white"
+                className="rounded-md border border-forest/30 px-4 py-2.5 text-sm text-forest capitalize transition hover:bg-card"
               >
                 {key}
               </a>
