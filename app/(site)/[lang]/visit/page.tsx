@@ -97,22 +97,21 @@ export default async function VisitPage({ params }: { params: Promise<{ lang: Lo
               back. See IMAGE-CREDITS.md — this notice can go when the church
               supplies its own photograph.
             */}
-            <figcaption className="mt-3 text-xs text-ink-soft">
-              {strings.visit.photoCredit}:{" "}
+            <figcaption className="mt-1.5 text-[0.65rem] leading-none text-ink-soft/45">
               <a
                 href="https://commons.wikimedia.org/wiki/File:All_Saints_Parish_Church_1773_Beacon_Street_Brookline_Massachusetts.jpg"
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-2"
+                className="hover:text-ink-soft"
               >
                 EgorovaSvetlana
               </a>
-              ,{" "}
+              {" · "}
               <a
                 href="https://creativecommons.org/licenses/by-sa/4.0/"
                 target="_blank"
                 rel="noreferrer"
-                className="underline underline-offset-2"
+                className="hover:text-ink-soft"
               >
                 CC BY-SA 4.0
               </a>
