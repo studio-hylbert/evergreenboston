@@ -1,5 +1,5 @@
 import Link from "next/link";
-import EvergreenMark from "./EvergreenMark";
+import ChurchLogo from "./ChurchLogo";
 import site from "@/content/site.json";
 import worship from "@/content/worship.json";
 import { navFor } from "@/lib/nav";
@@ -22,7 +22,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
       <div className="mx-auto grid max-w-5xl gap-10 px-6 py-14 sm:grid-cols-2 lg:grid-cols-4">
         <div className="sm:col-span-2 lg:col-span-1">
           <div className="flex items-center gap-2">
-            <EvergreenMark className="h-6 w-6 text-sage" />
+            <ChurchLogo className="h-7 w-7" />
             <span className="font-serif text-lg">{t(site.name, locale)}</span>
           </div>
           <p className="mt-3 text-sm leading-relaxed text-sage/70">

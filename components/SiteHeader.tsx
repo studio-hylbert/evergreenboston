@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import EvergreenMark from "./EvergreenMark";
+import ChurchLogo from "./ChurchLogo";
 import LocaleSwitcher from "./LocaleSwitcher";
 import site from "@/content/site.json";
 import { navFor } from "@/lib/nav";
@@ -27,7 +27,7 @@ export default function SiteHeader({ locale }: { locale: Locale }) {
           className="flex items-center gap-2.5 text-forest"
           onClick={() => setOpen(false)}
         >
-          <EvergreenMark className="h-7 w-7" />
+          <ChurchLogo className="h-8 w-8" />
           <span className="flex flex-col leading-tight">
             <span className="font-serif text-lg font-semibold">{t(site.name, locale)}</span>
             <span className="text-[0.68rem] tracking-wide text-ink-soft">

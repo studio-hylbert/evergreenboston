@@ -191,6 +191,7 @@ npx serve out
 
 | 파일 | 내용 | 출처 | 라이선스 |
 |---|---|---|---|
+| `public/images/logo.png`<br>`app/icon.png`<br>`app/apple-icon.png` | 교회 로고. 십자가를 줄기로 삼은 나무가 펼친 성경에 뿌리내린 형태 | 교회 유튜브 채널 아바타에서 추출 | 교회 소유 |
 | `hero-forest*.jpg` | 안개 낀 침엽수림. 홈 히어로 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fog_descending_on_a_pine_forest_(Unsplash).jpg) | **CC0** — 의무 없음 |
 | `church-exterior*.jpg` | 1773 Beacon St 건물 외관 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:All_Saints_Parish_Church_1773_Beacon_Street_Brookline_Massachusetts.jpg), 촬영 EgorovaSvetlana | **CC BY-SA 4.0** |
 | `church-tower.jpg` | 같은 건물, 세로 구도 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:All_Saints_Parish_Church_Beacon_Street_Brookline_Massachusetts.jpg), 촬영 EgorovaSvetlana | **CC BY-SA 4.0** |
@@ -202,6 +203,15 @@ npx serve out
 
 이미지는 모두 픽셀 데이터만 남기고 재인코딩했다. 촬영 기기·시각·저작권 문자열 같은
 EXIF는 남아 있지 않다 (GPS는 원본에도 없었다).
+
+### 로고
+
+교회 유튜브 채널 아바타에서 가져와 흰 배경을 투명 처리했다. 외곽선 잎의 속이
+비치므로 밝은 배경과 어두운 배경 모두에서 쓸 수 있다.
+
+원본은 JPEG이고 업스케일된 것이라 헤더 크기(32px)에서 동심원 호가 다소 뭉갠다.
+**교회에서 원본 벡터(AI/SVG/PDF)를 받으면 교체할 것.** 그러면 favicon과
+홈화면 아이콘 화질도 같이 올라간다.
 
 ## 개인정보
 
