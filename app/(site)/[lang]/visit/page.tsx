@@ -94,8 +94,8 @@ export default async function VisitPage({ params }: { params: Promise<{ lang: Lo
             </picture>
             {/*
               CC BY-SA 4.0 requires the photographer, the licence and a link
-              back. See IMAGE-CREDITS.md — this notice can go when the church
-              supplies its own photograph.
+              back. See the image table in README.md — this notice can go when
+              the church supplies its own photograph.
             */}
             <figcaption className="mt-1.5 text-[0.65rem] leading-none text-ink-soft/45">
               <a

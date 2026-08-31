@@ -56,9 +56,9 @@ export default async function WorshipPage({ params }: { params: Promise<{ lang: 
                 </a>
               ) : null}
               {/*
-                No public joining link for the prayer meeting, so it is not
-                published here. Whoever wants to join asks in the newcomers'
-                chat instead. See CONTENT-CHECKLIST.md.
+                No public joining link for the prayer meeting; whoever wants to
+                come asks in the newcomers' chat. Setting `zoomUrl` in
+                content/worship.json restores a direct link.
               */}
               {service.id === "dawn" ? (
                 <a
