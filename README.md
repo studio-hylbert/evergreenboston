@@ -3,8 +3,8 @@
 브루클라인 한인 교회의 정적 웹사이트. Next.js 16(App Router), React 19, Tailwind CSS v4로
 만들었고 모든 라우트를 빌드 시점에 미리 렌더링한다.
 
-> **아직 공개 전이다.** 교단 표기와 연락처 등 확인이 남은 항목이 있다.
-> `CONTENT-CHECKLIST.md` 참고.
+> **아직 교회 검수 전이다.** 교단 표기와 연락처 등 확인이 남은 항목이 있다.
+> 확인 대기 목록은 저장소 밖 작업 메모로 관리한다.
 
 ## 실행
 
@@ -33,7 +33,7 @@ components/         SiteHeader, SiteFooter, LocaleSwitcher, SermonCard,
 content/            모든 문구와 데이터. 컴포넌트 안에 콘텐츠를 두지 않는다
 lib/                i18n.ts, ui.ts, youtube.ts, content.ts, nav.ts,
                     asset.ts, format.ts, site-url.ts
-public/images/      임시 이미지. 출처는 IMAGE-CREDITS.md 참고
+public/images/      임시 이미지. 출처와 라이선스는 아래 '이미지' 절 참고
 ```
 
 ## 콘텐츠 모델
@@ -187,9 +187,21 @@ npx serve out
 유튜브 썸네일은 저장소에 복사하지 않고 `i.ytimg.com`에서 바로 가져온다.
 영상이 교체되어도 썸네일이 낡지 않는다.
 
-현재 이미지는 전부 임시다. 출처와 라이선스, 교체 대상은 `IMAGE-CREDITS.md`에 있다.
-`church-*.jpg` 두 장은 **CC BY-SA 4.0**이라 `/visit` 페이지에 출처를 표기하고 있다.
-교회에서 직접 찍은 사진으로 바꾸면 이 표기는 지워도 된다.
+현재 이미지는 전부 임시다. 교회에서 실물 사진을 받으면 교체한다.
+
+| 파일 | 내용 | 출처 | 라이선스 |
+|---|---|---|---|
+| `hero-forest*.jpg` | 안개 낀 침엽수림. 홈 히어로 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fog_descending_on_a_pine_forest_(Unsplash).jpg) | **CC0** — 의무 없음 |
+| `church-exterior*.jpg` | 1773 Beacon St 건물 외관 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:All_Saints_Parish_Church_1773_Beacon_Street_Brookline_Massachusetts.jpg), 촬영 EgorovaSvetlana | **CC BY-SA 4.0** |
+| `church-tower.jpg` | 같은 건물, 세로 구도 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:All_Saints_Parish_Church_Beacon_Street_Brookline_Massachusetts.jpg), 촬영 EgorovaSvetlana | **CC BY-SA 4.0** |
+
+`church-*.jpg`는 CC BY-SA라 **출처 표기와 동일조건변경허락 의무**가 따른다.
+`/visit` 페이지에 촬영자와 라이선스를 링크로 표기하고 있고, 저장소의 파일은 원본을
+리사이즈한 2차적 저작물이므로 그 자체도 CC BY-SA 4.0으로 배포된다.
+사이트의 나머지 코드에는 영향이 없다. 교회 사진으로 교체하면 이 의무는 사라진다.
+
+이미지는 모두 픽셀 데이터만 남기고 재인코딩했다. 촬영 기기·시각·저작권 문자열 같은
+EXIF는 남아 있지 않다 (GPS는 원본에도 없었다).
 
 ## 개인정보
 
@@ -201,10 +213,11 @@ npx serve out
 
 ## 남은 일
 
-`CONTENT-CHECKLIST.md` 참고. 요약하면:
+교회 검수를 기다리는 항목이 있다. 목록은 저장소 밖 작업 메모로 관리한다.
+큰 줄기는 이렇다.
 
-1. 미검증 문구 확인 (0번 항목) — 공개 전 필수
+1. 교단 표기와 대표 연락처 확인
 2. 교회 실물 사진으로 교체
 3. 교역자 정보 추가 (`content/staff.json`)
-4. 교통편·주차 안내 확정
+4. 주차 안내 확정
 5. 도메인과 콘텐츠 관리 주체 결정

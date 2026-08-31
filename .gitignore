@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Working notes. These stay on the machine.
+#
+# CONTENT-CHECKLIST.md records what the church has not confirmed yet, and in
+# doing so is a note to ourselves about an outside organisation
+# rather than anything a reader of this repository needs, and is
+# not this repository's to hand out.
+# Anything meant for readers goes in README.md instead.
+CONTENT-CHECKLIST.md
+IMAGE-CREDITS.md
