@@ -75,6 +75,43 @@ function parseTitle(rawTitle: string): {
 }
 
 /**
+ * The feed answers intermittently: the same request can return 200, 404 or 500
+ * within a minute, which is enough to fail a scheduled deploy at random. These
+ * are retries of one idempotent read, not a fallback — after the last attempt
+ * the error still stops the build, and the previously deployed site stays up.
+ */
+const ATTEMPTS = 4;
+
+async function readFeed(): Promise<string> {
+  let lastError: unknown;
+
+  for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
+    try {
+      // No cache option: `no-store` would mark the fetch dynamic, which a
+      // static export refuses. Each build starts with an empty cache anyway.
+      const response = await fetch(FEED_URL);
+      if (response.ok) {
+        return await response.text();
+      }
+      lastError = new Error(
+        `YouTube feed request failed: ${response.status} ${response.statusText}`
+      );
+    } catch (error) {
+      // A transport failure is the same kind of flake as a 5xx here.
+      lastError = error;
+    }
+
+    if (attempt < ATTEMPTS) {
+      await new Promise((resolve) => setTimeout(resolve, attempt * 1500));
+    }
+  }
+
+  throw new Error(
+    `YouTube feed unavailable after ${ATTEMPTS} attempts (${FEED_URL}): ${String(lastError)}`
+  );
+}
+
+/**
  * Read at build time by the sermons page and the homepage. A scheduled rebuild
  * is what keeps the list current — see .github/workflows/deploy.yml.
  *
@@ -82,14 +119,7 @@ function parseTitle(rawTitle: string): {
  * leaves the previously deployed site in place.
  */
 export async function fetchVideos(): Promise<Video[]> {
-  const response = await fetch(FEED_URL);
-  if (!response.ok) {
-    throw new Error(
-      `YouTube feed request failed: ${response.status} ${response.statusText} (${FEED_URL})`
-    );
-  }
-
-  const xml = await response.text();
+  const xml = await readFeed();
   const entries = xml.match(/<entry>[\s\S]*?<\/entry>/g);
   if (!entries || entries.length === 0) {
     throw new Error(`YouTube feed contained no entries (${FEED_URL})`);
