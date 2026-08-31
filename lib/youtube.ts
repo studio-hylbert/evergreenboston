@@ -89,7 +89,18 @@ async function readFeed(): Promise<string> {
     try {
       // No cache option: `no-store` would mark the fetch dynamic, which a
       // static export refuses. Each build starts with an empty cache anyway.
-      const response = await fetch(FEED_URL);
+      //
+      // The headers matter. Unadorned requests from a datacentre address are
+      // answered with 404 rather than the feed, which is what fails the build
+      // on a CI runner while the same request succeeds from a laptop.
+      const response = await fetch(FEED_URL, {
+        headers: {
+          "User-Agent":
+            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+          Accept: "application/atom+xml,application/xml,text/xml;q=0.9,*/*;q=0.8",
+          "Accept-Language": "ko,en;q=0.9",
+        },
+      });
       if (response.ok) {
         return await response.text();
       }
