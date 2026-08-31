@@ -31,6 +31,14 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
             <br />
             {site.address.city}, {site.address.state} {site.address.zip}
           </address>
+          {site.contact.phone ? (
+            <a
+              href={`tel:${site.contact.phoneDial}`}
+              className="mt-3 block text-sm text-sage/80 hover:text-white"
+            >
+              {site.contact.phone}
+            </a>
+          ) : null}
           <a
             href={site.address.mapUrl}
             target="_blank"

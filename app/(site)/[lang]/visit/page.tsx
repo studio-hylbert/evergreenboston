@@ -80,6 +80,21 @@ export default async function VisitPage({ params }: { params: Promise<{ lang: Lo
                   <dd className="mt-1 leading-relaxed">{t(item.detail, lang)}</dd>
                 </div>
               ))}
+              {site.contact.phone ? (
+                <div className="py-5">
+                  <dt className="text-sm text-ink-soft">{strings.visit.phoneLabel}</dt>
+                  <dd className="mt-1">
+                    {/* Tappable on a phone, which is where someone lost outside
+                        the building will be reading this. */}
+                    <a
+                      href={`tel:${site.contact.phoneDial}`}
+                      className="font-serif text-lg text-forest underline underline-offset-4"
+                    >
+                      {site.contact.phone}
+                    </a>
+                  </dd>
+                </div>
+              ) : null}
             </dl>
           </div>
 

@@ -34,7 +34,7 @@ export const socialLinks: SocialLink[] = [
   {
     key: "linktree",
     href: site.social.linktree,
-    label: { ko: "모든 링크", en: "All links" },
+    label: { ko: "Linktree", en: "Linktree" },
   },
   {
     key: "kakaotalk",
