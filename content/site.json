@@ -1,0 +1,39 @@
+{
+  "name": {
+    "ko": "보스톤늘푸른교회",
+    "en": "The Evergreen Church of Boston"
+  },
+  "mission": "우리는 보스톤으로 오는 나그네들에게 복음을 전하고 예수님의 제자로 삼아 세상으로 파송하는 공동체입니다",
+  "denomination": {
+    "name": "미주한인예수교장로회 (KAPC)",
+    "url": "https://www.kapc.org"
+  },
+  "address": {
+    "street": "1773 Beacon St",
+    "city": "Brookline",
+    "state": "MA",
+    "zip": "02445",
+    "note": "All Saints Parish 예배당을 함께 사용합니다",
+    "mapUrl": "https://maps.app.goo.gl/mCynJnXsTwU8EQgYA",
+    "lat": 42.3373296,
+    "lng": -71.1422027
+  },
+  "contact": {
+    "email": "",
+    "phone": ""
+  },
+  "social": {
+    "youtube": "https://www.youtube.com/@evergreenchurchofboston9492",
+    "instagram": "https://www.instagram.com/evergreenchurchboston",
+    "facebook": "https://www.facebook.com/evergreenboston",
+    "kakaoOpenChat": "https://open.kakao.com/o/gokcq8ze",
+    "strava": "https://strava.app.link/v5OZr2B7sVb"
+  },
+  "youtube": {
+    "channelId": "UC9lLWrlCsGxivAgiSZwb0ag",
+    "handle": "@evergreenchurchofboston9492"
+  },
+  "links": {
+    "ministryCalendar": "https://docs.google.com/spreadsheets/d/1eBaEgI090qFFS-iSnQ9FF_85XtfXhuxI/preview"
+  }
+}

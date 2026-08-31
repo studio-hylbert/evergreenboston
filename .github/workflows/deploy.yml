@@ -1,0 +1,69 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # The sermon list is read from the church's YouTube feed at build time, so the
+  # site only picks up a new sermon when it is rebuilt. Sunday worship is at
+  # 2pm ET and the video is usually uploaded that evening, so this rebuilds
+  # every Monday at 10:00 UTC (05:00/06:00 ET).
+  schedule:
+    - cron: "0 10 * * 1"
+  # Lets a new video be published to the site without waiting for Monday.
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# A queued run replaces a waiting one, but never interrupts a deploy in flight.
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Resolve Pages URL
+        id: pages
+        uses: actions/configure-pages@v5
+        # Pages is enabled on the repository with its source set to GitHub
+        # Actions. This step only reads that configuration.
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        env:
+          # A project repository is served from /<repo>, so both the base path
+          # and the canonical URL come from the Pages configuration rather than
+          # being written down twice.
+          NEXT_PUBLIC_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          NEXT_PUBLIC_SITE_URL: ${{ steps.pages.outputs.origin }}${{ steps.pages.outputs.base_path }}
+        run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: out
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

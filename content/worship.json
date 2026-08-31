@@ -1,0 +1,24 @@
+{
+  "services": [
+    {
+      "id": "sunday",
+      "name": "주일예배",
+      "day": "주일",
+      "time": "오후 2:00",
+      "location": "본당",
+      "live": true,
+      "description": "온 세대가 함께 드리는 예배입니다. 유튜브로 실시간 중계됩니다."
+    },
+    {
+      "id": "dawn",
+      "name": "이른아침기도회",
+      "day": "화–토",
+      "time": "오전 6:00",
+      "location": "Zoom",
+      "live": false,
+      "zoomUrl": "",
+      "description": "화요일부터 토요일까지 매일 아침 온라인으로 함께 기도합니다."
+    }
+  ],
+  "kakaoJoinCode": "1773"
+}

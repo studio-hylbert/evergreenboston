@@ -1,0 +1,51 @@
+@import "tailwindcss";
+
+/*
+ * The palette is taken from the church's name: 늘푸른 / evergreen. A deep
+ * forest green carries the brand, a warm paper white keeps long Korean body
+ * text comfortable to read, and a muted brass is reserved for the few things a
+ * first-time visitor must not miss.
+ */
+@theme {
+  --color-paper: #fbfaf7;
+  --color-paper-sunk: #f3f1ea;
+  --color-ink: #16211c;
+  --color-ink-soft: #4a5751;
+  --color-forest: #1f4a3a;
+  --color-forest-deep: #143327;
+  --color-forest-bright: #2f6b52;
+  --color-sage: #e7efe9;
+  --color-brass: #a8842a;
+
+  --font-sans: var(--font-noto-sans-kr), system-ui, sans-serif;
+  --font-serif: var(--font-noto-serif-kr), Georgia, serif;
+}
+
+/*
+ * Korean has no inter-word ascender rhythm to lean on, so body copy needs more
+ * leading than a Latin-only site and must not be justified.
+ */
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* `word-break: keep-all` stops Korean from breaking mid-word; headings then
+   need an explicit balance so they do not leave a single orphaned word. */
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
