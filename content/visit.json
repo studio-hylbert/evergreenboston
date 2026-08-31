@@ -1,3 +1,18 @@
 {
-  "transit": []
+  "transit": [
+    {
+      "mode": { "ko": "그린라인 C", "en": "Green Line C" },
+      "detail": {
+        "ko": "Dean Road역 바로 앞입니다. 도보 1분.",
+        "en": "Dean Road is directly outside — a one-minute walk."
+      }
+    },
+    {
+      "mode": { "ko": "그린라인 D", "en": "Green Line D" },
+      "detail": {
+        "ko": "Beaconsfield역에서 도보 3분.",
+        "en": "Three minutes on foot from Beaconsfield."
+      }
+    }
+  ]
 }

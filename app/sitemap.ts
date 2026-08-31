@@ -1,20 +1,24 @@
 import type { MetadataRoute } from "next";
-import { nav } from "@/lib/nav";
-
-/**
- * `NEXT_PUBLIC_SITE_URL` is filled by the deploy workflow from the Pages
- * configuration, so the canonical origin is not written down twice. Moving to
- * the church's own domain needs no change here.
- */
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000";
+import { locales } from "@/lib/i18n";
+import { routePaths } from "@/lib/nav";
+import { siteUrl } from "@/lib/site-url";
 
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", ...nav.map((item) => item.href)];
+  const lastModified = new Date();
 
-  return routes.map((route) => ({
-    url: `${siteUrl}${route}/`,
-    lastModified: new Date(),
-  }));
+  return locales.flatMap((locale) =>
+    routePaths.map((route) => ({
+      url: `${siteUrl}/${locale}${route ? `/${route}` : ""}/`,
+      lastModified,
+      // Each page points at its counterpart, so a search engine treats the two
+      // trees as one site in two languages rather than duplicate content.
+      alternates: {
+        languages: Object.fromEntries(
+          locales.map((l) => [l, `${siteUrl}/${l}${route ? `/${route}` : ""}/`])
+        ),
+      },
+    }))
+  );
 }

@@ -3,15 +3,28 @@ import PageHeader from "@/components/PageHeader";
 import SermonCard from "@/components/SermonCard";
 import SermonPlayer from "@/components/SermonPlayer";
 import { fetchVideos } from "@/lib/youtube";
-import { formatKoreanDate } from "@/lib/format";
+import { formatDate } from "@/lib/format";
+import { ui } from "@/lib/ui";
+import type { Locale } from "@/lib/i18n";
+import { alternatesFor } from "@/lib/site-url";
 import site from "@/content/site.json";
 
-export const metadata: Metadata = {
-  title: "설교 영상",
-  description: "주일예배 말씀을 다시 들으실 수 있습니다.",
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: Locale }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return {
+    alternates: alternatesFor(lang, "sermons"),
+    title: ui[lang].sermons.title,
+    description: ui[lang].sermons.description,
+  };
+}
 
-export default async function SermonsPage() {
+export default async function SermonsPage({ params }: { params: Promise<{ lang: Locale }> }) {
+  const { lang } = await params;
+  const strings = ui[lang];
   const videos = await fetchVideos();
   const sermons = videos.filter((video) => video.isSermon);
   const [latest, ...earlier] = sermons;
@@ -19,21 +32,18 @@ export default async function SermonsPage() {
 
   return (
     <>
-      <PageHeader
-        title="설교 영상"
-        description="주일예배 말씀은 예배 후 유튜브에 올라옵니다. 여기에서 다시 들으실 수 있습니다."
-      />
+      <PageHeader title={strings.sermons.title} description={strings.sermons.description} />
 
       <div className="mx-auto max-w-5xl px-6 py-14">
         {latest ? (
           <section>
             <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
-              가장 최근 말씀
+              {strings.sermons.latest}
             </h2>
             <div className="mt-4 grid gap-8 lg:grid-cols-[3fr_2fr] lg:items-center">
-              <SermonPlayer video={latest} />
+              <SermonPlayer video={latest} playLabel={strings.sermons.play} />
               <div>
-                <p className="text-sm text-ink-soft">{formatKoreanDate(latest.date)}</p>
+                <p className="text-sm text-ink-soft">{formatDate(latest.date, lang)}</p>
                 <h3 className="mt-2 font-serif text-2xl leading-snug text-forest-deep">
                   {latest.title ?? latest.rawTitle}
                 </h3>
@@ -48,11 +58,11 @@ export default async function SermonsPage() {
         {earlier.length > 0 ? (
           <section className="mt-16">
             <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
-              지난 말씀
+              {strings.sermons.past}
             </h2>
             <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {earlier.map((video) => (
-                <SermonCard key={video.videoId} video={video} />
+                <SermonCard key={video.videoId} video={video} locale={lang} />
               ))}
             </div>
           </section>
@@ -61,11 +71,11 @@ export default async function SermonsPage() {
         {other.length > 0 ? (
           <section className="mt-16">
             <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
-              교회 영상
+              {strings.sermons.other}
             </h2>
             <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
               {other.map((video) => (
-                <SermonCard key={video.videoId} video={video} />
+                <SermonCard key={video.videoId} video={video} locale={lang} />
               ))}
             </div>
           </section>
@@ -76,16 +86,16 @@ export default async function SermonsPage() {
           stays on YouTube rather than being mirrored here.
         */}
         <p className="mt-16 border-t border-ink/10 pt-6 text-sm text-ink-soft">
-          더 지난 말씀은{" "}
+          {strings.sermons.archivePrefix}
           <a
             href={site.social.youtube}
             target="_blank"
             rel="noreferrer"
             className="text-forest underline underline-offset-4"
           >
-            유튜브 채널
+            {strings.sermons.archiveLink}
           </a>
-          에서 보실 수 있습니다.
+          {strings.sermons.archiveSuffix}
         </p>
       </div>
     </>

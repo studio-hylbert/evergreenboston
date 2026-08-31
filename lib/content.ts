@@ -2,6 +2,7 @@ import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
 import { marked } from "marked";
+import type { Locale, Localized } from "./i18n";
 
 /**
  * Narrative copy lives as markdown with front matter rather than in TypeScript,
@@ -17,8 +18,8 @@ const CONTENT_DIR = path.join(process.cwd(), "content");
  * this rather than inferring from the file.
  */
 export type TransitRow = {
-  mode: string;
-  detail: string;
+  mode: Localized;
+  detail: Localized;
 };
 
 export type Page = {
@@ -31,8 +32,8 @@ export type Page = {
  * Read at build time only. A missing or malformed file stops the build rather
  * than rendering a page with a hole in it.
  */
-export function loadPage(slug: string): Page {
-  const file = path.join(CONTENT_DIR, "pages", `${slug}.md`);
+export function loadPage(slug: string, locale: Locale): Page {
+  const file = path.join(CONTENT_DIR, "pages", `${slug}.${locale}.md`);
   if (!fs.existsSync(file)) {
     throw new Error(`Content page not found: ${file}`);
   }

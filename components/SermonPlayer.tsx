@@ -8,7 +8,13 @@ import type { Video } from "@/lib/youtube";
  * play, and playback then runs through youtube-nocookie.com, so someone who
  * only reads the page is never handed a YouTube cookie.
  */
-export default function SermonPlayer({ video }: { video: Video }) {
+export default function SermonPlayer({
+  video,
+  playLabel,
+}: {
+  video: Video;
+  playLabel: string;
+}) {
   const [playing, setPlaying] = useState(false);
 
   if (playing) {
@@ -47,7 +53,7 @@ export default function SermonPlayer({ video }: { video: Video }) {
           </svg>
         </span>
       </span>
-      <span className="sr-only">{video.title ?? video.rawTitle} 재생</span>
+      <span className="sr-only">{`${video.title ?? video.rawTitle} — ${playLabel}`}</span>
     </button>
   );
 }

@@ -2,22 +2,28 @@
   "services": [
     {
       "id": "sunday",
-      "name": "주일예배",
-      "day": "주일",
-      "time": "오후 2:00",
-      "location": "2층 Music Room",
+      "name": { "ko": "주일예배", "en": "Sunday Worship" },
+      "day": { "ko": "주일", "en": "Sunday" },
+      "time": { "ko": "오후 2:00", "en": "2:00 PM" },
+      "location": { "ko": "2층 Music Room", "en": "Music Room, second floor" },
       "recorded": true,
-      "description": "온 세대가 함께 드리는 예배입니다. 예배 후 간단한 식사를 함께합니다."
+      "description": {
+        "ko": "온 세대가 함께 드리는 예배입니다. 예배 후 간단한 식사를 함께합니다.",
+        "en": "One service for every generation, held in Korean. A light meal follows."
+      }
     },
     {
       "id": "dawn",
-      "name": "이른아침기도회",
-      "day": "화–토",
-      "time": "오전 6:00",
-      "location": "Zoom",
+      "name": { "ko": "이른아침기도회", "en": "Early Morning Prayer" },
+      "day": { "ko": "화–토", "en": "Tue–Sat" },
+      "time": { "ko": "오전 6:00", "en": "6:00 AM" },
+      "location": { "ko": "Zoom", "en": "Zoom" },
       "recorded": false,
       "zoomUrl": "",
-      "description": "화요일부터 토요일까지 매일 아침 온라인으로 함께 기도합니다."
+      "description": {
+        "ko": "화요일부터 토요일까지 매일 아침 온라인으로 함께 기도합니다.",
+        "en": "Praying together online, Tuesday through Saturday."
+      }
     }
   ],
   "kakaoJoinCode": "1773"

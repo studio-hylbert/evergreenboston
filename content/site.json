@@ -3,9 +3,15 @@
     "ko": "보스톤늘푸른교회",
     "en": "The Evergreen Church of Boston"
   },
-  "mission": "우리는 보스톤으로 오는 나그네들에게 복음을 전하고 예수님의 제자로 삼아 세상으로 파송하는 공동체입니다",
+  "mission": {
+    "ko": "우리는 보스톤으로 오는 나그네들에게 복음을 전하고 예수님의 제자로 삼아 세상으로 파송하는 공동체입니다",
+    "en": "A community that carries the gospel to those who come to Boston as sojourners, makes them disciples of Jesus, and sends them into the world"
+  },
   "denomination": {
-    "name": "미주한인예수교장로회 (KAPC)",
+    "name": {
+      "ko": "미주한인예수교장로회 (KAPC)",
+      "en": "Korean American Presbyterian Church (KAPC)"
+    },
     "url": "https://www.kapc.org"
   },
   "address": {
@@ -13,7 +19,10 @@
     "city": "Brookline",
     "state": "MA",
     "zip": "02445",
-    "note": "All Saints Parish 예배당을 함께 사용합니다",
+    "note": {
+      "ko": "All Saints Parish 예배당을 함께 사용합니다",
+      "en": "We share the All Saints Parish building"
+    },
     "mapUrl": "https://maps.app.goo.gl/mCynJnXsTwU8EQgYA",
     "lat": 42.3373296,
     "lng": -71.1422027

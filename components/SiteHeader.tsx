@@ -4,52 +4,60 @@ import { useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import EvergreenMark from "./EvergreenMark";
+import LocaleSwitcher from "./LocaleSwitcher";
 import site from "@/content/site.json";
-import { nav } from "@/lib/nav";
+import { navFor } from "@/lib/nav";
+import { ui } from "@/lib/ui";
+import { otherLocale, t, type Locale } from "@/lib/i18n";
 
-export default function SiteHeader() {
+export default function SiteHeader({ locale }: { locale: Locale }) {
   const [open, setOpen] = useState(false);
   const pathname = usePathname();
+  const nav = navFor(locale);
+  const strings = ui[locale];
 
-  /* `trailingSlash` means the current path arrives as `/worship/`. */
+  /* `trailingSlash` means the current path arrives as `/ko/worship/`. */
   const isCurrent = (href: string) => pathname.replace(/\/$/, "") === href;
 
   return (
     <header className="sticky top-0 z-50 border-b border-ink/10 bg-paper/90 backdrop-blur">
       <div className="mx-auto flex max-w-5xl items-center justify-between gap-4 px-6 py-4">
         <Link
-          href="/"
+          href={`/${locale}`}
           className="flex items-center gap-2.5 text-forest"
           onClick={() => setOpen(false)}
         >
           <EvergreenMark className="h-7 w-7" />
           <span className="flex flex-col leading-tight">
-            <span className="font-serif text-lg font-semibold">{site.name.ko}</span>
+            <span className="font-serif text-lg font-semibold">{t(site.name, locale)}</span>
             <span className="text-[0.68rem] tracking-wide text-ink-soft">
-              {site.name.en}
+              {t(site.name, otherLocale(locale))}
             </span>
           </span>
         </Link>
 
-        <nav aria-label="주 메뉴" className="hidden md:block">
-          <ul className="flex items-center gap-7 text-sm">
-            {nav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={isCurrent(item.href) ? "page" : undefined}
-                  className={
-                    isCurrent(item.href)
-                      ? "text-forest underline decoration-brass decoration-2 underline-offset-8"
-                      : "text-ink-soft hover:text-forest"
-                  }
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
+        <div className="hidden items-center gap-7 md:flex">
+          <nav aria-label={strings.header.mainMenu}>
+            <ul className="flex items-center gap-7 text-sm">
+              {nav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={isCurrent(item.href) ? "page" : undefined}
+                    className={
+                      isCurrent(item.href)
+                        ? "text-forest underline decoration-brass decoration-2 underline-offset-8"
+                        : "text-ink-soft hover:text-forest"
+                    }
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
+          <LocaleSwitcher locale={locale} />
+        </div>
 
         <button
           type="button"
@@ -58,19 +66,17 @@ export default function SiteHeader() {
           aria-controls="mobile-nav"
           className="-mr-2 p-2 text-forest md:hidden"
         >
-          <span className="sr-only">메뉴 {open ? "닫기" : "열기"}</span>
+          <span className="sr-only">
+            {open ? strings.header.closeMenu : strings.header.openMenu}
+          </span>
           <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round">
-            {open ? (
-              <path d="M6 6l12 12M18 6L6 18" />
-            ) : (
-              <path d="M4 7h16M4 12h16M4 17h16" />
-            )}
+            {open ? <path d="M6 6l12 12M18 6L6 18" /> : <path d="M4 7h16M4 12h16M4 17h16" />}
           </svg>
         </button>
       </div>
 
       {open ? (
-        <nav id="mobile-nav" aria-label="주 메뉴" className="border-t border-ink/10 md:hidden">
+        <nav id="mobile-nav" aria-label={strings.header.mainMenu} className="border-t border-ink/10 md:hidden">
           <ul className="mx-auto max-w-5xl px-6 py-2">
             {nav.map((item) => (
               <li key={item.href}>
@@ -86,6 +92,9 @@ export default function SiteHeader() {
                 </Link>
               </li>
             ))}
+            <li className="border-t border-ink/10 py-3">
+              <LocaleSwitcher locale={locale} />
+            </li>
           </ul>
         </nav>
       ) : null}

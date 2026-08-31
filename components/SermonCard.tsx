@@ -1,7 +1,14 @@
 import type { Video } from "@/lib/youtube";
-import { formatKoreanDate } from "@/lib/format";
+import { formatDate } from "@/lib/format";
+import type { Locale } from "@/lib/i18n";
 
-export default function SermonCard({ video }: { video: Video }) {
+export default function SermonCard({
+  video,
+  locale,
+}: {
+  video: Video;
+  locale: Locale;
+}) {
   return (
     <a
       href={video.url}
@@ -24,7 +31,12 @@ export default function SermonCard({ video }: { video: Video }) {
         />
       </div>
       <div className="p-4">
-        <p className="text-xs text-ink-soft">{formatKoreanDate(video.date)}</p>
+        <p className="text-xs text-ink-soft">{formatDate(video.date, locale)}</p>
+        {/*
+          Sermon titles come from YouTube and are written in Korean, so they
+          stay in Korean on the English pages too. There is nothing to translate
+          them from.
+        */}
         <h3 className="mt-1.5 font-serif text-base leading-snug text-forest-deep">
           {video.title ?? video.rawTitle}
         </h3>

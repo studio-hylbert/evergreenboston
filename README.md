@@ -21,17 +21,18 @@ npm run lint
 
 ```
 app/
-  page.tsx          홈. 예배 시간과 오시는 길을 최상단에 둔다
-  about/            교회 소개
-  worship/          예배 안내, 처음 오시는 분께
-  sermons/          설교 영상 (유튜브에서 자동으로 채워진다)
-  community/        모임과 소식
-  visit/            찾아오시는 길
+  [lang]/           ko와 en 두 트리가 빌드 시점에 모두 생성된다
+    layout.tsx      <html lang>, 폰트, 헤더/푸터
+    page.tsx        홈. 예배 시간과 오시는 길을 최상단에 둔다
+    about/ worship/ sermons/ community/ visit/
   sitemap.ts robots.ts
-components/         SiteHeader, SiteFooter, SermonCard, SermonPlayer,
-                    PageHeader, Prose, SectionHeading, EvergreenMark
+public/index.html   / 로 들어온 방문자의 언어를 감지해 보내는 shim
+components/         SiteHeader, SiteFooter, LocaleSwitcher, SermonCard,
+                    SermonPlayer, PageHeader, Prose, SectionHeading,
+                    EvergreenMark
 content/            모든 문구와 데이터. 컴포넌트 안에 콘텐츠를 두지 않는다
-lib/                youtube.ts, content.ts, nav.ts, asset.ts, format.ts
+lib/                i18n.ts, ui.ts, youtube.ts, content.ts, nav.ts,
+                    asset.ts, format.ts, site-url.ts
 public/images/      임시 이미지. 출처는 IMAGE-CREDITS.md 참고
 ```
 
@@ -59,6 +60,37 @@ Sveltia CMS나 Pages CMS를 `content/`에 연결하기만 하면 되고, 페이�
 
 라우팅은 예외다. `lib/nav.ts`의 각 항목은 실제 디렉토리가 있어야 동작하므로,
 CMS 편집자가 경로를 바꿔 링크가 깨지는 일이 없도록 코드에 둔다.
+
+## 한국어 / 영어
+
+`/ko`와 `/en` 두 정적 트리를 빌드 시점에 모두 생성한다. 검색엔진은 양쪽을 각각 색인하고,
+각 페이지는 자기 자신을 `canonical`로, 같은 페이지의 다른 언어를 `hreflang`으로 가리킨다.
+
+**언어 감지는 브라우저에서 한다.** 정적 export에는 서버가 없어서 `Accept-Language`를
+협상할 수 없고, `output: export`에서는 middleware도 동작하지 않는다. 그래서 `/`는
+`public/index.html`이라는 얇은 shim이다. 이 파일은:
+
+1. `localStorage`에 저장된 선택을 먼저 본다 (헤더의 언어 전환 버튼이 기록한다)
+2. 없으면 `navigator.languages`를 본다
+3. 어느 쪽도 아니면 한국어로 보낸다. 교회가 예배드리는 언어이기 때문이다
+
+이 파일은 `public/`에서 그대로 복사되므로 **Next가 `basePath`를 적용하지 않는다.**
+그래서 모든 링크가 상대 경로다. 절대 경로로 쓰면 `/<repo>` 아래에서 깨진다.
+
+JavaScript가 꺼져 있으면 두 언어 링크가 보인다.
+
+### 어디에 무엇을 넣는가
+
+| | 무엇 | 어디 |
+|---|---|---|
+| 교회가 관리 | 예배 시간, 주소, 교회 소개 문구 | `content/` — 값 자체가 `{ "ko": …, "en": … }` |
+| 개발자가 관리 | 버튼·메뉴·섹션 제목 | `lib/ui.ts` |
+
+교회 콘텐츠는 한 파일 안에 두 언어를 나란히 둔다. 주소나 시각처럼 언어와 무관한 값은
+하나만 두어, 한쪽만 고쳐서 어긋나는 일이 없게 한다.
+
+**설교 제목은 영어 페이지에서도 한국어로 나온다.** 유튜브 업로드 제목이 원본이고,
+번역할 대상이 없다.
 
 ## 설교 영상 자동 갱신
 
