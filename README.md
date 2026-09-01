@@ -169,6 +169,19 @@ API 키도 할당량도 필요 없다. 넘겨줄 비밀값이 생기지 않는�
 
 ## 배포
 
+사이트 주소는 **https://evergreenboston.org** 이다. `www`와 옛 주소
+`studio-hylbert.github.io/evergreenboston`은 모두 이곳으로 301 된다.
+
+도메인은 Cloudflare에 등록되어 있고 DNS도 Cloudflare가 맡는다. GitHub Pages를
+가리키는 레코드는 apex의 A 4개와 AAAA 4개, 그리고 `www` CNAME이다.
+**전부 프록시를 끈 상태(회색 구름)여야 한다.** 프록시를 켜면 GitHub이
+인증서를 발급하지 못한다.
+
+커스텀 도메인 자체는 저장소가 아니라 GitHub의 Pages 설정에 저장된다.
+`actions/configure-pages`가 그 설정에서 주소와 하위 경로를 읽어오므로,
+도메인을 바꿔도 코드는 손대지 않는다.
+
+
 `main`에 푸시하면 `.github/workflows/deploy.yml`이 lint → build → 배포까지 수행한다.
 손으로 실행할 것은 없다.
 
@@ -176,8 +189,8 @@ API 키도 할당량도 필요 없다. 넘겨줄 비밀값이 생기지 않는�
 
 | 변수 | 용도 |
 | --- | --- |
-| `NEXT_PUBLIC_BASE_PATH` | 사이트가 서비스되는 하위 경로. 조직의 프로젝트 저장소는 `/<repo>`에서 서비스되므로 이 값이 맞지 않으면 모든 에셋이 404가 난다 |
-| `NEXT_PUBLIC_SITE_URL` | `sitemap.xml`과 Open Graph 태그의 정식 주소 |
+| `NEXT_PUBLIC_BASE_PATH` | 사이트가 서비스되는 하위 경로. **커스텀 도메인에서는 빈 값**이고, `<org>.github.io/<repo>`로 서비스될 때만 `/<repo>`가 된다. 맞지 않으면 모든 에셋이 404가 난다 |
+| `NEXT_PUBLIC_SITE_URL` | `sitemap.xml`, canonical, hreflang, Open Graph의 정식 주소 |
 
 둘 다 `actions/configure-pages`가 채우므로 저장소에 중복해 적지 않는다.
 나중에 교회 도메인으로 옮길 때도 저장소 Pages 설정만 바꾸면 되고 코드는 그대로다.
@@ -185,9 +198,7 @@ API 키도 할당량도 필요 없다. 넘겨줄 비밀값이 생기지 않는�
 배포된 빌드를 로컬에서 재현하려면:
 
 ```bash
-NEXT_PUBLIC_BASE_PATH=/evergreenboston \
-NEXT_PUBLIC_SITE_URL=https://studio-hylbert.github.io/evergreenboston \
-  npm run build
+NEXT_PUBLIC_SITE_URL=https://evergreenboston.org npm run build
 npx serve out
 ```
 
