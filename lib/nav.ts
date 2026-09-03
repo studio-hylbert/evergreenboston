@@ -8,7 +8,7 @@ import { ui } from "./ui";
  */
 export type NavItem = { href: string; label: string };
 
-const routes = ["about", "worship", "sermons", "community", "visit"] as const;
+const routes = ["about", "pastor", "worship", "sermons", "community", "visit"] as const;
 
 export function navFor(locale: Locale): NavItem[] {
   return routes.map((route) => ({

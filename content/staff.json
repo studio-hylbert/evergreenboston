@@ -1,0 +1,222 @@
+{
+  "seniorPastor": {
+    "name": { "ko": "이진택", "en": "Jintaek Lee" },
+    "role": { "ko": "담임목사", "en": "Senior Pastor" },
+    "tenure": { "ko": "2011 – 현재", "en": "2011 – present" },
+    "family": {
+      "ko": "한 아내의 남편, 네 아이들의 아빠입니다.",
+      "en": "Husband to one wife, father to four children."
+    },
+    "photo": "",
+    "photoAlt": { "ko": "", "en": "" },
+    "heart": {
+      "ko": "예수님 안에 풍성한 은혜로 사람들의 삶 속에 ‘하나님의 나라’를 세우는 것을 사명으로 삼고 있습니다. 설교와 성경공부, 영성상담, 영적 동행을 통해 공동체가 서로를 품고 치유하는 하나님의 가족이 되도록 섬기고 있습니다.",
+      "en": "His calling is to build the kingdom of God into people's lives out of the abundant grace found in Jesus. Through preaching, Bible study, spiritual counselling and spiritual companionship, he serves so that the congregation becomes a family of God that holds and heals one another."
+    },
+    "quotes": [
+      {
+        "id": "vision",
+        "text": {
+          "ko": "모든 세대가 한 언어로 (한국어) 하나님의 말씀을 묵상하는 공동체.",
+          "en": "A community where every generation meditates on the word of God in one language — Korean."
+        }
+      },
+      {
+        "id": "wish",
+        "text": {
+          "ko": "내 먼지를 보스톤늘푸른교회 가든에 뿌려주세요.",
+          "en": "Scatter my dust in the garden of the Evergreen Church of Boston."
+        }
+      }
+    ],
+    "priorWork": [
+      { "ko": "생선가게 알바", "en": "Fishmonger's assistant" },
+      { "ko": "다양한 한국식당 (서버, 호스트, 회계)", "en": "Korean restaurants (server, host, bookkeeping)" },
+      { "ko": "세탁소 카운터", "en": "Dry cleaner's counter" },
+      { "ko": "학교 (청소부, 서점 점원, 도서관 사서)", "en": "Schools (custodian, bookstore clerk, librarian)" },
+      { "ko": "일식당 스시맨", "en": "Sushi chef, Japanese restaurant" },
+      { "ko": "뚜레쥬르 제빵보조", "en": "Baker's assistant, Tous les Jours" },
+      { "ko": "Uber", "en": "Uber" },
+      { "ko": "U.S.P.S. Brookline 우체부", "en": "U.S.P.S. Brookline, letter carrier" }
+    ],
+    "journey": [
+      {
+        "year": { "ko": "2000", "en": "2000" },
+        "detail": {
+          "ko": "보스톤늘푸른교회 송구영신예배 중 성령체험",
+          "en": "Encountered the Holy Spirit during the Evergreen Church of Boston's New Year's Eve service"
+        }
+      },
+      {
+        "year": { "ko": "2000", "en": "2000" },
+        "detail": {
+          "ko": "보스톤늘푸른교회 등록 교인",
+          "en": "Became a member of the Evergreen Church of Boston"
+        }
+      },
+      {
+        "year": { "ko": "2005 – 2011", "en": "2005 – 2011" },
+        "detail": {
+          "ko": "보스톤늘푸른교회 교육 전도사, 청년·청소년 사역",
+          "en": "Education minister at the Evergreen Church of Boston, serving young adults and youth"
+        }
+      },
+      {
+        "year": { "ko": "2011 – 현재", "en": "2011 – present" },
+        "detail": {
+          "ko": "보스톤늘푸른교회 제2대 담임 교역자",
+          "en": "Second senior pastor of the Evergreen Church of Boston"
+        }
+      },
+      {
+        "year": { "ko": "2012", "en": "2012" },
+        "detail": {
+          "ko": "미주한인예수교장로회 (KAPC) 목사 안수",
+          "en": "Ordained by the Korean American Presbyterian Church (KAPC)"
+        }
+      },
+      {
+        "year": { "ko": "2023 – 현재", "en": "2023 – present" },
+        "detail": {
+          "ko": "응급병동·호스피스 등 영적 돌봄 제공",
+          "en": "Providing spiritual care in emergency departments, hospice and similar settings"
+        }
+      }
+    ],
+    "training": [
+      {
+        "year": { "ko": "1996", "en": "1996" },
+        "detail": {
+          "ko": "경북 국립안동대학교 국학부 동양철학과",
+          "en": "Andong National University, Gyeongbuk. Korean Studies, Eastern Philosophy"
+        }
+      },
+      {
+        "year": { "ko": "1997 – 1999", "en": "1997 – 1999" },
+        "detail": {
+          "ko": "대한민국 해군 병장 제대",
+          "en": "Republic of Korea Navy, completed service as a sergeant"
+        }
+      },
+      {
+        "year": { "ko": "2001 – 2005", "en": "2001 – 2005" },
+        "detail": {
+          "ko": "Gordon College, MA. 사회학·사회복지학 학사",
+          "en": "Gordon College, MA. Bachelor of Sociology & Social Work"
+        }
+      },
+      {
+        "year": { "ko": "2002", "en": "2002" },
+        "detail": {
+          "ko": "Oregon Extension Program, Oregon",
+          "en": "Oregon Extension Program, Oregon"
+        }
+      },
+      {
+        "year": { "ko": "2003 – 2004", "en": "2003 – 2004" },
+        "detail": {
+          "ko": "Wycliffe Hall, Oxford University, England. 방문 학생",
+          "en": "Wycliffe Hall, Oxford University, England. Visiting student"
+        }
+      },
+      {
+        "year": { "ko": "2010 – 2014", "en": "2010 – 2014" },
+        "detail": {
+          "ko": "Gordon-Conwell Theological Seminary, MA. 목회학 석사 (M.Div.)",
+          "en": "Gordon-Conwell Theological Seminary, MA. Master of Divinity"
+        }
+      },
+      {
+        "year": { "ko": "2017 – 2019", "en": "2017 – 2019" },
+        "detail": {
+          "ko": "Boston College, MA. 영성 형성(Spiritual Formation) 석사 후 과정 수료",
+          "en": "Boston College, MA. Post-Master's Certificate, Spiritual Formation"
+        }
+      },
+      {
+        "year": { "ko": "2019 – 현재", "en": "2019 – present" },
+        "detail": {
+          "ko": "미 육군 예비군 군종목사 (소령)",
+          "en": "U.S. Army Reserve Chaplain (Major)"
+        }
+      },
+      {
+        "year": { "ko": "", "en": "" },
+        "detail": {
+          "ko": "군사정보대대 군종목사",
+          "en": "Military Intelligence Battalion Chaplain"
+        }
+      },
+      {
+        "year": { "ko": "", "en": "" },
+        "detail": {
+          "ko": "야전병원 군종목사",
+          "en": "Field Hospital Chaplain"
+        }
+      },
+      {
+        "year": { "ko": "2019", "en": "2019" },
+        "detail": {
+          "ko": "U.S. Army Institute for Religious Leadership Graduate School, SC. 군종장교 기초과정",
+          "en": "U.S. Army Institute for Religious Leadership Graduate School, SC. Chaplain Basic Officer Leadership Course"
+        }
+      },
+      {
+        "year": { "ko": "2021", "en": "2021" },
+        "detail": {
+          "ko": "군종 대위 보수과정 (Chaplain Captain Career Course)",
+          "en": "Chaplain Captain Career Course"
+        }
+      },
+      {
+        "year": { "ko": "2023", "en": "2023" },
+        "detail": {
+          "ko": "전투 의무사역 과정 (Combat Medical Ministry Course)",
+          "en": "Combat Medical Ministry Course"
+        }
+      },
+      {
+        "year": { "ko": "2023", "en": "2023" },
+        "detail": {
+          "ko": "U.S. Army Master Resilience School. 회복탄력성 지도자 과정",
+          "en": "U.S. Army Master Resilience School, Master Resilience Trainer Course"
+        }
+      },
+      {
+        "year": { "ko": "2023 – 2024", "en": "2023 – 2024" },
+        "detail": {
+          "ko": "Pathway Healthcare, Westwood, MA. 호스피스 채플린 (Per Diem)",
+          "en": "Pathway Healthcare, Westwood, MA. Hospice Chaplain (Per Diem)"
+        }
+      },
+      {
+        "year": { "ko": "2024 – 2025", "en": "2024 – 2025" },
+        "detail": {
+          "ko": "Brooke Army Medical Center, San Antonio, TX. 임상목회교육(CPE) 레지던트 4단위",
+          "en": "Brooke Army Medical Center, San Antonio, TX. Clinical Pastoral Education (CPE) residency, four units"
+        }
+      },
+      {
+        "year": { "ko": "2025", "en": "2025" },
+        "detail": {
+          "ko": "San Antonio Marathon, TX",
+          "en": "San Antonio Marathon, TX"
+        }
+      },
+      {
+        "year": { "ko": "2024 – 현재", "en": "2024 – present" },
+        "detail": {
+          "ko": "Wesley Theological Seminary, Washington D.C. 목회학 박사 (D.Min.), 영성과 정신건강",
+          "en": "Wesley Theological Seminary, Washington D.C. Doctor of Ministry, Spirituality and Mental Health"
+        }
+      },
+      {
+        "year": { "ko": "2026", "en": "2026" },
+        "detail": {
+          "ko": "전문 채플린 인증 (Board Certified Chaplain)",
+          "en": "Board Certified Chaplain certification"
+        }
+      }
+    ]
+  }
+}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import PageHeader from "@/components/PageHeader";
 import Prose from "@/components/Prose";
 import { loadPage } from "@/lib/content";
@@ -6,6 +7,7 @@ import { ui } from "@/lib/ui";
 import { t, type Locale } from "@/lib/i18n";
 import { alternatesFor } from "@/lib/site-url";
 import site from "@/content/site.json";
+import staff from "@/content/staff.json";
 
 export async function generateMetadata({
   params,
@@ -33,6 +35,17 @@ export default async function AboutPage({ params }: { params: Promise<{ lang: Lo
         <Prose html={page.html} />
 
         <dl className="mt-14 max-w-2xl divide-y divide-ink/10 border-t border-ink/10 text-sm">
+          <div className="flex gap-6 py-4">
+            <dt className="w-28 shrink-0 text-ink-soft">{strings.nav.pastor}</dt>
+            <dd>
+              <Link
+                href={`/${lang}/pastor`}
+                className="text-forest underline underline-offset-4"
+              >
+                {t(staff.seniorPastor.name, lang)}
+              </Link>
+            </dd>
+          </div>
           <div className="flex gap-6 py-4">
             <dt className="w-28 shrink-0 text-ink-soft">
               {lang === "ko" ? "교단" : "Denomination"}

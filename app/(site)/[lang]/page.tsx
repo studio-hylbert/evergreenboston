@@ -11,6 +11,7 @@ import { otherLocale, t, type Locale } from "@/lib/i18n";
 import { alternatesFor } from "@/lib/site-url";
 import site from "@/content/site.json";
 import worship from "@/content/worship.json";
+import staff from "@/content/staff.json";
 
 export async function generateMetadata({
   params,
@@ -28,6 +29,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
   const sermons = videos.filter((video) => video.isSermon).slice(0, 3);
   const sunday = worship.services.find((service) => service.id === "sunday");
   const dawn = worship.services.find((service) => service.id === "dawn");
+  const vision = staff.seniorPastor.quotes.find((quote) => quote.id === "vision");
 
   return (
     <>
@@ -159,6 +161,37 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
           ))}
         </div>
       </section>
+
+      {/*
+        The pastor's stated vision, in his own words. It says the same thing as
+        /about — every generation in one room, in Korean — but a sentence
+        someone signed his name to carries it further than a list of values,
+        and it gives the homepage a door to who leads the church.
+      */}
+      {vision ? (
+        <section className="border-y border-ink/10 bg-tint">
+          <div className="mx-auto max-w-5xl px-6 py-16">
+            <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
+              {strings.home.visionEyebrow}
+            </h2>
+            <blockquote className="mt-4 max-w-3xl font-serif text-2xl leading-relaxed text-heading sm:text-3xl">
+              “{t(vision.text, lang)}”
+            </blockquote>
+            <p className="mt-6 text-sm text-ink-soft">
+              {strings.pastor.byline(
+                t(staff.seniorPastor.name, lang),
+                t(staff.seniorPastor.role, lang)
+              )}
+            </p>
+            <Link
+              href={`/${lang}/pastor`}
+              className="mt-2 inline-block text-sm text-forest underline underline-offset-4"
+            >
+              {strings.home.pastorCta}
+            </Link>
+          </div>
+        </section>
+      ) : null}
 
       <section className="border-t border-ink/10 bg-paper-sunk">
         <div className="mx-auto max-w-5xl px-6 py-16">

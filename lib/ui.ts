@@ -9,7 +9,14 @@ import type { Locale, Localized } from "./i18n";
  * there should not be able to rename a button.
  */
 type UiStrings = {
-  nav: { about: string; worship: string; sermons: string; community: string; visit: string };
+  nav: {
+    about: string;
+    pastor: string;
+    worship: string;
+    sermons: string;
+    community: string;
+    visit: string;
+  };
   header: { openMenu: string; closeMenu: string; mainMenu: string };
   home: {
     visitCta: string;
@@ -26,6 +33,18 @@ type UiStrings = {
     gatherTitle: string;
     gatherDescription: string;
     followHere: string;
+    visionEyebrow: string;
+    pastorCta: string;
+  };
+  pastor: {
+    /* "이진택 담임목사" reads naturally; English needs the comma. */
+    byline: (name: string, role: string) => string;
+    heart: string;
+    vision: string;
+    wish: string;
+    priorWork: string;
+    journey: string;
+    training: string;
   };
   worship: {
     title: string;
@@ -80,7 +99,14 @@ type UiStrings = {
 
 export const ui: Record<Locale, UiStrings> = {
   ko: {
-    nav: { about: "교회 소개", worship: "예배", sermons: "설교 영상", community: "공동체", visit: "찾아오시는 길" },
+    nav: {
+      about: "교회 소개",
+      pastor: "담임목사",
+      worship: "예배",
+      sermons: "설교 영상",
+      community: "공동체",
+      visit: "찾아오시는 길",
+    },
     header: { openMenu: "메뉴 열기", closeMenu: "메뉴 닫기", mainMenu: "주 메뉴" },
     home: {
       visitCta: "찾아오시는 길",
@@ -97,6 +123,17 @@ export const ui: Record<Locale, UiStrings> = {
       gatherTitle: "이번 주 함께하는 자리",
       gatherDescription: "주일 외에도 한 주간 함께 모입니다.",
       followHere: "교회 소식은 이곳에서",
+      visionEyebrow: "비전",
+      pastorCta: "담임목사 소개",
+    },
+    pastor: {
+      byline: (name, role) => `${name} ${role}`,
+      heart: "사역의 마음",
+      vision: "비전",
+      wish: "유언",
+      priorWork: "이민 경력",
+      journey: "신앙 여정",
+      training: "학력 및 경력",
     },
     worship: {
       title: "예배",
@@ -149,7 +186,14 @@ export const ui: Record<Locale, UiStrings> = {
     switcher: { label: "언어" },
   },
   en: {
-    nav: { about: "About", worship: "Worship", sermons: "Sermons", community: "Community", visit: "Visit" },
+    nav: {
+      about: "About",
+      pastor: "Our Pastor",
+      worship: "Worship",
+      sermons: "Sermons",
+      community: "Community",
+      visit: "Visit",
+    },
     header: { openMenu: "Open menu", closeMenu: "Close menu", mainMenu: "Main menu" },
     home: {
       visitCta: "How to find us",
@@ -166,6 +210,17 @@ export const ui: Record<Locale, UiStrings> = {
       gatherTitle: "Through the week",
       gatherDescription: "We gather during the week as well as on Sunday.",
       followHere: "Where the church posts",
+      visionEyebrow: "Vision",
+      pastorCta: "About our pastor",
+    },
+    pastor: {
+      byline: (name, role) => `${name}, ${role}`,
+      heart: "The heart of his ministry",
+      vision: "Vision",
+      wish: "Last request",
+      priorWork: "Immigrant years",
+      journey: "Journey of faith",
+      training: "Education and service",
     },
     worship: {
       title: "Worship",
