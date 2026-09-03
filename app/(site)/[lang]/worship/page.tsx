@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
+import { asset } from "@/lib/asset";
 import { ui } from "@/lib/ui";
 import { t, type Locale } from "@/lib/i18n";
 import { alternatesFor } from "@/lib/site-url";
@@ -28,7 +29,26 @@ export default async function WorshipPage({ params }: { params: Promise<{ lang: 
       <PageHeader title={strings.worship.title} description={strings.worship.description} />
 
       <div className="mx-auto max-w-5xl px-6 py-14">
-        <div className="grid gap-6 sm:grid-cols-2">
+        {/*
+          Above the times rather than below them. Someone who has never been
+          asks "what is it like?" before "what time?", and this is the only
+          answer the page can give without them coming.
+        */}
+        <figure>
+          <picture>
+            {/* One file per viewport: the phone never downloads the 1600px crop. */}
+            <source media="(min-width: 768px)" srcSet={asset("/images/worship-service.jpg")} />
+            <img
+              src={asset("/images/worship-service-sm.jpg")}
+              alt={strings.worship.sceneAlt}
+              width={1600}
+              height={900}
+              className="w-full rounded-lg"
+            />
+          </picture>
+        </figure>
+
+        <div className="mt-12 grid gap-6 sm:grid-cols-2">
           {worship.services.map((service) => (
             <article key={service.id} className="rounded-lg border border-ink/10 bg-card p-7">
               <div className="flex items-baseline justify-between gap-4">

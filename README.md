@@ -227,7 +227,7 @@ npx serve out
 유튜브 썸네일은 저장소에 복사하지 않고 `i.ytimg.com`에서 바로 가져온다.
 영상이 교체되어도 썸네일이 낡지 않는다.
 
-현재 이미지는 전부 임시다. 교회에서 실물 사진을 받으면 교체한다.
+히어로와 건물 사진은 아직 임시다. 교회에서 실물 사진을 받으면 교체한다.
 
 | 파일 | 내용 | 출처 | 라이선스 |
 |---|---|---|---|
@@ -235,11 +235,17 @@ npx serve out
 | `hero-forest*.jpg` | 안개 낀 침엽수림. 홈 히어로 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Fog_descending_on_a_pine_forest_(Unsplash).jpg) | **CC0** — 의무 없음 |
 | `church-exterior*.jpg` | 1773 Beacon St 건물 외관 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:All_Saints_Parish_Church_1773_Beacon_Street_Brookline_Massachusetts.jpg), 촬영 EgorovaSvetlana | **CC BY-SA 4.0** |
 | `church-tower.jpg` | 같은 건물, 세로 구도 | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:All_Saints_Parish_Church_Beacon_Street_Brookline_Massachusetts.jpg), 촬영 EgorovaSvetlana | **CC BY-SA 4.0** |
+| `worship-service*.jpg` | 2층 Music Room에서 드리는 주일예배. `/worship` | 교회의 기존 Wix 사이트 '소식' 페이지 (원본 2048×1152) | 교회 소유 |
 
 `church-*.jpg`는 CC BY-SA라 **출처 표기와 동일조건변경허락 의무**가 따른다.
 `/visit` 페이지에 촬영자와 라이선스를 링크로 표기하고 있고, 저장소의 파일은 원본을
 리사이즈한 2차적 저작물이므로 그 자체도 CC BY-SA 4.0으로 배포된다.
 사이트의 나머지 코드에는 영향이 없다. 교회 사진으로 교체하면 이 의무는 사라진다.
+
+`worship-service*.jpg`는 교회 사진이라 라이선스 의무가 없다. 다만 **교인 약 40명이
+찍혀 있다.** 대부분 뒤에서 잡아 얼굴이 크게 나오지 않지만, 교회의 기존 사이트에
+올라가 있던 사진을 검색에 색인되는 새 사이트로 옮기는 것은 노출 범위가 달라지는
+일이다. 게재 동의는 교회에 확인할 항목으로 남겨 두었다.
 
 이미지는 모두 픽셀 데이터만 남기고 재인코딩했다. 촬영 기기·시각·저작권 문자열 같은
 EXIF는 남아 있지 않다 (GPS는 원본에도 없었다).

@@ -49,6 +49,7 @@ type UiStrings = {
   worship: {
     title: string;
     description: string;
+    sceneAlt: string;
     recordedBadge: string;
     watchPast: string;
     joinZoom: string;
@@ -138,6 +139,8 @@ export const ui: Record<Locale, UiStrings> = {
     worship: {
       title: "예배",
       description: "온 세대가 함께 예배합니다.",
+      sceneAlt:
+        "위에서 내려다본 주일예배. 교인들이 자리에서 일어나 있고, 앞쪽에 목사가 서 있다. 왼쪽에 그랜드피아노가 있고 천장에 촛대형 샹들리에가 걸려 있다.",
       recordedBadge: "영상 제공",
       watchPast: "지난 예배 영상 보기",
       joinZoom: "Zoom으로 참여하기",
@@ -225,6 +228,8 @@ export const ui: Record<Locale, UiStrings> = {
     worship: {
       title: "Worship",
       description: "We worship together as one congregation, all ages in the same room.",
+      sceneAlt:
+        "Sunday worship seen from above. The congregation is standing and the pastor is at the front. A grand piano sits to the left, and candle-style chandeliers hang from the ceiling.",
       recordedBadge: "Recorded",
       watchPast: "Watch past services",
       joinZoom: "Join on Zoom",
