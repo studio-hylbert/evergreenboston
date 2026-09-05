@@ -14,6 +14,8 @@ type UiStrings = {
     pastor: string;
     worship: string;
     sermons: string;
+    news: string;
+    gallery: string;
     community: string;
     visit: string;
   };
@@ -28,6 +30,8 @@ type UiStrings = {
     sermonsEyebrow: string;
     sermonsTitle: string;
     sermonsDescription: string;
+    newsEyebrow: string;
+    newsTitle: string;
     viewAll: string;
     gatherEyebrow: string;
     gatherTitle: string;
@@ -45,6 +49,12 @@ type UiStrings = {
     priorWork: string;
     journey: string;
     training: string;
+    press: string;
+    /* Under the quoted opening line: who wrote it, and — in English — that
+       what is being read is our translation rather than the paper's words. */
+    pressAttribution: (reporter: string) => string;
+    /* The outlet is named in the link rather than left as a bare "read more". */
+    pressCta: (outlet: string) => string;
   };
   worship: {
     title: string;
@@ -65,6 +75,19 @@ type UiStrings = {
     archiveLink: string;
     archiveSuffix: string;
     play: string;
+  };
+  news: {
+    title: string;
+    description: string;
+    more: string;
+  };
+  gallery: {
+    title: string;
+    description: string;
+    /* "사진 3장" reads naturally; English needs the plural. */
+    photoCount: (count: number) => string;
+    openPhoto: string;
+    otherAlbums: string;
   };
   community: {
     title: string;
@@ -94,7 +117,7 @@ type UiStrings = {
     phoneLabel: string;
     buildingAlt: string;
   };
-  footer: { visit: string; times: string; browse: string; mapLink: string };
+  footer: { visit: string; times: string; browse: string; mapLink: string; updated: string };
   switcher: { label: string };
 };
 
@@ -105,6 +128,8 @@ export const ui: Record<Locale, UiStrings> = {
       pastor: "담임목사",
       worship: "예배",
       sermons: "설교 영상",
+      news: "소식",
+      gallery: "사진첩",
       community: "공동체",
       visit: "찾아오시는 길",
     },
@@ -119,6 +144,8 @@ export const ui: Record<Locale, UiStrings> = {
       sermonsEyebrow: "말씀",
       sermonsTitle: "최근 설교",
       sermonsDescription: "주일예배 말씀을 유튜브로 다시 들으실 수 있습니다.",
+      newsEyebrow: "알림",
+      newsTitle: "교회 소식",
       viewAll: "전체 보기",
       gatherEyebrow: "함께",
       gatherTitle: "이번 주 함께하는 자리",
@@ -135,6 +162,9 @@ export const ui: Record<Locale, UiStrings> = {
       priorWork: "이민 경력",
       journey: "신앙 여정",
       training: "학력 및 경력",
+      press: "언론에 실린 이야기",
+      pressAttribution: (reporter) => reporter,
+      pressCta: (outlet) => `${outlet}에서 기사 읽기`,
     },
     worship: {
       title: "예배",
@@ -156,6 +186,18 @@ export const ui: Record<Locale, UiStrings> = {
       archiveLink: "유튜브 채널",
       archiveSuffix: "에서 보실 수 있습니다.",
       play: "재생",
+    },
+    news: {
+      title: "소식",
+      description: "교회의 안내와 공지입니다.",
+      more: "지난 소식",
+    },
+    gallery: {
+      title: "사진첩",
+      description: "함께 모인 순간들입니다.",
+      photoCount: (count) => `사진 ${count}장`,
+      openPhoto: "원본 크기로 보기",
+      otherAlbums: "다른 사진첩",
     },
     community: {
       title: "공동체",
@@ -185,7 +227,7 @@ export const ui: Record<Locale, UiStrings> = {
       phoneLabel: "연락처",
       buildingAlt: "All Saints Parish 예배당 외관. 아치형 창이 있는 석조 건물이다.",
     },
-    footer: { visit: "찾아오시는 길", times: "예배 시간", browse: "둘러보기", mapLink: "지도에서 보기" },
+    footer: { visit: "찾아오시는 길", times: "예배 시간", browse: "둘러보기", mapLink: "지도에서 보기", updated: "마지막 갱신" },
     switcher: { label: "언어" },
   },
   en: {
@@ -194,6 +236,8 @@ export const ui: Record<Locale, UiStrings> = {
       pastor: "Our Pastor",
       worship: "Worship",
       sermons: "Sermons",
+      news: "News",
+      gallery: "Photos",
       community: "Community",
       visit: "Visit",
     },
@@ -208,6 +252,8 @@ export const ui: Record<Locale, UiStrings> = {
       sermonsEyebrow: "Preaching",
       sermonsTitle: "Recent sermons",
       sermonsDescription: "Sunday sermons are posted to YouTube after the service.",
+      newsEyebrow: "Notices",
+      newsTitle: "Church news",
       viewAll: "See all",
       gatherEyebrow: "Together",
       gatherTitle: "Through the week",
@@ -224,6 +270,11 @@ export const ui: Record<Locale, UiStrings> = {
       priorWork: "Immigrant years",
       journey: "Journey of faith",
       training: "Education and service",
+      press: "In the press",
+      pressAttribution: (reporter) => `${reporter} · translated from the Korean`,
+      /* The papers that cover this congregation publish in Korean, and an
+         English reader following the link should know that before they go. */
+      pressCta: (outlet) => `Read the article at ${outlet} (in Korean)`,
     },
     worship: {
       title: "Worship",
@@ -246,6 +297,18 @@ export const ui: Record<Locale, UiStrings> = {
       archiveLink: "YouTube channel",
       archiveSuffix: ".",
       play: "Play",
+    },
+    news: {
+      title: "News",
+      description: "Notices and announcements from the church.",
+      more: "Earlier news",
+    },
+    gallery: {
+      title: "Photos",
+      description: "Moments from the life of the congregation.",
+      photoCount: (count) => (count === 1 ? "1 photo" : `${count} photos`),
+      openPhoto: "View full size",
+      otherAlbums: "Other albums",
     },
     community: {
       title: "Community",
@@ -275,7 +338,7 @@ export const ui: Record<Locale, UiStrings> = {
       phoneLabel: "Phone",
       buildingAlt: "The All Saints Parish building, a stone church with arched windows.",
     },
-    footer: { visit: "Visit", times: "Service times", browse: "Pages", mapLink: "View on map" },
+    footer: { visit: "Visit", times: "Service times", browse: "Pages", mapLink: "View on map", updated: "Last updated" },
     switcher: { label: "Language" },
   },
 };

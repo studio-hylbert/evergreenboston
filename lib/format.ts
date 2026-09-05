@@ -11,7 +11,9 @@ const EN_MONTHS = [
 ];
 
 export function formatDate(iso: string, locale: Locale): string {
-  const [year, month, day] = iso.split("-");
+  // A full timestamp is accepted as well as a bare date. Splitting one on "-"
+  // would otherwise put "04T22:52:31Z" where the day goes and print NaN.
+  const [year, month, day] = iso.slice(0, 10).split("-");
   if (locale === "en") {
     return `${EN_MONTHS[Number(month) - 1]} ${Number(day)}, ${year}`;
   }

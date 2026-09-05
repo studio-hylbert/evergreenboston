@@ -2,12 +2,15 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import SectionHeading from "@/components/SectionHeading";
 import SermonCard from "@/components/SermonCard";
+import CardRail, { RailItem } from "@/components/CardRail";
 import { asset } from "@/lib/asset";
-import { fetchVideos } from "@/lib/youtube";
+import { readVideos } from "@/lib/youtube";
+import { read, altFor } from "@/lib/gallery";
 import SocialIcon from "@/components/SocialIcon";
 import { socialLinks } from "@/lib/social";
 import { ui } from "@/lib/ui";
 import { otherLocale, t, type Locale } from "@/lib/i18n";
+import { formatDate } from "@/lib/format";
 import { alternatesFor } from "@/lib/site-url";
 import site from "@/content/site.json";
 import worship from "@/content/worship.json";
@@ -25,8 +28,11 @@ export async function generateMetadata({
 export default async function Home({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params;
   const strings = ui[lang];
-  const videos = await fetchVideos();
-  const sermons = videos.filter((video) => video.isSermon).slice(0, 3);
+  const videos = readVideos();
+  // The rail scrolls, so the cap is about how much is worth catching up on
+  // rather than about how much fits.
+  const sermons = videos.filter((video) => video.isSermon).slice(0, 6);
+  const news = read("news").slice(0, 6);
   const sunday = worship.services.find((service) => service.id === "sunday");
   const dawn = worship.services.find((service) => service.id === "dawn");
   const vision = staff.seniorPastor.quotes.find((quote) => quote.id === "vision");
@@ -155,12 +161,70 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
             {strings.home.viewAll}
           </Link>
         </div>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {sermons.map((video) => (
-            <SermonCard key={video.videoId} video={video} locale={lang} />
-          ))}
+        <div className="mt-8">
+          <CardRail label={strings.home.sermonsTitle}>
+            {sermons.map((video) => (
+              <RailItem key={video.videoId}>
+                <SermonCard video={video} locale={lang} />
+              </RailItem>
+            ))}
+          </CardRail>
         </div>
       </section>
+
+      {/*
+        News sits with the sermons and reads the same way — a row you glance
+        along, not a banner demanding to be dealt with. A church notice is
+        usually a poster about something a few weeks out; it deserves to be
+        seen on the way past, and to be easy to ignore.
+      */}
+      {news.length > 0 ? (
+        <section className="border-t border-ink/10 bg-paper-sunk">
+          <div className="mx-auto max-w-5xl px-6 py-16">
+            <div className="flex flex-wrap items-end justify-between gap-4">
+              <SectionHeading
+                eyebrow={strings.home.newsEyebrow}
+                title={strings.home.newsTitle}
+              />
+              <Link
+                href={`/${lang}/news`}
+                className="text-sm text-forest underline underline-offset-4"
+              >
+                {strings.home.viewAll}
+              </Link>
+            </div>
+            <div className="mt-8">
+              <CardRail label={strings.home.newsTitle}>
+                {news.map((item) => (
+                  <RailItem key={item.slug}>
+                    <Link
+                      href={`/${lang}/news#${item.slug}`}
+                      className="group block overflow-hidden rounded-lg border border-ink/10 bg-card transition hover:border-forest/40 hover:shadow-sm"
+                    >
+                      <div className="aspect-[4/3] overflow-hidden bg-paper-sunk">
+                        <img
+                          src={asset(item.photos[0].thumbnail.path)}
+                          alt={altFor(item.photos[0])}
+                          width={item.photos[0].thumbnail.width}
+                          height={item.photos[0].thumbnail.height}
+                          loading="lazy"
+                          className="h-full w-full object-cover object-top transition duration-500 group-hover:scale-[1.03]"
+                        />
+                      </div>
+                      <div className="p-4">
+                        <p className="text-xs text-ink-soft">{formatDate(item.date, lang)}</p>
+                        <h3 className="mt-1.5 font-serif text-base leading-snug text-heading">
+                          {t(item.title, lang)}
+                        </h3>
+                      </div>
+                    </Link>
+                  </RailItem>
+                ))}
+              </CardRail>
+            </div>
+          </div>
+        </section>
+      ) : null}
 
       {/*
         The pastor's stated vision, in his own words. It says the same thing as
