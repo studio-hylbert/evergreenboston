@@ -1,0 +1,48 @@
+name: Keep scheduled workflows alive
+
+# GitHub disables a public repository's scheduled workflows "when no repository
+# activity has occurred in 60 days", and only a new commit resets that clock.
+# Every other workflow here commits only when its source actually changed, so a
+# quiet couple of months — no sermon uploaded, no photo added — would silently
+# switch the automation off. Nothing on the site would break; it would simply
+# stop updating, and the only warning is one email.
+#
+# So this commits a date twice a month and does nothing else. It reads no
+# outside source, which means there is no failure that can stop it.
+#
+# It deliberately does not deploy. The file is infrastructure, not content, and
+# a commit made with GITHUB_TOKEN does not trigger `on: push` — the same
+# suppression that forced the refresh workflows to call the deploy directly is
+# what keeps this one from causing a pointless rebuild.
+on:
+  schedule:
+    # Twice a month, off the hour. Two runs would have to be dropped in a row
+    # before 60 days of quiet could pass.
+    - cron: "37 4 1,15 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: keepalive
+  cancel-in-progress: false
+
+jobs:
+  touch:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Record the date
+        run: |
+          date -u +"%Y-%m-%d" > .github/keepalive
+          if git diff --quiet -- .github/keepalive; then
+            echo "Already recorded today."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/keepalive
+          git commit -m "chore: keep scheduled workflows enabled"
+          git push
