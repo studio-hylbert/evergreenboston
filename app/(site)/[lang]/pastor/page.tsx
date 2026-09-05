@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import { asset } from "@/lib/asset";
+import { formatDate } from "@/lib/format";
 import { ui } from "@/lib/ui";
 import { t, type Locale, type Localized } from "@/lib/i18n";
 import { alternatesFor } from "@/lib/site-url";
@@ -135,6 +136,57 @@ export default async function PastorPage({ params }: { params: Promise<{ lang: L
             {pastor.priorWork.map((job) => t(job, lang)).join(" · ")}
           </p>
         </section>
+
+        {/*
+          A newspaper wrote up the same run of jobs listed above, so the
+          mention sits here rather than at the foot of the page.
+
+          A clipping rather than a live preview. Framing the article is not
+          blocked — bostonkorea.com sends no X-Frame-Options — but that page is
+          150KB carrying eight ad-network references, and a cross-origin frame
+          takes none of our styling: what a visitor would see is the paper's
+          header and a banner, and the paper's session cookie would be set on
+          everyone who opens this page without clicking anything. So the
+          headline, the date and the opening line are copied into
+          content/staff.json and set in our own type. One sentence, attributed
+          and linked, is what a clipping on a noticeboard would show.
+
+          The English headline and lede are our renderings; the article has no
+          English edition, which is what `pressAttribution` and `pressCta` say.
+        */}
+        {pastor.press.length > 0 ? (
+          <section className="mt-14">
+            <h2 className={eyebrow}>{strings.pastor.press}</h2>
+            <div className="mt-4 grid max-w-3xl gap-4">
+              {pastor.press.map((item) => (
+                <article key={item.url} className="rounded-lg border border-ink/10 bg-card p-6">
+                  <p className="text-xs text-ink-soft">
+                    {t(item.outlet, lang)} · {formatDate(item.date, lang)}
+                  </p>
+                  <h3 className="mt-2 font-serif text-lg leading-snug text-heading">
+                    {t(item.headline, lang)}
+                  </h3>
+                  <blockquote className="mt-4 border-l-2 border-brass/40 pl-4">
+                    <p className="text-sm leading-relaxed text-ink-soft">
+                      {t(item.lede, lang)}
+                    </p>
+                    <footer className="mt-2 text-xs text-ink-soft">
+                      {strings.pastor.pressAttribution(t(item.reporter, lang))}
+                    </footer>
+                  </blockquote>
+                  <a
+                    href={item.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="mt-4 inline-block text-sm text-forest underline underline-offset-4"
+                  >
+                    {strings.pastor.pressCta(t(item.outlet, lang))}
+                  </a>
+                </article>
+              ))}
+            </div>
+          </section>
+        ) : null}
 
         <section className="mt-14">
           <h2 className={eyebrow}>{strings.pastor.journey}</h2>

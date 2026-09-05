@@ -29,6 +29,22 @@
         }
       }
     ],
+    "press": [
+      {
+        "outlet": { "ko": "보스톤코리아", "en": "Boston Korea" },
+        "date": "2026-02-19",
+        "url": "https://bostonkorea.com/news/%EC%96%B4%ED%95%99%EC%97%B0%EC%88%98%EC%83%9D%EC%84%9C-49%EC%84%B8-%EC%86%8C%EB%A0%B9-%EC%A7%84%EA%B8%89%ED%95%9C-%EB%AA%A9%EC%82%AC%EC%9D%98-%EC%8A%AC%EA%B8%B0%EB%A1%9C%EC%9A%B4-%EB%AF%B8%EA%B5%AD%EC%83%9D%ED%99%9C/",
+        "headline": {
+          "ko": "어학연수생서 49세 소령 진급한 목사의 ‘슬기로운 미국생활’",
+          "en": "From language student to major at forty-nine: a pastor’s life in America"
+        },
+        "reporter": { "ko": "장명술 기자", "en": "Jang Myung-sul" },
+        "lede": {
+          "ko": "미 육군 예비역(Army Reserve) 군목으로 복무 중인 이진택 목사(49)가 1월 27일 소령으로 진급했다.",
+          "en": "Jintaek Lee, 49, a chaplain serving in the U.S. Army Reserve, was promoted to major on 27 January."
+        }
+      }
+    ],
     "priorWork": [
       { "ko": "생선가게 알바", "en": "Fishmonger's assistant" },
       { "ko": "다양한 한국식당 (서버, 호스트, 회계)", "en": "Korean restaurants (server, host, bookkeeping)" },
