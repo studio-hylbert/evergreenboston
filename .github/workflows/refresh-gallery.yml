@@ -9,11 +9,19 @@ name: Refresh photo gallery
 # and the site keeps serving the photos already committed.
 on:
   # Photos are added by hand after an event rather than on any schedule, so
-  # there is no hour worth favouring. Every three hours, off the hour — GitHub
-  # delays scheduled runs during "periods of high loads" and names the start of
-  # every hour as one.
+  # there is no hour worth favouring — only how long someone waits after
+  # uploading. Hourly, off the hour: GitHub delays scheduled runs during
+  # "periods of high loads" and names the start of every hour as one, and at
+  # `:23` the delay was measured at 1h22m to 2h58m against 2h39m to 6h59m on
+  # the hour.
+  #
+  # Hourly costs nothing worth counting. The repository is public, so Actions
+  # minutes are free, and a run that finds no new photo commits nothing and
+  # builds nothing — it is one HTTP request and it stops. Scheduled runs can
+  # also be dropped under load, so running more often buys more chances rather
+  # than a shorter guarantee.
   schedule:
-    - cron: "23 */3 * * *"
+    - cron: "23 * * * *"
   # Publishes a photo immediately, without waiting for the next run.
   workflow_dispatch:
 
