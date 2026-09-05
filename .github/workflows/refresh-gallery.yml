@@ -1,0 +1,79 @@
+name: Refresh photo gallery
+
+# Reads the church's Google Drive gallery folder and commits any new photos,
+# then deploys. A run that finds nothing new commits nothing and deploys
+# nothing.
+#
+# Separate from the sermon refresh on purpose. Neither job can stop the other,
+# and neither can stop a deploy: Drive being unreachable fails this one alone,
+# and the site keeps serving the photos already committed.
+on:
+  # Photos are added by hand after an event rather than on any schedule, so
+  # there is no hour worth favouring. Every three hours, off the hour — GitHub
+  # delays scheduled runs during "periods of high loads" and names the start of
+  # every hour as one.
+  schedule:
+    - cron: "23 */3 * * *"
+  # Publishes a photo immediately, without waiting for the next run.
+  workflow_dispatch:
+
+# The deploy this calls needs `pages` and `id-token`; a called workflow can
+# reduce the caller's permissions but never raise them, so they are granted here.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: refresh-gallery
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # No `npm ci`: the script uses only Node built-ins.
+      - name: Read the gallery
+        env:
+          # The Apps Script web app's /exec address. Not a credential — it grants
+          # only what the script does, which is listing this one folder — but the
+          # repository is public, so it is kept out of the source anyway rather
+          # than left where a passer-by can pick it up and run up the quota.
+          GALLERY_URL: ${{ secrets.GALLERY_URL }}
+        run: npm run refresh:gallery
+
+      - name: Commit if the gallery changed
+        id: commit
+        run: |
+          # Staged first, then compared. A new photo is an untracked file, and
+          # `git diff` on the working tree does not see those at all — checking
+          # before staging would report "nothing changed" for a whole new album.
+          git add -A -- content/cache/gallery.json public/images/gallery
+          if git diff --cached --quiet; then
+            echo "No change in the gallery."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh photo gallery"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  # Only when there are new photos. A run that found nothing ends here.
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
