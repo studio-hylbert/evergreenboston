@@ -1,20 +1,19 @@
 name: Deploy to GitHub Pages
 
+# The build reads no network: every outside source is fetched by its own
+# refresh workflow and committed under content/cache/ first. So this runs on a
+# push and nothing else — whoever or whatever changed the content, whether a
+# person editing `content/` or a refresh job committing a new sermon list, the
+# deploy that follows is the same and cannot be broken by a source being down.
 on:
   push:
     branches: [main]
-  # The sermon list is read from the church's YouTube feed at build time, so a
-  # new sermon only reaches the site when it is rebuilt.
-  #
-  # Worship is at 2pm ET on Sunday and the recording is uploaded afterwards,
-  # but not on a fixed schedule. Across the 14 sermons in the feed the upload
-  # landed between 5.6 and 34 hours after the service — from Sunday 23:00 UTC
-  # to Tuesday 04:00 UTC. A single weekly run would have missed 4 of those 14
-  # and held them back a full week, so this runs twice a day instead: whatever
-  # the upload habit, a sermon is on the site within 12 hours.
-  schedule:
-    - cron: "0 6,18 * * *"
-  # Publishes a new video immediately, without waiting for the next run.
+  # Called by each refresh workflow once it has committed a change. A push made
+  # with GITHUB_TOKEN does not trigger `on: push` — GitHub suppresses it to stop
+  # workflows looping — so a refresh job cannot rely on its own commit to reach
+  # this workflow, and calls it instead.
+  workflow_call:
+  # Redeploys the committed content as-is, without waiting for a change.
   workflow_dispatch:
 
 permissions:

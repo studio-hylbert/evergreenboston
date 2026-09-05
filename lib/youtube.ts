@@ -1,15 +1,18 @@
-import site from "@/content/site.json";
+import cached from "@/content/cache/videos.json";
 
 /**
- * Sermon videos come from the channel's Atom feed rather than the YouTube Data
- * API: the feed needs no API key and has no quota, which keeps the deployment
- * free of secrets that would have to be handed over with the site.
+ * Sermon videos come from the church's YouTube feed, but not during the build.
+ * `scripts/refresh-youtube.mjs` reads the feed on its own schedule and commits
+ * the result to `content/cache/videos.json`; the build only reads that file.
  *
- * The feed only carries the 15 most recent uploads. That is the whole of what
- * the site shows, so no pagination or archive is involved.
+ * Keeping the network out of the build is what stops the two content sources
+ * from interfering. A feed outage fails the refresh job alone, and the site
+ * still deploys — with the last successfully fetched sermon list — whenever the
+ * gallery or anything else changes.
+ *
+ * The cached file carries the 15 most recent uploads, which is the whole of
+ * what the site shows, so no pagination or archive is involved.
  */
-const FEED_URL = `https://www.youtube.com/feeds/videos.xml?channel_id=${site.youtube.channelId}`;
-
 export type Video = {
   videoId: string;
   /** The upload title exactly as it appears on YouTube. */
@@ -26,139 +29,19 @@ export type Video = {
   thumbnail: string;
 };
 
-const ENTITIES: Record<string, string> = {
-  "&amp;": "&",
-  "&lt;": "<",
-  "&gt;": ">",
-  "&quot;": '"',
-  "&#39;": "'",
-  "&apos;": "'",
-};
-
-function decodeEntities(text: string): string {
-  return text.replace(/&(?:amp|lt|gt|quot|#39|apos);/g, (match) => ENTITIES[match]);
-}
-
 /**
- * Upload titles look like
- *   [보스톤늘푸른교회 - 8/23/2026 주일예배 말씀 "기이하고 가장 기이한 일" - 이진택 목사
- * but the bracket, the quote characters and the spacing all vary between
- * uploads. Every field here is therefore optional by design: an upload that
- * does not match is shown under its raw title rather than being dropped or
- * failing the build, because the titles are typed by hand and the site must not
- * depend on that being consistent.
+ * Read by the sermons page and the homepage. An empty or malformed cache stops
+ * the build rather than publishing a sermons page with nothing on it, which
+ * would look like the church had stopped preaching.
  */
-function parseTitle(rawTitle: string): {
-  title: string | null;
-  preacher: string | null;
-  preachedOn: string | null;
-} {
-  // Sermons are dated M/D/YYYY; other uploads tend to use the Korean form.
-  const slashDate = rawTitle.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
-  const koreanDate = rawTitle.match(/(\d{4})년\s*(\d{1,2})월\s*(\d{1,2})일/);
+export function readVideos(): Video[] {
+  const videos = cached as Video[];
 
-  let preachedOn: string | null = null;
-  if (slashDate) {
-    preachedOn = `${slashDate[3]}-${slashDate[1].padStart(2, "0")}-${slashDate[2].padStart(2, "0")}`;
-  } else if (koreanDate) {
-    preachedOn = `${koreanDate[1]}-${koreanDate[2].padStart(2, "0")}-${koreanDate[3].padStart(2, "0")}`;
+  if (videos.length === 0) {
+    throw new Error(
+      "content/cache/videos.json is empty. Run `npm run refresh:youtube` to fill it."
+    );
   }
 
-  // Any of the straight or curly double-quote characters may open or close it.
-  const titleMatch = rawTitle.match(/["“”]([^"“”]+)["“”]/);
-  const title = titleMatch ? titleMatch[1].trim() : null;
-
-  const preacherMatch = rawTitle.match(/[-–]\s*([^-–]{2,20}?(?:목사|전도사|장로|선교사))\s*$/);
-  const preacher = preacherMatch ? preacherMatch[1].trim() : null;
-
-  return { title, preacher, preachedOn };
-}
-
-/**
- * The feed answers intermittently: the same request can return 200, 404 or 500
- * within a minute, which is enough to fail a scheduled deploy at random. These
- * are retries of one idempotent read, not a fallback — after the last attempt
- * the error still stops the build, and the previously deployed site stays up.
- */
-const ATTEMPTS = 4;
-
-async function readFeed(): Promise<string> {
-  let lastError: unknown;
-
-  for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
-    try {
-      // No cache option: `no-store` would mark the fetch dynamic, which a
-      // static export refuses. Each build starts with an empty cache anyway.
-      //
-      // The headers matter. Unadorned requests from a datacentre address are
-      // answered with 404 rather than the feed, which is what fails the build
-      // on a CI runner while the same request succeeds from a laptop.
-      const response = await fetch(FEED_URL, {
-        headers: {
-          "User-Agent":
-            "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-          Accept: "application/atom+xml,application/xml,text/xml;q=0.9,*/*;q=0.8",
-          "Accept-Language": "ko,en;q=0.9",
-        },
-      });
-      if (response.ok) {
-        return await response.text();
-      }
-      lastError = new Error(
-        `YouTube feed request failed: ${response.status} ${response.statusText}`
-      );
-    } catch (error) {
-      // A transport failure is the same kind of flake as a 5xx here.
-      lastError = error;
-    }
-
-    if (attempt < ATTEMPTS) {
-      await new Promise((resolve) => setTimeout(resolve, attempt * 1500));
-    }
-  }
-
-  throw new Error(
-    `YouTube feed unavailable after ${ATTEMPTS} attempts (${FEED_URL}): ${String(lastError)}`
-  );
-}
-
-/**
- * Read at build time by the sermons page and the homepage. A scheduled rebuild
- * is what keeps the list current — see .github/workflows/deploy.yml.
- *
- * A failure here stops the build rather than publishing an empty list, which
- * leaves the previously deployed site in place.
- */
-export async function fetchVideos(): Promise<Video[]> {
-  const xml = await readFeed();
-  const entries = xml.match(/<entry>[\s\S]*?<\/entry>/g);
-  if (!entries || entries.length === 0) {
-    throw new Error(`YouTube feed contained no entries (${FEED_URL})`);
-  }
-
-  return entries.map((entry) => {
-    const videoId = entry.match(/<yt:videoId>([^<]+)<\/yt:videoId>/)?.[1];
-    const rawTitleMatch = entry.match(/<title>([\s\S]*?)<\/title>/)?.[1];
-    const published = entry.match(/<published>([^<]+)<\/published>/)?.[1];
-
-    if (!videoId || !rawTitleMatch || !published) {
-      throw new Error(`YouTube feed entry is missing required fields: ${entry.slice(0, 200)}`);
-    }
-
-    const rawTitle = decodeEntities(rawTitleMatch).trim();
-    const { title, preacher, preachedOn } = parseTitle(rawTitle);
-
-    return {
-      videoId,
-      rawTitle,
-      title,
-      preacher,
-      date: preachedOn ?? published.slice(0, 10),
-      isSermon: rawTitle.includes("주일예배 말씀"),
-      url: `https://www.youtube.com/watch?v=${videoId}`,
-      // Served from YouTube rather than copied into the repository, so it
-      // cannot go stale when a video is re-uploaded.
-      thumbnail: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
-    };
-  });
+  return videos;
 }

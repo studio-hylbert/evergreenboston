@@ -1,0 +1,81 @@
+name: Refresh sermon videos
+
+# Reads the church's YouTube feed and commits content/cache/videos.json when it
+# changed. The commit is what triggers a deploy, so nothing is rebuilt on a run
+# that found no new sermon.
+#
+# This is deliberately separate from the gallery refresh and from the deploy
+# itself. A feed outage fails this job and nothing else: the site keeps
+# deploying from the last committed list, and a photo added to the gallery still
+# reaches the site while YouTube is unreachable.
+on:
+  # Worship is at 2pm ET on Sunday and the recording is uploaded afterwards, but
+  # not on a fixed schedule. Across the 14 sermons in the feed the upload landed
+  # between 5.6 and 34 hours after the service.
+  #
+  # The minute matters more than the hour. GitHub delays scheduled runs "during
+  # periods of high loads", and names the start of every hour as one; the
+  # previous `0 6,18` cron was measured arriving 2h39m to 6h59m late across nine
+  # consecutive runs. Running at :37 avoids that queue, and running every four
+  # hours means a delayed run costs hours rather than half a day.
+  schedule:
+    - cron: "37 */4 * * *"
+  # Publishes a new video immediately, without waiting for the next run.
+  workflow_dispatch:
+
+# The deploy this calls needs `pages` and `id-token`; a called workflow can
+# reduce the caller's permissions but never raise them, so they are granted here.
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+# One refresh at a time. A queued run replaces a waiting one, since only the
+# newest read of the feed is of any interest.
+concurrency:
+  group: refresh-youtube
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # No `npm ci`: the script uses only Node built-ins, so the install would
+      # be the slowest part of a job that usually changes nothing.
+      - name: Read the feed
+        run: npm run refresh:youtube
+
+      - name: Commit if the list changed
+        id: commit
+        run: |
+          # Staged first, then compared, so that a cache file which is not yet
+          # tracked still registers as a change.
+          git add -A -- content/cache/videos.json
+          if git diff --cached --quiet; then
+            echo "No change in the feed."
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore: refresh sermon video list"
+          git push
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+  # Only when there is a new sermon. A run that found nothing ends here.
+  deploy:
+    needs: refresh
+    if: needs.refresh.outputs.changed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    permissions:
+      contents: read
+      pages: write
+      id-token: write

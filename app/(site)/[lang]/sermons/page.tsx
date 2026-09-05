@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
 import SermonCard from "@/components/SermonCard";
 import SermonPlayer from "@/components/SermonPlayer";
-import { fetchVideos } from "@/lib/youtube";
+import { readVideos } from "@/lib/youtube";
 import { formatDate } from "@/lib/format";
 import { ui } from "@/lib/ui";
 import type { Locale } from "@/lib/i18n";
@@ -25,7 +25,7 @@ export async function generateMetadata({
 export default async function SermonsPage({ params }: { params: Promise<{ lang: Locale }> }) {
   const { lang } = await params;
   const strings = ui[lang];
-  const videos = await fetchVideos();
+  const videos = readVideos();
   const sermons = videos.filter((video) => video.isSermon);
   const [latest, ...earlier] = sermons;
   const other = videos.filter((video) => !video.isSermon);
