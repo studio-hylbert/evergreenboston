@@ -4,7 +4,8 @@ import type { Locale } from "./i18n";
 import { ui } from "./ui";
 
 /**
- * When each of the site's outside sources last changed, shown in the footer.
+ * When each of the site's outside sources last changed, shown in the footer to
+ * the minute.
  *
  * It answers one question: is this thing still working? A sermon went up on
  * Sunday and the footer still says three weeks ago — something broke, and
@@ -18,23 +19,29 @@ import { ui } from "./ui";
  * of times a day, to keep a line of text honest. "Last changed" needs no extra
  * work and carries the same signal.
  */
-export type Freshness = { label: string; date: string };
+export type Freshness = { label: string; at: string };
 
 export function freshnessFor(locale: Locale): Freshness[] {
   const strings = ui[locale];
 
-  const sources: Array<{ label: string; dates: string[] }> = [
-    { label: strings.nav.sermons, dates: readVideos().map((video) => video.date) },
-    { label: strings.nav.news, dates: read("news").map((entry) => entry.date) },
-    { label: strings.nav.gallery, dates: read("gallery").map((entry) => entry.date) },
+  const sources: Array<{ label: string; times: string[] }> = [
+    {
+      label: strings.nav.sermons,
+      // Dropped rather than defaulted when absent: a source with no timestamp
+      // is simply not listed, which is the same thing that happens to a source
+      // with no content. Inventing one would be worse than saying nothing.
+      times: readVideos().flatMap((video) => (video.published ? [video.published] : [])),
+    },
+    { label: strings.nav.news, times: read("news").map((entry) => entry.modified) },
+    { label: strings.nav.gallery, times: read("gallery").map((entry) => entry.modified) },
   ];
 
   return sources
-    .filter((source) => source.dates.length > 0)
+    .filter((source) => source.times.length > 0)
     .map((source) => ({
       label: source.label,
       // Sorted rather than taken from the front: the feed's order is YouTube's
       // to decide, and an album's order is alphabetical by folder name.
-      date: source.dates.slice().sort().at(-1) as string,
+      at: source.times.slice().sort().at(-1) as string,
     }));
 }

@@ -19,3 +19,27 @@ export function formatDate(iso: string, locale: Locale): string {
   }
   return `${year}. ${Number(month)}. ${Number(day)}.`;
 }
+
+/**
+ * The church's clock. The site is built on a runner set to UTC, so anything
+ * shown to the minute has to name a zone or it will be four or five hours out.
+ */
+export const CHURCH_TIME_ZONE = "America/New_York";
+
+/**
+ * A full timestamp, to the minute, in Boston time.
+ *
+ * Left to `Intl` rather than assembled by hand like `formatDate` above: that
+ * one only had to place three numbers, while this has to get am/pm, the word
+ * order and the daylight-saving offset right in two languages.
+ */
+export function formatDateTime(iso: string, locale: Locale): string {
+  return new Intl.DateTimeFormat(locale === "ko" ? "ko-KR" : "en-US", {
+    timeZone: CHURCH_TIME_ZONE,
+    year: "numeric",
+    month: locale === "ko" ? "numeric" : "long",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  }).format(new Date(iso));
+}

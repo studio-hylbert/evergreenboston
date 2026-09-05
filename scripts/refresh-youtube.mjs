@@ -137,6 +137,12 @@ async function fetchVideos() {
       title,
       preacher,
       date: preachedOn ?? published.slice(0, 10),
+      /**
+       * When YouTube received it, kept whole. The date above is when the
+       * sermon was preached, which is the useful thing to print on a card but
+       * says nothing about whether the site is still picking new ones up.
+       */
+      published,
       isSermon: rawTitle.includes("주일예배 말씀"),
       url: `https://www.youtube.com/watch?v=${videoId}`,
       // Served from YouTube rather than copied into the repository, so it

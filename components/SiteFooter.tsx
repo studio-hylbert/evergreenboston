@@ -4,7 +4,7 @@ import site from "@/content/site.json";
 import worship from "@/content/worship.json";
 import { navFor } from "@/lib/nav";
 import { freshnessFor } from "@/lib/freshness";
-import { formatDate } from "@/lib/format";
+import { formatDateTime } from "@/lib/format";
 import { ui } from "@/lib/ui";
 import { t, type Locale } from "@/lib/i18n";
 import SocialIcon from "./SocialIcon";
@@ -90,7 +90,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
             <span>{strings.footer.updated}</span>
             {freshness.map((source) => (
               <span key={source.label}>
-                {source.label} {formatDate(source.date, locale)}
+                {source.label} {formatDateTime(source.at, locale)}
               </span>
             ))}
           </div>

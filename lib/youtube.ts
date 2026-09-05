@@ -23,6 +23,16 @@ export type Video = {
   preacher: string | null;
   /** Date it was preached, taken from the title, else the upload date. */
   date: string;
+  /**
+   * Full timestamp of the upload, used to tell whether the feed is still live.
+   *
+   * Optional because the cache is committed by a job that runs on its own
+   * schedule, so it can be older than the code reading it — this field did not
+   * exist until the footer needed it. Whatever wants it has to cope with its
+   * absence rather than the site breaking until the next refresh happens to
+   * succeed.
+   */
+  published?: string;
   /** The channel also carries occasional non-sermon uploads. */
   isSermon: boolean;
   url: string;
