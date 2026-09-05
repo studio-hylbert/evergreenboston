@@ -1,0 +1,84 @@
+{
+  "news": [
+    {
+      "slug": "test2-test",
+      "title": {
+        "ko": "테스트",
+        "en": "Test2 test"
+      },
+      "modified": "2026-09-05T05:17:47.719Z",
+      "date": "2026-09-05",
+      "photos": [
+        {
+          "id": "1biO_v7F5g14mIkjSWAxNkiEOgTBQhOeF",
+          "name": "Screenshot 2026-09-05 at 1.17.10 AM.png",
+          "modified": "2026-09-05T05:17:16.000Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/test2-test/1biO_v7F5g14mIkjSWAxNkiEOgTBQhOeF-w600.png",
+            "width": 272,
+            "height": 66
+          },
+          "full": {
+            "path": "/images/gallery/news/test2-test/1biO_v7F5g14mIkjSWAxNkiEOgTBQhOeF-w1600.png",
+            "width": 272,
+            "height": 66
+          }
+        }
+      ]
+    },
+    {
+      "slug": "korean-school",
+      "title": {
+        "ko": "한국학교",
+        "en": "Korean School"
+      },
+      "modified": "2026-09-04T22:52:31.097Z",
+      "date": "2026-09-04",
+      "photos": [
+        {
+          "id": "16ke7QIF3z6vfcA0WRSjYkxkflGBcA2D_",
+          "name": "한국학교-2026-가을학기-시간표.jpg",
+          "modified": "2026-09-04T20:42:20.000Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/korean-school/16ke7QIF3z6vfcA0WRSjYkxkflGBcA2D_-w600.jpg",
+            "width": 600,
+            "height": 800
+          },
+          "full": {
+            "path": "/images/gallery/news/korean-school/16ke7QIF3z6vfcA0WRSjYkxkflGBcA2D_-w1600.jpg",
+            "width": 1600,
+            "height": 2133
+          }
+        }
+      ]
+    }
+  ],
+  "gallery": [
+    {
+      "slug": "test-test",
+      "title": {
+        "ko": "테스트 테스트",
+        "en": "Test test"
+      },
+      "modified": "2026-09-05T05:17:25.937Z",
+      "date": "2026-09-05",
+      "photos": [
+        {
+          "id": "1puYTa9giXXko_wyTEsSbyuzvLzVGQG-H",
+          "name": "Screenshot 2026-09-05 at 1.17.10 AM.png",
+          "modified": "2026-09-05T05:17:16.000Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/test-test/1puYTa9giXXko_wyTEsSbyuzvLzVGQG-H-w600.png",
+            "width": 272,
+            "height": 66
+          },
+          "full": {
+            "path": "/images/gallery/gallery/test-test/1puYTa9giXXko_wyTEsSbyuzvLzVGQG-H-w1600.png",
+            "width": 272,
+            "height": 66
+          }
+        }
+      ]
+    }
+  ]
+}

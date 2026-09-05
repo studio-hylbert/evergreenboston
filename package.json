@@ -4,6 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "refresh:youtube": "node scripts/refresh-youtube.mjs",
+    "refresh:gallery": "node scripts/refresh-gallery.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint"
