@@ -79,7 +79,6 @@ type UiStrings = {
   news: {
     title: string;
     description: string;
-    more: string;
   };
   gallery: {
     title: string;
@@ -190,7 +189,6 @@ export const ui: Record<Locale, UiStrings> = {
     news: {
       title: "소식",
       description: "교회의 안내와 공지입니다.",
-      more: "지난 소식",
     },
     gallery: {
       title: "사진첩",
@@ -301,7 +299,6 @@ export const ui: Record<Locale, UiStrings> = {
     news: {
       title: "News",
       description: "Notices and announcements from the church.",
-      more: "Earlier news",
     },
     gallery: {
       title: "Photos",

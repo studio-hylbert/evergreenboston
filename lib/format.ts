@@ -1,3 +1,4 @@
+import site from "@/content/site.json";
 import type { Locale } from "./i18n";
 
 /**
@@ -21,10 +22,11 @@ export function formatDate(iso: string, locale: Locale): string {
 }
 
 /**
- * The church's clock. The site is built on a runner set to UTC, so anything
- * shown to the minute has to name a zone or it will be four or five hours out.
+ * The church's clock, from `content/site.json` so that the site and the refresh
+ * scripts cannot drift apart on it. The site is built on a runner set to UTC,
+ * so anything shown to the minute has to name a zone or it is five hours out.
  */
-export const CHURCH_TIME_ZONE = "America/New_York";
+const CHURCH_TIME_ZONE = site.timeZone;
 
 /**
  * A full timestamp, to the minute, in Boston time.

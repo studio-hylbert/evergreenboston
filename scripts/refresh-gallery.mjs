@@ -35,8 +35,13 @@ const WIDTHS = [600, 1600];
  * Drive reports times in UTC, and the site is read in Boston. A notice posted
  * on a Sunday evening is 00:xx UTC on Monday, so taking the date off the
  * timestamp would show the congregation a day they were not there for.
+ *
+ * Read from content/site.json, the same file lib/format.ts uses, so the two
+ * cannot disagree about what time it is at the church.
  */
-const CHURCH_TIME_ZONE = "America/New_York";
+const CHURCH_TIME_ZONE = JSON.parse(
+  await readFile(new URL("../content/site.json", import.meta.url), "utf8")
+).timeZone;
 
 const churchDate = new Intl.DateTimeFormat("en-CA", {
   timeZone: CHURCH_TIME_ZONE,
