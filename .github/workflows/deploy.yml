@@ -31,6 +31,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # The branch's head, not the SHA this run started at.
+          #
+          # A refresh workflow commits its new content and then calls this one,
+          # but the run it calls from was triggered before that commit existed,
+          # and `actions/checkout` defaults to the triggering SHA. Left alone it
+          # rebuilds the state the refresh had just replaced, so every automatic
+          # update committed cleanly and then deployed the version before it —
+          # a failure with a green tick on it. It stayed hidden while a person
+          # was pushing often enough to carry the last one along.
+          ref: ${{ github.ref_name }}
 
       - uses: actions/setup-node@v4
         with:
