@@ -116,7 +116,7 @@ type UiStrings = {
     phoneLabel: string;
     buildingAlt: string;
   };
-  footer: { visit: string; times: string; browse: string; mapLink: string; updated: string };
+  footer: { visit: string; times: string; browse: string; mapLink: string; checked: string; newsAndPhotos: string };
   switcher: { label: string };
 };
 
@@ -225,7 +225,7 @@ export const ui: Record<Locale, UiStrings> = {
       phoneLabel: "연락처",
       buildingAlt: "All Saints Parish 예배당 외관. 아치형 창이 있는 석조 건물이다.",
     },
-    footer: { visit: "찾아오시는 길", times: "예배 시간", browse: "둘러보기", mapLink: "지도에서 보기", updated: "마지막 갱신" },
+    footer: { visit: "찾아오시는 길", times: "예배 시간", browse: "둘러보기", mapLink: "지도에서 보기", checked: "마지막 확인", newsAndPhotos: "소식·사진첩" },
     switcher: { label: "언어" },
   },
   en: {
@@ -335,7 +335,7 @@ export const ui: Record<Locale, UiStrings> = {
       phoneLabel: "Phone",
       buildingAlt: "The All Saints Parish building, a stone church with arched windows.",
     },
-    footer: { visit: "Visit", times: "Service times", browse: "Pages", mapLink: "View on map", updated: "Last updated" },
+    footer: { visit: "Visit", times: "Service times", browse: "Pages", mapLink: "View on map", checked: "Last checked", newsAndPhotos: "News & photos" },
     switcher: { label: "Language" },
   },
 };

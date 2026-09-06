@@ -3,8 +3,7 @@ import ChurchLogo from "./ChurchLogo";
 import site from "@/content/site.json";
 import worship from "@/content/worship.json";
 import { navFor } from "@/lib/nav";
-import { freshnessFor } from "@/lib/freshness";
-import { formatDateTime } from "@/lib/format";
+import LastChecked from "./LastChecked";
 import { ui } from "@/lib/ui";
 import { t, type Locale } from "@/lib/i18n";
 import SocialIcon from "./SocialIcon";
@@ -12,7 +11,6 @@ import { socialLinks } from "@/lib/social";
 
 export default function SiteFooter({ locale }: { locale: Locale }) {
   const strings = ui[locale];
-  const freshness = freshnessFor(locale);
 
   return (
     <footer className="mt-24 bg-deep text-on-deep">
@@ -77,25 +75,7 @@ export default function SiteFooter({ locale }: { locale: Locale }) {
         </div>
       </div>
 
-      {/*
-        When each outside source last changed. It is here for whoever looks
-        after the site: if a sermon went up on Sunday and this still reads three
-        weeks ago, the automation has stopped and the page says so without
-        anyone opening a workflow log. See lib/freshness.ts for why this is the
-        date the content changed rather than the date it was last checked.
-      */}
-      {freshness.length > 0 ? (
-        <div className="border-t border-sage/15">
-          <div className="mx-auto flex max-w-5xl flex-wrap items-baseline gap-x-4 gap-y-1 px-6 py-4 text-xs text-sage/45">
-            <span>{strings.footer.updated}</span>
-            {freshness.map((source) => (
-              <span key={source.label}>
-                {source.label} {formatDateTime(source.at, locale)}
-              </span>
-            ))}
-          </div>
-        </div>
-      ) : null}
+      <LastChecked locale={locale} />
 
       <div className="border-t border-sage/15">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-6 py-6 text-sm text-sage/60 sm:flex-row sm:items-center sm:justify-between">
