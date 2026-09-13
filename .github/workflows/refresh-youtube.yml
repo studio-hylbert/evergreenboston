@@ -9,17 +9,25 @@ name: Refresh sermon videos
 # deploying from the last committed list, and a photo added to the gallery still
 # reaches the site while YouTube is unreachable.
 on:
+  # Three times a day, timed to land while Boston is awake.
+  #
   # Worship is at 2pm ET on Sunday and the recording is uploaded afterwards, but
-  # not on a fixed schedule. Across the 14 sermons in the feed the upload landed
+  # not on a fixed schedule: across the sermons in the feed the upload landed
   # between 5.6 and 34 hours after the service.
   #
-  # The minute matters more than the hour. GitHub delays scheduled runs "during
-  # periods of high loads", and names the start of every hour as one; the
-  # previous `0 6,18` cron was measured arriving 2h39m to 6h59m late across nine
-  # consecutive runs. Running at :37 avoids that queue, and running every four
-  # hours means a delayed run costs hours rather than half a day.
+  # The hours are chosen to avoid the feed's daily outage rather than to catch
+  # uploads sooner. Six failures in a row all fell between 04:55 and 05:17 UTC
+  # while every run at another hour succeeded, and probing the feed by hand
+  # through that window found it returning 404 or 500 for at least 35 minutes
+  # straight — so no amount of retrying covers it. That window is around 1am in
+  # Boston, when nobody is waiting for a sermon to appear.
+  #
+  # Allowing for the 1-3 hours GitHub delays a scheduled run, these land near
+  # 09:00, 15:00 and 21:00 ET, and the latest possible arrival is hours clear of
+  # the outage. The times are UTC, so the Boston hours shift by one when the
+  # clocks change while the margin stays.
   schedule:
-    - cron: "37 */4 * * *"
+    - cron: "41 11,17,23 * * *"
   # Publishes a new video immediately, without waiting for the next run.
   workflow_dispatch:
 

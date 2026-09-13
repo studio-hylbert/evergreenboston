@@ -72,13 +72,20 @@ function parseTitle(rawTitle) {
  * within a minute. These are retries of one idempotent read, not a fallback —
  * after the last attempt the error still stops the refresh, which leaves the
  * previously committed list in place and reports the failure in Actions.
+ *
+ * The waits climb to a minute and the whole sequence spans about seven, because
+ * the earlier four-attempt version gave up after nine seconds and a run that
+ * failed took twenty seconds end to end. Nine seconds is not a serious attempt
+ * at an endpoint that goes away for minutes at a time. Seven is cheap: the
+ * repository is public, so a job that sits waiting costs nothing, and it only
+ * waits at all on the runs that would otherwise have failed.
  */
-const ATTEMPTS = 4;
+const BACKOFF_SECONDS = [5, 10, 20, 40, 60, 60, 60, 60, 60, 60];
 
 async function readFeed() {
   let lastError;
 
-  for (let attempt = 1; attempt <= ATTEMPTS; attempt++) {
+  for (let attempt = 0; attempt <= BACKOFF_SECONDS.length; attempt++) {
     try {
       // The headers matter. Unadorned requests from a datacentre address are
       // answered with 404 rather than the feed, which is what fails the job on
@@ -102,13 +109,16 @@ async function readFeed() {
       lastError = error;
     }
 
-    if (attempt < ATTEMPTS) {
-      await new Promise((resolve) => setTimeout(resolve, attempt * 1500));
+    const wait = BACKOFF_SECONDS[attempt];
+    if (wait !== undefined) {
+      console.log(`Feed unavailable, retrying in ${wait}s (${String(lastError)})`);
+      await new Promise((resolve) => setTimeout(resolve, wait * 1000));
     }
   }
 
   throw new Error(
-    `YouTube feed unavailable after ${ATTEMPTS} attempts (${FEED_URL}): ${String(lastError)}`
+    `YouTube feed unavailable after ${BACKOFF_SECONDS.length + 1} attempts over ` +
+      `${BACKOFF_SECONDS.reduce((a, b) => a + b, 0)}s (${FEED_URL}): ${String(lastError)}`
   );
 }
 
