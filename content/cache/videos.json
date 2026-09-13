@@ -1,5 +1,15 @@
 [
   {
+    "videoId": "E8lD1Ex4sVk",
+    "rawTitle": "보스톤 늘푸른교회 9/13/26 주일예배 실황",
+    "title": null,
+    "preacher": null,
+    "date": "2026-09-13",
+    "isSermon": false,
+    "url": "https://www.youtube.com/watch?v=E8lD1Ex4sVk",
+    "thumbnail": "https://i.ytimg.com/vi/E8lD1Ex4sVk/hqdefault.jpg"
+  },
+  {
     "videoId": "8E1B5bVWpOM",
     "rawTitle": "[보스톤늘푸른교회 - 9/6/2026 주일예배 말씀 \"확실히 망하는 법” - 이진택 목사",
     "title": "확실히 망하는 법",
@@ -138,15 +148,5 @@
     "isSermon": true,
     "url": "https://www.youtube.com/watch?v=RXaDBGO-9oA",
     "thumbnail": "https://i.ytimg.com/vi/RXaDBGO-9oA/hqdefault.jpg"
-  },
-  {
-    "videoId": "rRH183uXrhs",
-    "rawTitle": "[2026년 5월 10일] 보스턴 늘푸른교회 봄 학기를 돌아보며",
-    "title": null,
-    "preacher": null,
-    "date": "2026-05-10",
-    "isSermon": false,
-    "url": "https://www.youtube.com/watch?v=rRH183uXrhs",
-    "thumbnail": "https://i.ytimg.com/vi/rRH183uXrhs/hqdefault.jpg"
   }
 ]
