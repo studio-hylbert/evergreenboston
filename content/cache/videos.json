@@ -1,5 +1,15 @@
 [
   {
+    "videoId": "NT-LM03RKDc",
+    "rawTitle": "보스턴 늘푸른교회 주일예배 실황 2026-09-20",
+    "title": null,
+    "preacher": null,
+    "date": "2026-09-20",
+    "isSermon": false,
+    "url": "https://www.youtube.com/watch?v=NT-LM03RKDc",
+    "thumbnail": "https://i.ytimg.com/vi/NT-LM03RKDc/hqdefault.jpg"
+  },
+  {
     "videoId": "uOrAOaWECmQ",
     "rawTitle": "[보스톤늘푸른교회 - 9/13/2026 주일예배 말씀 \"여자는 누구인가?” - 이진택 목사",
     "title": "여자는 누구인가?",
@@ -138,15 +148,5 @@
     "isSermon": true,
     "url": "https://www.youtube.com/watch?v=l_bDIauYjNg",
     "thumbnail": "https://i.ytimg.com/vi/l_bDIauYjNg/hqdefault.jpg"
-  },
-  {
-    "videoId": "RXaDBGO-9oA",
-    "rawTitle": "[보스톤늘푸른교회 - 5/17/2026 주일예배 말씀 \"인생의 답을 어디서 찾고 있나요?”",
-    "title": "인생의 답을 어디서 찾고 있나요?",
-    "preacher": null,
-    "date": "2026-05-17",
-    "isSermon": true,
-    "url": "https://www.youtube.com/watch?v=RXaDBGO-9oA",
-    "thumbnail": "https://i.ytimg.com/vi/RXaDBGO-9oA/hqdefault.jpg"
   }
 ]
