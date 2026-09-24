@@ -1,6 +1,32 @@
 {
   "news": [
     {
+      "slug": "new-family-education",
+      "title": {
+        "ko": "새가족교육",
+        "en": "New Family Education"
+      },
+      "modified": "2026-09-24T20:13:32.517Z",
+      "date": "2026-09-24",
+      "photos": [
+        {
+          "id": "19B_FMvbJ_rFaSe2r4Q2f_U2_7Gj87BKY",
+          "name": "새가족 교육.jpeg",
+          "modified": "2026-09-24T20:12:43.246Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/new-family-education/19B_FMvbJ_rFaSe2r4Q2f_U2_7Gj87BKY-w600.jpg",
+            "width": 600,
+            "height": 900
+          },
+          "full": {
+            "path": "/images/gallery/news/new-family-education/19B_FMvbJ_rFaSe2r4Q2f_U2_7Gj87BKY-w1600.jpg",
+            "width": 1024,
+            "height": 1536
+          }
+        }
+      ]
+    },
+    {
       "slug": "apple-picking-2026",
       "title": {
         "ko": "사과따기",
