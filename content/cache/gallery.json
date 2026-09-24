@@ -1,6 +1,84 @@
 {
   "news": [
     {
+      "slug": "apple-picking-2026",
+      "title": {
+        "ko": "사과따기",
+        "en": "Apple Picking 2026"
+      },
+      "modified": "2026-09-24T19:44:20.264Z",
+      "date": "2026-09-24",
+      "photos": [
+        {
+          "id": "1v0Zt_3sPgwtnq9ZvsKiaSGwyyt3Hwx6K",
+          "name": "apple picking.png",
+          "modified": "2026-09-24T19:38:15.692Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/apple-picking-2026/1v0Zt_3sPgwtnq9ZvsKiaSGwyyt3Hwx6K-w600.png",
+            "width": 600,
+            "height": 800
+          },
+          "full": {
+            "path": "/images/gallery/news/apple-picking-2026/1v0Zt_3sPgwtnq9ZvsKiaSGwyyt3Hwx6K-w1600.png",
+            "width": 1600,
+            "height": 2133
+          }
+        }
+      ]
+    },
+    {
+      "slug": "whole-church-retreat",
+      "title": {
+        "ko": "2026 전교인수련회",
+        "en": "Whole Church Retreat"
+      },
+      "modified": "2026-09-24T19:44:08.897Z",
+      "date": "2026-09-24",
+      "photos": [
+        {
+          "id": "1OUQt4xv966plHdPfaBpeJ3IJcDmMVg-L",
+          "name": "전교인수련회.png",
+          "modified": "2026-09-24T19:37:54.246Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/whole-church-retreat/1OUQt4xv966plHdPfaBpeJ3IJcDmMVg-L-w600.png",
+            "width": 600,
+            "height": 776
+          },
+          "full": {
+            "path": "/images/gallery/news/whole-church-retreat/1OUQt4xv966plHdPfaBpeJ3IJcDmMVg-L-w1600.png",
+            "width": 1545,
+            "height": 1999
+          }
+        }
+      ]
+    },
+    {
+      "slug": "fall-bible-study-mark",
+      "title": {
+        "ko": "가을성경공부 마가복음",
+        "en": "Fall Bible Study Mark"
+      },
+      "modified": "2026-09-24T19:44:02.431Z",
+      "date": "2026-09-24",
+      "photos": [
+        {
+          "id": "1r_6UddxZhkjykSa52xq352PxvbJd5XeY",
+          "name": "가을학기성경공부.jpeg",
+          "modified": "2026-09-24T19:37:42.278Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/fall-bible-study-mark/1r_6UddxZhkjykSa52xq352PxvbJd5XeY-w600.jpg",
+            "width": 600,
+            "height": 900
+          },
+          "full": {
+            "path": "/images/gallery/news/fall-bible-study-mark/1r_6UddxZhkjykSa52xq352PxvbJd5XeY-w1600.jpg",
+            "width": 1024,
+            "height": 1536
+          }
+        }
+      ]
+    },
+    {
       "slug": "korean-school",
       "title": {
         "ko": "한국학교",
