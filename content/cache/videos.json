@@ -1,5 +1,15 @@
 [
   {
+    "videoId": "MLY7gOQ9Kq4",
+    "rawTitle": "2026년 9월 27일 보스톤늘푸른교회 주일예배 실황",
+    "title": null,
+    "preacher": null,
+    "date": "2026-09-27",
+    "isSermon": false,
+    "url": "https://www.youtube.com/watch?v=MLY7gOQ9Kq4",
+    "thumbnail": "https://i.ytimg.com/vi/MLY7gOQ9Kq4/hqdefault.jpg"
+  },
+  {
     "videoId": "CJWe-PHanuM",
     "rawTitle": "[보스톤늘푸른교회 - 9/20/2026 주일예배 말씀 \"내가 너를 보낸 것이 아니냐?” - 이진택 목사",
     "title": "내가 너를 보낸 것이 아니냐?",
@@ -138,15 +148,5 @@
     "isSermon": true,
     "url": "https://www.youtube.com/watch?v=7TyeI1Nyk10",
     "thumbnail": "https://i.ytimg.com/vi/7TyeI1Nyk10/hqdefault.jpg"
-  },
-  {
-    "videoId": "l_bDIauYjNg",
-    "rawTitle": "[보스톤늘푸른교회 - 5/24/2026 주일예배 말씀 \"이스라엘이 이르되 족하도다”",
-    "title": "이스라엘이 이르되 족하도다",
-    "preacher": null,
-    "date": "2026-05-24",
-    "isSermon": true,
-    "url": "https://www.youtube.com/watch?v=l_bDIauYjNg",
-    "thumbnail": "https://i.ytimg.com/vi/l_bDIauYjNg/hqdefault.jpg"
   }
 ]
