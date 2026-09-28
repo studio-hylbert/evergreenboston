@@ -1,6 +1,32 @@
 {
   "news": [
     {
+      "slug": "campus-qt",
+      "title": {
+        "ko": "캠퍼스 QT 모임",
+        "en": "Campus QT"
+      },
+      "modified": "2026-09-28T17:20:10.780Z",
+      "date": "2026-09-28",
+      "photos": [
+        {
+          "id": "13iYACufHv0ufc2qSEReBF7IdCR_ucV7m",
+          "name": "캠퍼스큐티모임광고.jpeg",
+          "modified": "2026-09-28T17:15:01.748Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/campus-qt/13iYACufHv0ufc2qSEReBF7IdCR_ucV7m-w600.jpg",
+            "width": 600,
+            "height": 900
+          },
+          "full": {
+            "path": "/images/gallery/news/campus-qt/13iYACufHv0ufc2qSEReBF7IdCR_ucV7m-w1600.jpg",
+            "width": 1024,
+            "height": 1536
+          }
+        }
+      ]
+    },
+    {
       "slug": "friday-night-food-fellowship",
       "title": {
         "ko": "금요식사친교",
