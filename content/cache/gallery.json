@@ -1,6 +1,32 @@
 {
   "news": [
     {
+      "slug": "town-hall-meeting",
+      "title": {
+        "ko": "간담회",
+        "en": "Town Hall Meeting"
+      },
+      "modified": "2026-09-30T20:56:49.984Z",
+      "date": "2026-09-30",
+      "photos": [
+        {
+          "id": "19jktXasE_OX0QgidMSmK-M0Q5xGxprND",
+          "name": "간담회 (20261004) 섬김 유대교 .png",
+          "modified": "2026-09-30T16:44:06.117Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/town-hall-meeting/19jktXasE_OX0QgidMSmK-M0Q5xGxprND-w600.png",
+            "width": 600,
+            "height": 776
+          },
+          "full": {
+            "path": "/images/gallery/news/town-hall-meeting/19jktXasE_OX0QgidMSmK-M0Q5xGxprND-w1600.png",
+            "width": 816,
+            "height": 1056
+          }
+        }
+      ]
+    },
+    {
       "slug": "campus-qt",
       "title": {
         "ko": "캠퍼스 QT 모임",
