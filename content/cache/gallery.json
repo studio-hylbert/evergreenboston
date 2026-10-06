@@ -209,5 +209,73 @@
       ]
     }
   ],
-  "gallery": []
+  "gallery": [
+    {
+      "slug": "apple-picking",
+      "title": {
+        "ko": "애플피킹 가을소풍",
+        "en": "Apple Picking"
+      },
+      "modified": "2026-10-05T23:36:22.430Z",
+      "date": "2026-10-05",
+      "photos": [
+        {
+          "id": "1ZHLkSCgswsjOq-PF3mt4TknfmeFzs3eX",
+          "name": "apple_picking_picnic_2026-10-05-19-37-57.jpeg",
+          "modified": "2026-10-05T23:45:28.624Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/apple-picking/1ZHLkSCgswsjOq-PF3mt4TknfmeFzs3eX-w600.jpg",
+            "width": 600,
+            "height": 450
+          },
+          "full": {
+            "path": "/images/gallery/gallery/apple-picking/1ZHLkSCgswsjOq-PF3mt4TknfmeFzs3eX-w1600.jpg",
+            "width": 1600,
+            "height": 1200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "town-hall-meeting",
+      "title": {
+        "ko": "간담회",
+        "en": "Town Hall Meeting"
+      },
+      "modified": "2026-10-05T23:48:00.239Z",
+      "date": "2026-10-05",
+      "photos": [
+        {
+          "id": "1Ja5NnsUlwPAuSn2Ci0WbFwe6XHZ8rqAS",
+          "name": "간담회_1_2026-10-05-19-49-54.jpeg",
+          "modified": "2026-10-05T23:50:08.993Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/town-hall-meeting/1Ja5NnsUlwPAuSn2Ci0WbFwe6XHZ8rqAS-w600.jpg",
+            "width": 600,
+            "height": 450
+          },
+          "full": {
+            "path": "/images/gallery/gallery/town-hall-meeting/1Ja5NnsUlwPAuSn2Ci0WbFwe6XHZ8rqAS-w1600.jpg",
+            "width": 1600,
+            "height": 1200
+          }
+        },
+        {
+          "id": "1hj2ozaORqmaj6OqKUIb1J9kPhL_4Ff8k",
+          "name": "간담회_2_2026-10-05-19-48-48 002.jpeg",
+          "modified": "2026-10-05T23:55:13.906Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/town-hall-meeting/1hj2ozaORqmaj6OqKUIb1J9kPhL_4Ff8k-w600.jpg",
+            "width": 600,
+            "height": 450
+          },
+          "full": {
+            "path": "/images/gallery/gallery/town-hall-meeting/1hj2ozaORqmaj6OqKUIb1J9kPhL_4Ff8k-w1600.jpg",
+            "width": 1600,
+            "height": 1200
+          }
+        }
+      ]
+    }
+  ]
 }
