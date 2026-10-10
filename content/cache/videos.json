@@ -1,5 +1,15 @@
 [
   {
+    "videoId": "UgFJCo3YyzI",
+    "rawTitle": "2026년 10월 3일 애플픽킹 Apple Picking #보스턴 #애플피킹",
+    "title": null,
+    "preacher": null,
+    "date": "2026-10-03",
+    "isSermon": false,
+    "url": "https://www.youtube.com/watch?v=UgFJCo3YyzI",
+    "thumbnail": "https://i.ytimg.com/vi/UgFJCo3YyzI/hqdefault.jpg"
+  },
+  {
     "videoId": "8GQwwjTE24s",
     "rawTitle": "천사를 알아보는 법 #사사기13장 #사도행전4장 #보스톤늘푸른교회",
     "title": null,
@@ -138,15 +148,5 @@
     "isSermon": true,
     "url": "https://www.youtube.com/watch?v=5x_8T0XOfH8",
     "thumbnail": "https://i.ytimg.com/vi/5x_8T0XOfH8/hqdefault.jpg"
-  },
-  {
-    "videoId": "DWqR1jKaD9s",
-    "rawTitle": "[보스톤늘푸른교회 - 6/28/2026 주일예배 말씀 \"우리 계속 사랑 할 수 있을까?” - 이진택 목사",
-    "title": "우리 계속 사랑 할 수 있을까?",
-    "preacher": "이진택 목사",
-    "date": "2026-06-28",
-    "isSermon": true,
-    "url": "https://www.youtube.com/watch?v=DWqR1jKaD9s",
-    "thumbnail": "https://i.ytimg.com/vi/DWqR1jKaD9s/hqdefault.jpg"
   }
 ]
