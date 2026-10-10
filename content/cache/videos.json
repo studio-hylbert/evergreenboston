@@ -1,5 +1,15 @@
 [
   {
+    "videoId": "8GQwwjTE24s",
+    "rawTitle": "천사를 알아보는 법 #사사기13장 #사도행전4장 #보스톤늘푸른교회",
+    "title": null,
+    "preacher": null,
+    "date": "2026-10-10",
+    "isSermon": false,
+    "url": "https://www.youtube.com/watch?v=8GQwwjTE24s",
+    "thumbnail": "https://i.ytimg.com/vi/8GQwwjTE24s/hqdefault.jpg"
+  },
+  {
     "videoId": "gjxDi8FnUCY",
     "rawTitle": "[보스톤늘푸른교회 - 10/4/2026 주일예배 말씀 \"하나님의 천사는 누구인가?” - 이진택 목사",
     "title": "하나님의 천사는 누구인가?",
@@ -138,15 +148,5 @@
     "isSermon": true,
     "url": "https://www.youtube.com/watch?v=DWqR1jKaD9s",
     "thumbnail": "https://i.ytimg.com/vi/DWqR1jKaD9s/hqdefault.jpg"
-  },
-  {
-    "videoId": "9td4iXaLsKY",
-    "rawTitle": "[보스톤늘푸른교회 - 6/14/2026 주일예배 말씀 \"해피 엔딩” - 정한식 목사",
-    "title": "해피 엔딩",
-    "preacher": "정한식 목사",
-    "date": "2026-06-14",
-    "isSermon": true,
-    "url": "https://www.youtube.com/watch?v=9td4iXaLsKY",
-    "thumbnail": "https://i.ytimg.com/vi/9td4iXaLsKY/hqdefault.jpg"
   }
 ]
