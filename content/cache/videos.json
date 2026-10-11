@@ -1,5 +1,15 @@
 [
   {
+    "videoId": "KZYQGBNc50g",
+    "rawTitle": "2026년 10월 11일 보스톤늘푸른교회 주일예배실황",
+    "title": null,
+    "preacher": null,
+    "date": "2026-10-11",
+    "isSermon": false,
+    "url": "https://www.youtube.com/watch?v=KZYQGBNc50g",
+    "thumbnail": "https://i.ytimg.com/vi/KZYQGBNc50g/hqdefault.jpg"
+  },
+  {
     "videoId": "ilJKYGLpyCY",
     "rawTitle": "예수님이 보낸 사람은",
     "title": null,
@@ -138,15 +148,5 @@
     "isSermon": true,
     "url": "https://www.youtube.com/watch?v=0d0e6zrzpS0",
     "thumbnail": "https://i.ytimg.com/vi/0d0e6zrzpS0/hqdefault.jpg"
-  },
-  {
-    "videoId": "zfTi96QLuZs",
-    "rawTitle": "[보스톤늘푸른교회 - 7/19/2026 주일예배 말씀] \"그리하면 정하리라\" - 권혁진 목사",
-    "title": "그리하면 정하리라",
-    "preacher": "권혁진 목사",
-    "date": "2026-07-19",
-    "isSermon": true,
-    "url": "https://www.youtube.com/watch?v=zfTi96QLuZs",
-    "thumbnail": "https://i.ytimg.com/vi/zfTi96QLuZs/hqdefault.jpg"
   }
 ]
