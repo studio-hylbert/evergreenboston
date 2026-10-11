@@ -1,10 +1,20 @@
 [
   {
-    "videoId": "UgFJCo3YyzI",
-    "rawTitle": "2026년 10월 3일 애플픽킹 Apple Picking #보스턴 #애플피킹",
+    "videoId": "ilJKYGLpyCY",
+    "rawTitle": "예수님이 보낸 사람은",
     "title": null,
     "preacher": null,
-    "date": "2026-10-03",
+    "date": "2026-10-10",
+    "isSermon": false,
+    "url": "https://www.youtube.com/watch?v=ilJKYGLpyCY",
+    "thumbnail": "https://i.ytimg.com/vi/ilJKYGLpyCY/hqdefault.jpg"
+  },
+  {
+    "videoId": "UgFJCo3YyzI",
+    "rawTitle": "가지 말았어야 했다.",
+    "title": null,
+    "preacher": null,
+    "date": "2026-10-10",
     "isSermon": false,
     "url": "https://www.youtube.com/watch?v=UgFJCo3YyzI",
     "thumbnail": "https://i.ytimg.com/vi/UgFJCo3YyzI/hqdefault.jpg"
@@ -138,15 +148,5 @@
     "isSermon": true,
     "url": "https://www.youtube.com/watch?v=zfTi96QLuZs",
     "thumbnail": "https://i.ytimg.com/vi/zfTi96QLuZs/hqdefault.jpg"
-  },
-  {
-    "videoId": "5x_8T0XOfH8",
-    "rawTitle": "[보스톤늘푸른교회 - 7/5/2026 주일예배 말씀] \"행복의 길, 예배자, 묵상, 그리고 교회\"",
-    "title": "행복의 길, 예배자, 묵상, 그리고 교회",
-    "preacher": null,
-    "date": "2026-07-05",
-    "isSermon": true,
-    "url": "https://www.youtube.com/watch?v=5x_8T0XOfH8",
-    "thumbnail": "https://i.ytimg.com/vi/5x_8T0XOfH8/hqdefault.jpg"
   }
 ]
