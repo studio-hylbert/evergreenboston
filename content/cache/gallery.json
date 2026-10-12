@@ -1,6 +1,32 @@
 {
   "news": [
     {
+      "slug": "talent-celebration",
+      "title": {
+        "ko": "달란트 잔치",
+        "en": "Talent Celebration"
+      },
+      "modified": "2026-10-10T17:33:43.975Z",
+      "date": "2026-10-10",
+      "photos": [
+        {
+          "id": "1FQawO8n3JJp3DiF6i4phDFFKlSRU-KYC",
+          "name": "KakaoTalk_Photo_2026-10-10-13-29-01.png",
+          "modified": "2026-10-10T17:29:05.947Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/talent-celebration/1FQawO8n3JJp3DiF6i4phDFFKlSRU-KYC-w600.png",
+            "width": 600,
+            "height": 750
+          },
+          "full": {
+            "path": "/images/gallery/news/talent-celebration/1FQawO8n3JJp3DiF6i4phDFFKlSRU-KYC-w1600.png",
+            "width": 1080,
+            "height": 1350
+          }
+        }
+      ]
+    },
+    {
       "slug": "town-hall-meeting",
       "title": {
         "ko": "간담회",
