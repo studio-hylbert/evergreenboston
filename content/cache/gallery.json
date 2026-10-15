@@ -1,6 +1,32 @@
 {
   "news": [
     {
+      "slug": "bazaar",
+      "title": {
+        "ko": "바자회",
+        "en": "Bazaar"
+      },
+      "modified": "2026-10-15T16:38:52.152Z",
+      "date": "2026-10-15",
+      "photos": [
+        {
+          "id": "1a9T0pZNAy2ysVL7WpDpFlvYnNRnle0Mn",
+          "name": "늘푸른바자회_202610.png",
+          "modified": "2026-10-15T16:37:42.321Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/bazaar/1a9T0pZNAy2ysVL7WpDpFlvYnNRnle0Mn-w600.png",
+            "width": 600,
+            "height": 776
+          },
+          "full": {
+            "path": "/images/gallery/news/bazaar/1a9T0pZNAy2ysVL7WpDpFlvYnNRnle0Mn-w1600.png",
+            "width": 1545,
+            "height": 1999
+          }
+        }
+      ]
+    },
+    {
       "slug": "talent-celebration",
       "title": {
         "ko": "달란트 잔치",
