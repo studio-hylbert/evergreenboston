@@ -22,7 +22,7 @@ export default function SermonPlayer({
       <div className="aspect-video overflow-hidden rounded-lg bg-deep">
         <iframe
           src={`https://www.youtube-nocookie.com/embed/${video.videoId}?autoplay=1`}
-          title={video.title ?? video.rawTitle}
+          title={video.title}
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowFullScreen
           className="h-full w-full"
@@ -53,7 +53,7 @@ export default function SermonPlayer({
           </svg>
         </span>
       </span>
-      <span className="sr-only">{`${video.title ?? video.rawTitle} — ${playLabel}`}</span>
+      <span className="sr-only">{`${playLabel}: ${video.title}`}</span>
     </button>
   );
 }

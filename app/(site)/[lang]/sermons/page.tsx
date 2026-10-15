@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import PageHeader from "@/components/PageHeader";
-import SermonCard from "@/components/SermonCard";
+import SermonCard, { ShortCard, VideoByline } from "@/components/SermonCard";
+import CardRail, { RailItem } from "@/components/CardRail";
 import SermonPlayer from "@/components/SermonPlayer";
 import { readVideos } from "@/lib/youtube";
 import { formatDate } from "@/lib/format";
@@ -26,9 +27,10 @@ export default async function SermonsPage({ params }: { params: Promise<{ lang: 
   const { lang } = await params;
   const strings = ui[lang];
   const videos = readVideos();
-  const sermons = videos.filter((video) => video.isSermon);
+  const sermons = videos.filter((video) => video.category === "sermon");
   const [latest, ...earlier] = sermons;
-  const other = videos.filter((video) => !video.isSermon);
+  const shorts = videos.filter((video) => video.category === "short");
+  const community = videos.filter((video) => video.category === "community");
 
   return (
     <>
@@ -45,12 +47,32 @@ export default async function SermonsPage({ params }: { params: Promise<{ lang: 
               <div>
                 <p className="text-sm text-ink-soft">{formatDate(latest.date, lang)}</p>
                 <h3 className="mt-2 font-serif text-2xl leading-snug text-heading">
-                  {latest.title ?? latest.rawTitle}
+                  {latest.title}
                 </h3>
-                {latest.preacher ? (
-                  <p className="mt-2 text-ink-soft">{latest.preacher}</p>
-                ) : null}
+                <VideoByline video={latest} className="mt-2 text-ink-soft" />
               </div>
+            </div>
+          </section>
+        ) : null}
+
+        {/*
+          Straight after the latest sermon rather than after the archive:
+          Shorts are what the channel posts most often, and the rail is one
+          row however many there are, so it pushes the archive down very little.
+        */}
+        {shorts.length > 0 ? (
+          <section className="mt-16">
+            <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
+              {strings.sermons.shorts}
+            </h2>
+            <div className="mt-4">
+              <CardRail label={strings.sermons.shorts}>
+                {shorts.map((video) => (
+                  <RailItem key={video.videoId} narrow>
+                    <ShortCard video={video} locale={lang} />
+                  </RailItem>
+                ))}
+              </CardRail>
             </div>
           </section>
         ) : null}
@@ -68,13 +90,13 @@ export default async function SermonsPage({ params }: { params: Promise<{ lang: 
           </section>
         ) : null}
 
-        {other.length > 0 ? (
+        {community.length > 0 ? (
           <section className="mt-16">
             <h2 className="text-xs font-medium tracking-[0.2em] text-brass uppercase">
-              {strings.sermons.other}
+              {strings.sermons.community}
             </h2>
             <div className="mt-4 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {other.map((video) => (
+              {community.map((video) => (
                 <SermonCard key={video.videoId} video={video} locale={lang} />
               ))}
             </div>

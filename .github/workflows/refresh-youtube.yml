@@ -1,6 +1,6 @@
 name: Refresh sermon videos
 
-# Reads the church's YouTube feed and commits content/cache/videos.json when it
+# Reads the church's YouTube feeds and commits content/cache/videos.json when it
 # changed. The commit is what triggers a deploy, so nothing is rebuilt on a run
 # that found no new sermon.
 #

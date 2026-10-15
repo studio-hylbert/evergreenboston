@@ -1,8 +1,8 @@
 import cached from "@/content/cache/videos.json";
 
 /**
- * Sermon videos come from the church's YouTube feed, but not during the build.
- * `scripts/refresh-youtube.mjs` reads the feed on its own schedule and commits
+ * Sermon videos come from the church's YouTube feeds, but not during the build.
+ * `scripts/refresh-youtube.mjs` reads the feeds on its own schedule and commits
  * the result to `content/cache/videos.json`; the build only reads that file.
  *
  * Keeping the network out of the build is what stops the two content sources
@@ -10,21 +10,28 @@ import cached from "@/content/cache/videos.json";
  * still deploys — with the last successfully fetched sermon list — whenever the
  * gallery or anything else changes.
  *
- * The cached file carries the 15 most recent uploads, which is the whole of
- * what the site shows, so no pagination or archive is involved.
+ * The cached file carries the 15 most recent regular uploads and the 15 most
+ * recent Shorts, which is the whole of what the site shows, so no pagination or
+ * archive is involved.
  */
 export type Video = {
   videoId: string;
   /** The upload title exactly as it appears on YouTube. */
   rawTitle: string;
-  /** Sermon title alone, when the upload title follows the usual pattern. */
-  title: string | null;
+  /** The sermon title alone, or the upload title without its trailing hashtags. */
+  title: string;
+  /** Scripture passage, when the title names one. */
+  passage: string | null;
   /** Preacher, when the upload title names one. Many uploads do not. */
   preacher: string | null;
   /** Date it was preached, taken from the title, else the upload date. */
   date: string;
-  /** The channel also carries occasional non-sermon uploads. */
-  isSermon: boolean;
+  /**
+   * Shorts are told apart by the feed they came from. Among the regular
+   * uploads, a sermon is told apart by its title, and anything else the
+   * channel posts, such as a youth outing, is a community video.
+   */
+  category: "sermon" | "community" | "short";
   url: string;
   thumbnail: string;
 };

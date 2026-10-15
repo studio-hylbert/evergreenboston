@@ -70,7 +70,8 @@ type UiStrings = {
     description: string;
     latest: string;
     past: string;
-    other: string;
+    shorts: string;
+    community: string;
     archivePrefix: string;
     archiveLink: string;
     archiveSuffix: string;
@@ -180,7 +181,8 @@ export const ui: Record<Locale, UiStrings> = {
       description: "주일예배 말씀은 예배 후 유튜브에 올라옵니다. 여기에서 다시 들으실 수 있습니다.",
       latest: "가장 최근 말씀",
       past: "지난 말씀",
-      other: "교회 영상",
+      shorts: "쇼츠",
+      community: "교회 공동체",
       archivePrefix: "더 지난 말씀은 ",
       archiveLink: "유튜브 채널",
       archiveSuffix: "에서 보실 수 있습니다.",
@@ -290,7 +292,8 @@ export const ui: Record<Locale, UiStrings> = {
         "Sunday sermons are uploaded to YouTube after the service. They are preached in Korean.",
       latest: "Most recent",
       past: "Earlier sermons",
-      other: "Other videos",
+      shorts: "Shorts",
+      community: "Church life",
       archivePrefix: "Older sermons are on the ",
       archiveLink: "YouTube channel",
       archiveSuffix: ".",

@@ -31,7 +31,7 @@ export default async function Home({ params }: { params: Promise<{ lang: Locale 
   const videos = readVideos();
   // The rail scrolls, so the cap is about how much is worth catching up on
   // rather than about how much fits.
-  const sermons = videos.filter((video) => video.isSermon).slice(0, 6);
+  const sermons = videos.filter((video) => video.category === "sermon").slice(0, 6);
   const news = read("news").slice(0, 6);
   const sunday = worship.services.find((service) => service.id === "sunday");
   const dawn = worship.services.find((service) => service.id === "dawn");

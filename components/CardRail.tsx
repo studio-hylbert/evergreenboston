@@ -41,7 +41,19 @@ export default function CardRail({
  * The width is fixed rather than fractional: cards that divide the viewport
  * would leave nothing peeking at the edge, and the rail would read as a grid
  * that had lost its second row.
+ *
+ * `narrow` is for upright cards such as Shorts. At the usual width a 9:16 still
+ * would stand taller than a phone screen. At this one some card is cut off at
+ * the edge at every width from a 360-pixel phone to the full desktop column,
+ * where a narrower card would fit whole on the larger phones.
  */
-export function RailItem({ children }: { children: React.ReactNode }) {
-  return <li className="w-[16rem] shrink-0 snap-start sm:w-[19rem]">{children}</li>;
+export function RailItem({
+  narrow = false,
+  children,
+}: {
+  narrow?: boolean;
+  children: React.ReactNode;
+}) {
+  const width = narrow ? "w-[13rem]" : "w-[16rem] sm:w-[19rem]";
+  return <li className={`${width} shrink-0 snap-start`}>{children}</li>;
 }
