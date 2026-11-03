@@ -37,7 +37,9 @@ export type Image = {
 export type Entry = {
   slug: string;
   title: Localized;
-  /** Full ISO timestamp from Drive, used for ordering. */
+  /** Full ISO timestamp of when the folder was added to Drive, used for ordering. */
+  created: string;
+  /** Full ISO timestamp of the folder's last change. */
   modified: string;
   /** `YYYY-MM-DD` in Boston, which is the day the site shows. */
   date: string;

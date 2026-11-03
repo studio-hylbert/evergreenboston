@@ -20,6 +20,7 @@
  * build needs no network and the church keeps an archive that outlives the Drive
  * folder.
  */
+import assert from "node:assert";
 import { mkdir, readdir, readFile, rm, writeFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
@@ -345,6 +346,11 @@ for (const section of listing.sections) {
   }
 
   for (const item of section.items) {
+    assert(
+      item.created,
+      `Drive listing has no "created" for "${item.name}". Redeploy the Apps Script ` +
+        `(scripts/apps-script/gallery.gs) so it reports when each folder was added.`
+    );
     const { slug, title } = parseAlbumName(item.name);
     const directory = join(IMAGE_DIR, sectionSlug, slug);
     // The extension follows whatever Drive hands back, so what is already on
@@ -388,21 +394,23 @@ for (const section of listing.sections) {
     cache[sectionSlug].push({
       slug,
       title,
-      /** Full precision, used for ordering. */
+      /** When the folder was added to Drive. Full precision, used for ordering. */
+      created: item.created,
+      /** Last change, kept for reference. Not used for ordering or display. */
       modified: item.modified,
-      /** The calendar day in Boston, which is what gets shown. */
-      date: churchDate.format(new Date(item.modified)),
+      /** The calendar day in Boston the folder was added, which is what gets shown. */
+      date: churchDate.format(new Date(item.created)),
       photos,
     });
   }
 }
 
 /*
- * Newest first for news, because an announcement is read once and the one that
- * matters is the latest. The gallery keeps the folder order it came in, which
- * is alphabetical — an archive is browsed, not caught up on.
+ * Newest first, by when the folder was added to Drive rather than last edited,
+ * so adding or removing a photo in an old album does not move it to the top.
  */
-cache.news.sort((a, b) => b.modified.localeCompare(a.modified));
+cache.news.sort((a, b) => b.created.localeCompare(a.created));
+cache.gallery.sort((a, b) => b.created.localeCompare(a.created));
 
 // A photo removed from Drive should leave the site, and its bytes should leave
 // the repository too rather than accumulating forever.

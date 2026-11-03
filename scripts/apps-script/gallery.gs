@@ -108,6 +108,9 @@ function listItems_(section) {
     }
     items.push({
       name: folder.getName(),
+      // When the folder was added to Drive. Unlike `modified`, adding or
+      // removing a photo does not move it, so it can order the gallery.
+      created: folder.getDateCreated().toISOString(),
       modified: folder.getLastUpdated().toISOString(),
       photos: listPhotos_(folder),
     });
