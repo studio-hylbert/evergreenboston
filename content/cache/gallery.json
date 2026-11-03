@@ -6,6 +6,7 @@
         "ko": "바자회",
         "en": "Bazaar"
       },
+      "created": "2026-10-15T16:38:52.152Z",
       "modified": "2026-10-15T16:38:52.152Z",
       "date": "2026-10-15",
       "photos": [
@@ -32,6 +33,7 @@
         "ko": "달란트 잔치",
         "en": "Talent Celebration"
       },
+      "created": "2026-10-10T17:33:43.975Z",
       "modified": "2026-10-10T17:33:43.975Z",
       "date": "2026-10-10",
       "photos": [
@@ -58,6 +60,7 @@
         "ko": "간담회",
         "en": "Town Hall Meeting"
       },
+      "created": "2026-09-30T20:56:49.984Z",
       "modified": "2026-09-30T20:56:49.984Z",
       "date": "2026-09-30",
       "photos": [
@@ -84,6 +87,7 @@
         "ko": "캠퍼스 QT 모임",
         "en": "Campus QT"
       },
+      "created": "2026-09-28T17:20:10.780Z",
       "modified": "2026-09-28T17:20:10.780Z",
       "date": "2026-09-28",
       "photos": [
@@ -110,6 +114,7 @@
         "ko": "금요식사친교",
         "en": "Friday Night Food Fellowship"
       },
+      "created": "2026-09-25T14:02:56.777Z",
       "modified": "2026-09-25T14:02:56.777Z",
       "date": "2026-09-25",
       "photos": [
@@ -136,6 +141,7 @@
         "ko": "새가족교육",
         "en": "New Family Education"
       },
+      "created": "2026-09-24T20:13:32.517Z",
       "modified": "2026-09-24T20:13:32.517Z",
       "date": "2026-09-24",
       "photos": [
@@ -162,6 +168,7 @@
         "ko": "사과따기",
         "en": "Apple Picking 2026"
       },
+      "created": "2026-09-24T19:44:20.264Z",
       "modified": "2026-09-24T19:44:20.264Z",
       "date": "2026-09-24",
       "photos": [
@@ -183,37 +190,12 @@
       ]
     },
     {
-      "slug": "whole-church-retreat",
-      "title": {
-        "ko": "2026 전교인수련회",
-        "en": "Whole Church Retreat"
-      },
-      "modified": "2026-09-24T19:44:08.897Z",
-      "date": "2026-09-24",
-      "photos": [
-        {
-          "id": "1OUQt4xv966plHdPfaBpeJ3IJcDmMVg-L",
-          "name": "전교인수련회.png",
-          "modified": "2026-09-24T19:37:54.246Z",
-          "thumbnail": {
-            "path": "/images/gallery/news/whole-church-retreat/1OUQt4xv966plHdPfaBpeJ3IJcDmMVg-L-w600.png",
-            "width": 600,
-            "height": 776
-          },
-          "full": {
-            "path": "/images/gallery/news/whole-church-retreat/1OUQt4xv966plHdPfaBpeJ3IJcDmMVg-L-w1600.png",
-            "width": 1545,
-            "height": 1999
-          }
-        }
-      ]
-    },
-    {
       "slug": "fall-bible-study-mark",
       "title": {
         "ko": "가을성경공부 마가복음",
         "en": "Fall Bible Study Mark"
       },
+      "created": "2026-09-24T19:44:02.431Z",
       "modified": "2026-09-24T19:44:02.431Z",
       "date": "2026-09-24",
       "photos": [
@@ -235,11 +217,39 @@
       ]
     },
     {
+      "slug": "whole-church-retreat",
+      "title": {
+        "ko": "2026 전교인수련회",
+        "en": "Whole Church Retreat"
+      },
+      "created": "2026-09-24T19:43:03.913Z",
+      "modified": "2026-09-24T19:44:08.897Z",
+      "date": "2026-09-24",
+      "photos": [
+        {
+          "id": "1OUQt4xv966plHdPfaBpeJ3IJcDmMVg-L",
+          "name": "전교인수련회.png",
+          "modified": "2026-09-24T19:37:54.246Z",
+          "thumbnail": {
+            "path": "/images/gallery/news/whole-church-retreat/1OUQt4xv966plHdPfaBpeJ3IJcDmMVg-L-w600.png",
+            "width": 600,
+            "height": 776
+          },
+          "full": {
+            "path": "/images/gallery/news/whole-church-retreat/1OUQt4xv966plHdPfaBpeJ3IJcDmMVg-L-w1600.png",
+            "width": 1545,
+            "height": 1999
+          }
+        }
+      ]
+    },
+    {
       "slug": "korean-school",
       "title": {
         "ko": "한국학교",
         "en": "Korean School"
       },
+      "created": "2026-09-04T20:45:33.665Z",
       "modified": "2026-09-04T22:52:31.097Z",
       "date": "2026-09-04",
       "photos": [
@@ -263,39 +273,14 @@
   ],
   "gallery": [
     {
-      "slug": "apple-picking",
-      "title": {
-        "ko": "애플피킹 가을소풍",
-        "en": "Apple Picking"
-      },
-      "modified": "2026-10-05T23:36:22.430Z",
-      "date": "2026-10-05",
-      "photos": [
-        {
-          "id": "1ZHLkSCgswsjOq-PF3mt4TknfmeFzs3eX",
-          "name": "apple_picking_picnic_2026-10-05-19-37-57.jpeg",
-          "modified": "2026-10-05T23:45:28.624Z",
-          "thumbnail": {
-            "path": "/images/gallery/gallery/apple-picking/1ZHLkSCgswsjOq-PF3mt4TknfmeFzs3eX-w600.jpg",
-            "width": 600,
-            "height": 450
-          },
-          "full": {
-            "path": "/images/gallery/gallery/apple-picking/1ZHLkSCgswsjOq-PF3mt4TknfmeFzs3eX-w1600.jpg",
-            "width": 1600,
-            "height": 1200
-          }
-        }
-      ]
-    },
-    {
       "slug": "feast",
       "title": {
         "ko": "달란트 잔치 29주년 전교인",
         "en": "Feast"
       },
+      "created": "2026-11-02T22:48:23.038Z",
       "modified": "2026-11-03T17:44:17.237Z",
-      "date": "2026-11-03",
+      "date": "2026-11-02",
       "photos": [
         {
           "id": "1Cc5xaQaVmTwyaaNECO2XXejYib9bOXf1",
@@ -545,6 +530,7 @@
         "ko": "간담회",
         "en": "Town Hall Meeting"
       },
+      "created": "2026-10-05T23:48:00.239Z",
       "modified": "2026-10-05T23:48:00.239Z",
       "date": "2026-10-05",
       "photos": [
@@ -574,6 +560,33 @@
           },
           "full": {
             "path": "/images/gallery/gallery/town-hall-meeting/1hj2ozaORqmaj6OqKUIb1J9kPhL_4Ff8k-w1600.jpg",
+            "width": 1600,
+            "height": 1200
+          }
+        }
+      ]
+    },
+    {
+      "slug": "apple-picking",
+      "title": {
+        "ko": "애플피킹 가을소풍",
+        "en": "Apple Picking"
+      },
+      "created": "2026-10-05T23:36:22.430Z",
+      "modified": "2026-10-05T23:36:22.430Z",
+      "date": "2026-10-05",
+      "photos": [
+        {
+          "id": "1ZHLkSCgswsjOq-PF3mt4TknfmeFzs3eX",
+          "name": "apple_picking_picnic_2026-10-05-19-37-57.jpeg",
+          "modified": "2026-10-05T23:45:28.624Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/apple-picking/1ZHLkSCgswsjOq-PF3mt4TknfmeFzs3eX-w600.jpg",
+            "width": 600,
+            "height": 450
+          },
+          "full": {
+            "path": "/images/gallery/gallery/apple-picking/1ZHLkSCgswsjOq-PF3mt4TknfmeFzs3eX-w1600.jpg",
             "width": 1600,
             "height": 1200
           }
