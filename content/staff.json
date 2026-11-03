@@ -7,8 +7,11 @@
       "ko": "한 아내의 남편, 네 아이들의 아빠입니다.",
       "en": "Husband to one wife, father to four children."
     },
-    "photo": "",
-    "photoAlt": { "ko": "", "en": "" },
+    "photo": "/images/pastor.jpg",
+    "photoAlt": {
+      "ko": "이진택 목사가 사모님과 네 자녀와 함께 밤의 보스턴 거리에서 환하게 웃으며 찍은 가족 사진",
+      "en": "Pastor Jintaek Lee smiling with his wife and four children on a Boston street at night"
+    },
     "heart": {
       "ko": "예수님 안에 풍성한 은혜로 사람들의 삶 속에 ‘하나님의 나라’를 세우는 것을 사명으로 삼고 있습니다. 설교와 성경공부, 영성상담, 영적 동행을 통해 공동체가 서로를 품고 치유하는 하나님의 가족이 되도록 섬기고 있습니다.",
       "en": "His calling is to build the kingdom of God into people's lives out of the abundant grace found in Jesus. Through preaching, Bible study, spiritual counselling and spiritual companionship, he serves so that the congregation becomes a family of God that holds and heals one another."

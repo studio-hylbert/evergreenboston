@@ -87,8 +87,8 @@ export default async function PastorPage({ params }: { params: Promise<{ lang: L
         {/*
           Flex rather than a grid: the prose keeps the same measure as /about
           whether or not a portrait sits beside it, which a fixed column count
-          would not allow. There is no portrait yet — see `photo` in
-          content/staff.json — so today this is one column.
+          would not allow. The portrait comes from `photo` in
+          content/staff.json and is left out when that is empty.
         */}
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:justify-between lg:gap-12">
           <div className="max-w-2xl">
@@ -111,15 +111,15 @@ export default async function PastorPage({ params }: { params: Promise<{ lang: L
           {pastor.photo ? (
             <figure className="order-first shrink-0 lg:order-none">
               {/*
-                Authored at 260px and served at 192 at the widest, so it holds
-                up on a 1.35x screen. Cropped from a family photograph, which
-                is as much of him as the source will give.
+                Authored at 520px and shown at 192 at the widest, so it holds
+                up on a 2x screen. A family photograph, used with the
+                pastor's agreement.
               */}
               <img
                 src={asset(pastor.photo)}
                 alt={t(pastor.photoAlt, lang)}
-                width={260}
-                height={352}
+                width={520}
+                height={693}
                 className="w-40 rounded-lg sm:w-48"
               />
             </figure>
