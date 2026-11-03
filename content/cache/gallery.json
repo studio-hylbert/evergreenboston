@@ -289,6 +289,257 @@
       ]
     },
     {
+      "slug": "feast",
+      "title": {
+        "ko": "달란트 잔치 29주년 전교인",
+        "en": "Feast"
+      },
+      "modified": "2026-11-03T17:44:17.237Z",
+      "date": "2026-11-03",
+      "photos": [
+        {
+          "id": "1Cc5xaQaVmTwyaaNECO2XXejYib9bOXf1",
+          "name": "KakaoTalk_Photo_2026-11-02-17-45-53 001.jpeg",
+          "modified": "2026-11-02T22:45:53.389Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1Cc5xaQaVmTwyaaNECO2XXejYib9bOXf1-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1Cc5xaQaVmTwyaaNECO2XXejYib9bOXf1-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1jssBZj5d5FVLIwXVepwhVGa8MnrZzQVl",
+          "name": "KakaoTalk_Photo_2026-11-02-17-45-56 002.jpeg",
+          "modified": "2026-11-02T22:45:56.618Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1jssBZj5d5FVLIwXVepwhVGa8MnrZzQVl-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1jssBZj5d5FVLIwXVepwhVGa8MnrZzQVl-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1PHZjxsMtQ4cDNcIs6WIMibSKsBungm96",
+          "name": "KakaoTalk_Photo_2026-11-02-17-45-59 003.jpeg",
+          "modified": "2026-11-02T22:45:59.500Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1PHZjxsMtQ4cDNcIs6WIMibSKsBungm96-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1PHZjxsMtQ4cDNcIs6WIMibSKsBungm96-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1EkHD2RDKEwW5k66pSc52zQWmOICkBgxx",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-02 004.jpeg",
+          "modified": "2026-11-02T22:46:02.487Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1EkHD2RDKEwW5k66pSc52zQWmOICkBgxx-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1EkHD2RDKEwW5k66pSc52zQWmOICkBgxx-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1NEuD7hkr_Wn0TwaLC_UMJfz9lVqCcjlQ",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-05 005.jpeg",
+          "modified": "2026-11-02T22:46:05.325Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1NEuD7hkr_Wn0TwaLC_UMJfz9lVqCcjlQ-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1NEuD7hkr_Wn0TwaLC_UMJfz9lVqCcjlQ-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1UWRHglWyLG0lgyRNoi100A9xwH3zjlzh",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-08 006.jpeg",
+          "modified": "2026-11-02T22:46:08.311Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1UWRHglWyLG0lgyRNoi100A9xwH3zjlzh-w600.jpg",
+            "width": 600,
+            "height": 470
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1UWRHglWyLG0lgyRNoi100A9xwH3zjlzh-w1600.jpg",
+            "width": 1600,
+            "height": 1255
+          }
+        },
+        {
+          "id": "14aq-9tskaKSZxoMc-bwNVaOBIFRyFIYx",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-11 007.jpeg",
+          "modified": "2026-11-02T22:46:11.599Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/14aq-9tskaKSZxoMc-bwNVaOBIFRyFIYx-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/14aq-9tskaKSZxoMc-bwNVaOBIFRyFIYx-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1qiQQlPT33nR4jt8rArjP7VQbwIgq9kPl",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-14 008.jpeg",
+          "modified": "2026-11-02T22:46:14.609Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1qiQQlPT33nR4jt8rArjP7VQbwIgq9kPl-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1qiQQlPT33nR4jt8rArjP7VQbwIgq9kPl-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1-R9ikwD-jm7wB8bK-89WbQHOUxwZ5mi8",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-32 010.jpeg",
+          "modified": "2026-11-02T22:46:32.022Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1-R9ikwD-jm7wB8bK-89WbQHOUxwZ5mi8-w600.jpg",
+            "width": 600,
+            "height": 518
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1-R9ikwD-jm7wB8bK-89WbQHOUxwZ5mi8-w1600.jpg",
+            "width": 1600,
+            "height": 1382
+          }
+        },
+        {
+          "id": "171-1I_T5L0ddhaEiKdOmcV-qNO90jvCL",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-35 011.jpeg",
+          "modified": "2026-11-02T22:46:35.044Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/171-1I_T5L0ddhaEiKdOmcV-qNO90jvCL-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/171-1I_T5L0ddhaEiKdOmcV-qNO90jvCL-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1jfRMo-h17lpEsO_nLUnk16xDEc10VDNp",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-38 012.jpeg",
+          "modified": "2026-11-02T22:46:38.637Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1jfRMo-h17lpEsO_nLUnk16xDEc10VDNp-w600.jpg",
+            "width": 600,
+            "height": 470
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1jfRMo-h17lpEsO_nLUnk16xDEc10VDNp-w1600.jpg",
+            "width": 1600,
+            "height": 1252
+          }
+        },
+        {
+          "id": "1BUzpEEQGDuR0M-g2zLlV3hNc5D7LylTh",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-41 013.jpeg",
+          "modified": "2026-11-02T22:46:41.919Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1BUzpEEQGDuR0M-g2zLlV3hNc5D7LylTh-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1BUzpEEQGDuR0M-g2zLlV3hNc5D7LylTh-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1vYgLSD1wT-mhJ41eN6beKz82RjeD_lMY",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-44 014.jpeg",
+          "modified": "2026-11-02T22:46:44.928Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1vYgLSD1wT-mhJ41eN6beKz82RjeD_lMY-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1vYgLSD1wT-mhJ41eN6beKz82RjeD_lMY-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1GQian7GtdTM-T_VjBp0SSFU1hq8GXg6v",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-48 015.jpeg",
+          "modified": "2026-11-02T22:46:48.264Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1GQian7GtdTM-T_VjBp0SSFU1hq8GXg6v-w600.jpg",
+            "width": 600,
+            "height": 454
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1GQian7GtdTM-T_VjBp0SSFU1hq8GXg6v-w1600.jpg",
+            "width": 1600,
+            "height": 1210
+          }
+        },
+        {
+          "id": "1ZYwusUHa7V7JzLYd9qNdjLcUMLiRRrst",
+          "name": "KakaoTalk_Photo_2026-11-02-17-46-48 016.jpeg",
+          "modified": "2026-11-02T22:46:48.281Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1ZYwusUHa7V7JzLYd9qNdjLcUMLiRRrst-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1ZYwusUHa7V7JzLYd9qNdjLcUMLiRRrst-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        },
+        {
+          "id": "1RhFjqv2KYxP9uadzt94sMAgvW1LAaRf9",
+          "name": "KakaoTalk_Photo_2026-11-02-17-52-32.jpeg",
+          "modified": "2026-11-02T22:52:38.074Z",
+          "thumbnail": {
+            "path": "/images/gallery/gallery/feast/1RhFjqv2KYxP9uadzt94sMAgvW1LAaRf9-w600.jpg",
+            "width": 600,
+            "height": 400
+          },
+          "full": {
+            "path": "/images/gallery/gallery/feast/1RhFjqv2KYxP9uadzt94sMAgvW1LAaRf9-w1600.jpg",
+            "width": 1600,
+            "height": 1067
+          }
+        }
+      ]
+    },
+    {
       "slug": "town-hall-meeting",
       "title": {
         "ko": "간담회",
