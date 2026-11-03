@@ -170,7 +170,7 @@ export const ui: Record<Locale, UiStrings> = {
       title: "예배",
       description: "온 세대가 함께 예배합니다.",
       sceneAlt:
-        "위에서 내려다본 주일예배. 교인들이 자리에서 일어나 있고, 앞쪽에 목사가 서 있다. 왼쪽에 그랜드피아노가 있고 천장에 촛대형 샹들리에가 걸려 있다.",
+        "예배당 뒤쪽에서 본 예배. 푸른 조명이 비친 십자가와 장미창 아래 강단에서 목사가 마이크를 들고 말씀을 전하고, 교인들이 긴 의자에 앉아 듣고 있다. 천장에 촛대형 샹들리에가 걸려 있다.",
       recordedBadge: "영상 제공",
       watchPast: "지난 예배 영상 보기",
       joinZoom: "Zoom으로 참여하기",
@@ -280,7 +280,7 @@ export const ui: Record<Locale, UiStrings> = {
       title: "Worship",
       description: "We worship together as one congregation, all ages in the same room.",
       sceneAlt:
-        "Sunday worship seen from above. The congregation is standing and the pastor is at the front. A grand piano sits to the left, and candle-style chandeliers hang from the ceiling.",
+        "Worship seen from the back of the sanctuary. Beneath a blue-lit cross and a rose window, the pastor speaks into a microphone at the front while the congregation sits in the pews. Candle-style chandeliers hang from the ceiling.",
       recordedBadge: "Recorded",
       watchPast: "Watch past services",
       joinZoom: "Join on Zoom",
